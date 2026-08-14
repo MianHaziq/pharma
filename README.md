@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VitalCare Pharmacy — Storefront
 
-## Getting Started
+A production-quality, fully responsive **pharmacy / healthcare e-commerce storefront** built with Next.js, TypeScript, Tailwind CSS and shadcn/ui. It ships with realistic mock data and is structured so products, categories, banners, orders and content can later be served from an admin dashboard / API without rewriting the UI.
 
-First, run the development server:
+> This is a demonstration storefront — not a real pharmacy. Product info, brands, prices and content are illustrative placeholders and are not medical advice.
+
+## Tech stack
+
+- **Next.js 16** (App Router, RSC) + **TypeScript** (strict, no `any`)
+- **Tailwind CSS v4** with a custom apothecary design system
+- **shadcn/ui** (Radix primitives) + **lucide-react** icons
+- **next/font** — Fraunces (display) + Inter (UI)
+- **sonner** for toasts
+- Client state via React Context, persisted to `localStorage`
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
+npm start        # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What's included
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**Storefront pages**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `/` — homepage: hero, categories, featured products, promo banners, best sellers, why-choose-us, brands, health journal, newsletter
+- `/shop` — full catalog with sidebar filters (category, brand, price, rating, availability), sort, active-filter chips, load-more, and a mobile filter drawer
+- `/category/[slug]` — category landing with banner, subcategory pills and filters
+- `/product/[slug]` — gallery, prescription notice, quantity + add/buy/wishlist, benefits, tabbed details, frequently-bought-together, reviews, related products
+- `/search` — live suggestions in the header + a dedicated results page (products, categories, brands)
+- `/cart`, `/checkout`, `/order-confirmation` — full cart and a mock 4-step checkout with order summary
+- `/account`, `/account/orders`, `/account/orders/[id]`, `/account/profile`, `/account/addresses`
+- `/wishlist` — local-state wishlist with move-to-cart
+- `/track` — order tracking with a timeline component
+- `/blog`, `/blog/[slug]` — health & wellness content
+- `/about`, `/contact`, `/delivery`, `/returns`, `/privacy`, `/terms`, `/faq`
+- Custom `not-found` page
 
-## Learn More
+**States handled:** loading skeletons, empty (cart / wishlist / search / no-results), out-of-stock, disabled, hover, focus-visible, and toast notifications.
 
-To learn more about Next.js, take a look at the following resources:
+## Architecture — swapping mock data for a real backend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All data lives in [`/data`](./data) as typed objects and is read exclusively through a query layer in [`/lib`](./lib) — **no component imports raw data directly**. To connect a backend, replace the function bodies in:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [`lib/catalog.ts`](./lib/catalog.ts) — products, categories, brands, search, filtering/sorting
+- [`lib/orders.ts`](./lib/orders.ts) — orders & tracking
 
-## Deploy on Vercel
+The component layer stays unchanged. Types are defined in [`lib/types.ts`](./lib/types.ts) and mirror a typical CMS/commerce API shape (e.g. `Product` with `slug`, `images`, `price`, `originalPrice`, `rating`, `stock`, `tags`, `requiresPrescription`, `ingredients`, `usage`, `warnings`).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Product imagery
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Demo images use the scheme `art:<kind>:<tone>` and render as branded SVG illustrations via [`components/product/product-art.tsx`](./components/product/product-art.tsx) — consistent, offline and never broken. When real image URLs are added to a product's `images` array, [`ProductImage`](./components/product/product-image.tsx) automatically renders them through `next/image` instead. No component changes required.
+
+## Project structure
+
+```
+app/                 Routes (App Router)
+components/
+  layout/            Header, footer, mobile bottom bar, logo
+  product/           Card, grid, gallery, art, rating, price, badges, purchase
+  shop/              Filter sidebar, product browser (filters + sort + pagination)
+  cart/ checkout/    Cart, order summary, checkout, confirmation
+  account/ order/    Account nav, order cards, timeline, order detail
+  ...
+data/                Typed mock data (products, categories, brands, banners, orders, blog, pages)
+lib/                 Query layer (catalog, orders), store, types, formatting, tones
+```
+
+## Design system
+
+A calm, premium "modern apothecary" identity: deep teal-green primary, warm paper-white background, forest-ink text, subtle mint tint bands and a reserved vermilion for sale/discount only. Fraunces headlines paired with Inter, tabular figures for prices, hairline borders, a consistent radius, and the pharmacy "+" reused as a section marker. Tokens live in [`app/globals.css`](./app/globals.css).

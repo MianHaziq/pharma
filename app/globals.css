@@ -1,26 +1,203 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-inter);
+  --font-heading: var(--font-fraunces);
+  --font-display: var(--font-fraunces);
+
+  --color-brand: var(--brand);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-tint: var(--brand-tint);
+  --color-sale: var(--sale);
+  --color-sale-foreground: var(--sale-foreground);
+  --color-gold: var(--gold);
+  --color-ink: var(--ink);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --shadow-card: 0 1px 2px 0 rgb(19 42 36 / 0.04), 0 1px 3px 0 rgb(19 42 36 / 0.03);
+  --shadow-elevated: 0 8px 30px -12px rgb(19 42 36 / 0.14);
+  --shadow-nav: 0 1px 0 0 rgb(19 42 36 / 0.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.75rem;
+
+  /* Apothecary palette */
+  --background: #fcfbf8;
+  --foreground: #132a24;
+  --ink: #132a24;
+
+  --card: #ffffff;
+  --card-foreground: #132a24;
+  --popover: #ffffff;
+  --popover-foreground: #132a24;
+
+  --primary: #0f6e5c;
+  --primary-foreground: #f7fbf9;
+
+  --secondary: #e6f2ee;
+  --secondary-foreground: #0f5346;
+
+  --muted: #f2f0ea;
+  --muted-foreground: #5c6b66;
+
+  --accent: #edf5f1;
+  --accent-foreground: #0f5346;
+
+  --destructive: #d6482b;
+
+  --border: #e7e3da;
+  --input: #e7e3da;
+  --ring: #0f6e5c;
+
+  /* Brand extensions */
+  --brand: #0f6e5c;
+  --brand-deep: #0a4a3d;
+  --brand-tint: #e6f2ee;
+  --sale: #d6482b;
+  --sale-foreground: #ffffff;
+  --gold: #d9a441;
+
+  --chart-1: #0f6e5c;
+  --chart-2: #3a9d84;
+  --chart-3: #d9a441;
+  --chart-4: #d6482b;
+  --chart-5: #5c6b66;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #132a24;
+  --sidebar-primary: #0f6e5c;
+  --sidebar-primary-foreground: #f7fbf9;
+  --sidebar-accent: #edf5f1;
+  --sidebar-accent-foreground: #0f5346;
+  --sidebar-border: #e7e3da;
+  --sidebar-ring: #0f6e5c;
+}
+
+.dark {
+  --background: #0d1a16;
+  --foreground: #eaf2ee;
+  --card: #12241f;
+  --card-foreground: #eaf2ee;
+  --popover: #12241f;
+  --popover-foreground: #eaf2ee;
+  --primary: #35b399;
+  --primary-foreground: #062019;
+  --secondary: #17332b;
+  --secondary-foreground: #cfe9e0;
+  --muted: #17332b;
+  --muted-foreground: #9db5ac;
+  --accent: #17332b;
+  --accent-foreground: #cfe9e0;
+  --destructive: #f0674a;
+  --border: #23413890;
+  --input: #23413890;
+  --ring: #35b399;
+  --brand: #35b399;
+  --brand-deep: #cfe9e0;
+  --brand-tint: #17332b;
+  --sale: #f0674a;
+  --gold: #e0b256;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv05", "ss01";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+  /* Tabular figures for prices, quantities, and data */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Page shell width — consistent gutters across the whole app */
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page { padding-inline: 1.5rem; }
+  }
+  @media (min-width: 1024px) {
+    .container-page { padding-inline: 2rem; }
+  }
+
+  /* The pharmacy "+" eyebrow marker — the signature motif */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand);
+  }
+  .eyebrow::before {
+    content: "+";
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--brand);
+  }
+}
+
+/* Hide scrollbars on horizontal carousels while keeping them scrollable */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Subtle apothecary cross-hatch backdrop used sparingly on tinted bands */
+.bg-grid-mint {
+  background-color: var(--brand-tint);
+  background-image:
+    linear-gradient(to right, rgb(15 110 92 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 110 92 / 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
