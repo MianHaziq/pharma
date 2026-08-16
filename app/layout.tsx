@@ -20,21 +20,22 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vitalcare.example"),
+  metadataBase: new URL("https://poultrimed.example"),
   title: {
-    default: "VitalCare Pharmacy — Your Health, Delivered With Care",
-    template: "%s · VitalCare Pharmacy",
+    default: "PoultriMed — Healthy Flocks, Stronger Yields",
+    template: "%s · PoultriMed",
   },
   description:
-    "Genuine medicines, vitamins, personal care and medical devices delivered safely to your doorstep. Trusted healthcare, secure payments, fast delivery.",
+    "Genuine poultry vaccines, medicines, vitamins, supplements and biosecurity for broilers, layers and breeders. GMP-certified, cold-chain delivery to your farm.",
   keywords: [
-    "pharmacy",
-    "online pharmacy",
-    "medicines",
-    "vitamins",
-    "supplements",
-    "healthcare",
-    "medical devices",
+    "poultry medicine",
+    "poultry vaccines",
+    "poultry health",
+    "veterinary supplements",
+    "poultry farm supplies",
+    "biosecurity",
+    "coccidiostats",
+    "broiler layer health",
   ],
 };
 

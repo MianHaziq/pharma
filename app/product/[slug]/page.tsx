@@ -57,7 +57,7 @@ export async function generateMetadata({
 
 const deliveryInfo = [
   { icon: Truck, title: "Free delivery over Rs. 3,000", desc: "Same-day dispatch before 4pm" },
-  { icon: RotateCcw, title: "Easy 7-day returns", desc: "On eligible non-prescription items" },
+  { icon: RotateCcw, title: "Easy 7-day returns", desc: "On eligible non-medicine items" },
   { icon: ShieldCheck, title: "Secure checkout", desc: "Encrypted payments & COD" },
 ];
 
@@ -166,11 +166,11 @@ export default async function ProductPage({
                 <FileText size={20} className="mt-0.5 shrink-0 text-brand" />
                 <div>
                   <p className="text-sm font-semibold text-brand-deep">
-                    Prescription required
+                    Veterinary prescription required
                   </p>
                   <p className="mt-1 text-sm text-foreground/70">
-                    Add to cart and upload your prescription at checkout. Our
-                    pharmacist will verify it before dispatch.{" "}
+                    Add to cart and upload your veterinary prescription at
+                    checkout. Our veterinarian will verify it before dispatch.{" "}
                     <span className="italic">
                       Demo only — no real verification is performed.
                     </span>
@@ -249,9 +249,9 @@ export default async function ProductPage({
                   )}
                   {tab.value === "warnings" && (
                     <p className="mt-4 text-xs italic text-muted-foreground">
-                      Always read the label. This information is placeholder demo
-                      content and is not a substitute for professional medical
-                      advice.
+                      Always read the label and observe withdrawal periods. This
+                      information is placeholder demo content and is not a
+                      substitute for advice from your own veterinarian.
                     </p>
                   )}
                 </TabsContent>

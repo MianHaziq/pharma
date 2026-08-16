@@ -15,7 +15,7 @@ export function NewsletterForm({ className }: { className?: string }) {
     if (!email.trim()) return;
     setDone(true);
     toast.success("You're subscribed!", {
-      description: "Thanks for joining — watch your inbox for health tips.",
+      description: "Thanks for joining — watch your inbox for poultry-health tips.",
     });
     setEmail("");
     window.setTimeout(() => setDone(false), 3000);

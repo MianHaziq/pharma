@@ -10,7 +10,7 @@ import { formatDate } from "@/lib/format";
 export const metadata: Metadata = {
   title: "Health & wellness journal",
   description:
-    "Practical, easy-to-read health and wellness guidance from the VitalCare team.",
+    "Practical, easy-to-read poultry-health guidance from the PoultriMed team.",
 };
 
 export default function BlogPage() {
@@ -19,17 +19,17 @@ export default function BlogPage() {
 
   return (
     <div className="container-page py-8">
-      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Health Tips" }]} />
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Poultry Guides" }]} />
 
       <div className="mt-6 max-w-2xl">
-        <span className="eyebrow">Health &amp; wellness</span>
+        <span className="eyebrow">Poultry health &amp; management</span>
         <h1 className="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          The VitalCare journal
+          The PoultriMed journal
         </h1>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Practical, easy-to-read guidance to help you and your family live a
-          little healthier every day. All articles are placeholder demo content
-          and are not a substitute for professional medical advice.
+          Practical, easy-to-read guidance to help you run a healthier, more
+          productive flock. All articles are placeholder demo content and are
+          not a substitute for advice from your own veterinarian.
         </p>
       </div>
 

@@ -38,10 +38,10 @@ const categories = getAllCategories();
 
 const primaryNav = [
   { label: "All Products", href: "/shop" },
+  { label: "Vaccines", href: "/category/vaccines" },
   { label: "Best Sellers", href: "/shop?filter=bestsellers" },
   { label: "Offers", href: "/shop?filter=offers" },
-  { label: "Medical Devices", href: "/category/medical-devices" },
-  { label: "Health Tips", href: "/blog" },
+  { label: "Poultry Guides", href: "/blog" },
 ];
 
 function CountBadge({ count }: { count: number }) {
@@ -229,7 +229,7 @@ function MobileMenu() {
               All Products
             </MobileLink>
             <MobileLink href="/blog" onClick={() => setOpen(false)}>
-              Health Tips
+              Poultry Guides
             </MobileLink>
             <MobileLink href="/track" onClick={() => setOpen(false)}>
               Track Order

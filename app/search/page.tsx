@@ -14,7 +14,7 @@ import { Icon } from "@/components/icon";
 
 export const metadata: Metadata = {
   title: "Search",
-  description: "Search our full range of pharmacy and healthcare products.",
+  description: "Search our full range of poultry-health products.",
 };
 
 export default async function SearchPage({
@@ -39,7 +39,7 @@ export default async function SearchPage({
               <span className="text-brand">“{query}”</span>
             </>
           ) : (
-            "Search our pharmacy"
+            "Search our store"
           )}
         </h1>
         {hasQuery && (
@@ -60,7 +60,7 @@ export default async function SearchPage({
           className="mx-auto mt-10 max-w-xl"
           icon={Search}
           title="What are you looking for?"
-          description="Search by product name, brand or health need — like “vitamin D”, “Cetaphil” or “blood pressure”."
+          description="Search by product name, brand or health need — like “Newcastle vaccine”, “enrofloxacin” or “coccidiosis”."
           actionLabel="Browse all products"
           actionHref="/shop"
         />

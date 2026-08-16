@@ -188,7 +188,7 @@ export function CheckoutView() {
     };
 
     try {
-      window.localStorage.setItem("vitalcare.lastOrder", JSON.stringify(order));
+      window.localStorage.setItem("poultrimed.lastOrder", JSON.stringify(order));
     } catch {
       // ignore persistence failure in demo
     }

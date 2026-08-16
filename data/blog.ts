@@ -1,79 +1,79 @@
 import type { BlogPost } from "@/lib/types";
 
-// Health & wellness editorial content. Placeholder copy for demo purposes —
-// not medical advice.
+// Poultry health editorial content. Original placeholder copy for demo purposes
+// only — not veterinary advice.
 
 export const blogPosts: BlogPost[] = [
   {
-    id: "post-vitamins",
-    slug: "5-essential-vitamins-for-everyday-wellness",
-    title: "5 essential vitamins for everyday wellness",
+    id: "post-vaccination",
+    slug: "building-a-vaccination-programme-for-broilers",
+    title: "Building a vaccination programme for broilers",
     excerpt:
-      "From immunity to energy, these five everyday vitamins do the quiet work of keeping you feeling your best.",
-    category: "Nutrition",
-    readTime: "4 min read",
-    date: "2026-07-28",
-    author: "VitalCare Health Team",
-    tone: "sage",
-    content: [
-      "Getting the right balance of vitamins each day supports everything from your immune system to your energy levels. While a varied diet is the best foundation, a good supplement can help fill the gaps on busier days.",
-      "Vitamin C supports normal immune function and helps reduce tiredness. Vitamin D is important for strong bones and is especially valuable when sun exposure is limited. The B-complex vitamins support your body's energy release, while zinc plays a role in immune defence and skin health.",
-      "Omega-3 fatty acids round out the list, supporting heart and brain health. As always, speak to your pharmacist before starting any new supplement, particularly if you take regular medication.",
-      "This article is placeholder content for demonstration and is not a substitute for professional medical advice.",
-    ],
-  },
-  {
-    id: "post-skincare",
-    slug: "how-to-build-a-better-skincare-routine",
-    title: "How to build a better skincare routine",
-    excerpt:
-      "A simple, three-step approach to a routine your skin will actually thank you for.",
-    category: "Skin Care",
+      "A clear, practical approach to timing Newcastle, Gumboro and IB protection through the flock cycle.",
+    category: "Vaccination",
     readTime: "5 min read",
-    date: "2026-07-20",
-    author: "VitalCare Health Team",
-    tone: "peach",
-    content: [
-      "A good skincare routine doesn't need a shelf full of products. The essentials are simple: cleanse, moisturise and protect.",
-      "Start with a gentle cleanser suited to your skin type to remove impurities without stripping natural moisture. Follow with a moisturiser to keep the skin barrier healthy and hydrated.",
-      "During the day, finish with a broad-spectrum SPF to protect against sun damage — the single most effective anti-ageing step you can take. Consistency matters more than complexity.",
-      "This article is placeholder content for demonstration and is not a substitute for professional medical advice.",
-    ],
-  },
-  {
-    id: "post-hydration",
-    slug: "understanding-your-daily-water-intake",
-    title: "Understanding your daily water intake",
-    excerpt:
-      "How much water do you really need, and how to tell when you're falling short.",
-    category: "Wellness",
-    readTime: "3 min read",
-    date: "2026-07-12",
-    author: "VitalCare Health Team",
+    date: "2026-08-04",
+    author: "PoultriMed Technical Team",
     tone: "sky",
     content: [
-      "Staying hydrated supports concentration, digestion and healthy skin. A common guideline is around two litres a day, though your needs shift with activity, climate and health.",
-      "Thirst, darker urine and mild fatigue are early signs you may need to drink more. During hot weather or illness, oral rehydration salts can help replace lost fluids and electrolytes quickly.",
-      "Build hydration into your routine: a glass with each meal and a refillable bottle within reach makes a noticeable difference.",
-      "This article is placeholder content for demonstration and is not a substitute for professional medical advice.",
+      "A good vaccination programme is the backbone of flock health. The goal is simple: protect birds before disease challenge arrives, while working with — not against — the maternal antibodies chicks carry from the breeder.",
+      "Newcastle disease and infectious bronchitis are usually primed in the first week, often by spray or eye-drop, then boosted through the cycle. Gumboro (IBD) timing is more sensitive: vaccinate too early and maternal antibodies neutralise the vaccine, too late and birds are exposed. Many farms use a bursal-antibody profile to pick the day.",
+      "Whatever the schedule, the fundamentals matter most: vaccinate only healthy birds, keep vaccines on ice until use, mix in cool chlorine-free water, and use reconstituted product quickly. Record every batch and date.",
+      "This article is original placeholder content for demonstration and is not a substitute for advice from your own veterinarian.",
     ],
   },
   {
-    id: "post-first-aid",
-    slug: "first-aid-essentials-every-home-should-have",
-    title: "First aid essentials every home should have",
+    id: "post-coccidiosis",
+    slug: "managing-coccidiosis-in-poultry",
+    title: "Managing coccidiosis in poultry",
     excerpt:
-      "The everyday kit that turns small emergencies into minor moments.",
-    category: "First Aid",
+      "How to recognise, treat and prevent one of the most costly gut diseases in the shed.",
+    category: "Gut Health",
     readTime: "4 min read",
-    date: "2026-07-04",
-    author: "VitalCare Health Team",
+    date: "2026-07-26",
+    author: "PoultriMed Technical Team",
     tone: "coral",
     content: [
-      "A well-stocked first aid kit is one of the simplest ways to feel prepared at home. The basics cover the vast majority of everyday incidents.",
-      "Include assorted plasters, sterile gauze and bandages, antiseptic wipes, medical tape, scissors and a digital thermometer. Keep pain relief and any regular medication clearly labelled and in date.",
-      "Store your kit somewhere accessible but out of reach of children, and check it every few months to replace anything used or expired.",
-      "This article is placeholder content for demonstration and is not a substitute for professional medical advice.",
+      "Coccidiosis is caused by Eimeria parasites that damage the gut lining, leading to poor absorption, wet litter and — in clinical cases — blood in droppings and rising mortality. Even subclinical infection quietly erodes feed conversion.",
+      "Prevention usually combines good litter management with an in-feed coccidiostat or a carefully timed vaccine. When a clinical outbreak appears, a curative anticoccidial such as amprolium or toltrazuril in the drinking water can bring it under control quickly.",
+      "Support recovery with vitamins A and K, keep litter dry, and review your prevention programme so the same challenge doesn't return with the next flock.",
+      "This article is original placeholder content for demonstration and is not a substitute for advice from your own veterinarian.",
+    ],
+  },
+  {
+    id: "post-biosecurity",
+    slug: "biosecurity-essentials-for-your-farm",
+    title: "Biosecurity essentials for your farm",
+    excerpt:
+      "The low-cost habits that keep disease off the farm and out of the shed.",
+    category: "Biosecurity",
+    readTime: "4 min read",
+    date: "2026-07-16",
+    author: "PoultriMed Technical Team",
+    tone: "steel",
+    content: [
+      "The cheapest disease to treat is the one that never gets in. Strong biosecurity is mostly routine: control who and what enters, and clean thoroughly between flocks.",
+      "Keep a functioning footbath at every entrance and refresh the disinfectant regularly. Limit visitors, provide dedicated boots and clothing, and control wild birds and rodents, which carry many poultry pathogens.",
+      "Between flocks, dry-clean, wash, then disinfect — a disinfectant only works on a clean surface. Finish with terminal fogging and a proper down-time before restocking.",
+      "This article is original placeholder content for demonstration and is not a substitute for advice from your own veterinarian.",
+    ],
+  },
+  {
+    id: "post-heat-stress",
+    slug: "reducing-heat-stress-in-summer",
+    title: "Reducing heat stress in summer",
+    excerpt:
+      "Practical steps to protect intake, growth and welfare when the temperature climbs.",
+    category: "Management",
+    readTime: "3 min read",
+    date: "2026-07-06",
+    author: "PoultriMed Technical Team",
+    tone: "amber",
+    content: [
+      "Heat stress cuts feed intake, slows growth and, at its worst, raises mortality. Birds lose the ability to cool themselves efficiently as temperature and humidity rise, so management has to do the work for them.",
+      "Improve airflow and ventilation, provide plenty of cool, clean water, and consider foggers during the hottest hours. Feeding during cooler parts of the day helps maintain intake.",
+      "Electrolytes and vitamin C in the drinking water support hydration and reduce the impact of stress. Watch the flock closely at midday, when heat load peaks.",
+      "This article is original placeholder content for demonstration and is not a substitute for advice from your own veterinarian.",
     ],
   },
 ];

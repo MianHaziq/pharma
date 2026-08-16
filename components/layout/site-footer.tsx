@@ -44,13 +44,13 @@ export function SiteFooter() {
         <div>
           <Logo />
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-            Your trusted online pharmacy for genuine medicines, vitamins and
-            everyday health essentials — delivered with care.
+            Your trusted partner in poultry health — genuine vaccines, medicines,
+            supplements and biosecurity, delivered to the farm.
           </p>
           <ul className="mt-5 space-y-2.5 text-sm text-muted-foreground">
             <li className="flex items-center gap-2.5">
               <MapPin size={16} className="text-brand" />
-              Gulberg III, Lahore, Pakistan
+              Jhang Road, Faisalabad, Pakistan
             </li>
             <li className="flex items-center gap-2.5">
               <Phone size={16} className="text-brand" />
@@ -58,7 +58,7 @@ export function SiteFooter() {
             </li>
             <li className="flex items-center gap-2.5">
               <Mail size={16} className="text-brand" />
-              care@vitalcare.example
+              care@poultrimed.example
             </li>
           </ul>
         </div>
@@ -89,11 +89,11 @@ export function SiteFooter() {
         {/* Newsletter */}
         <div className="rounded-xl border border-border bg-muted/40 p-5">
           <h3 className="font-display text-lg font-semibold text-foreground">
-            Stay updated on your health
+            Poultry health tips & offers
           </h3>
           <p className="mt-1.5 text-sm text-muted-foreground">
-            Health tips, exclusive offers and product updates — straight to your
-            inbox.
+            Practical flock-health tips, exclusive offers and product updates —
+            straight to your inbox.
           </p>
           <NewsletterForm className="mt-4" />
         </div>
@@ -103,8 +103,8 @@ export function SiteFooter() {
       <div className="border-t border-border">
         <div className="container-page flex flex-col items-center justify-between gap-4 py-6 sm:flex-row">
           <p className="order-3 text-xs text-muted-foreground sm:order-1">
-            © 2026 VitalCare Pharmacy. All rights reserved. Demo storefront —
-            not a real pharmacy.
+            © 2026 PoultriMed. All rights reserved. Demo storefront — not a real
+            company.
           </p>
 
           <div className="order-1 flex items-center gap-2 sm:order-2">

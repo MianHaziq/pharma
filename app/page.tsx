@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Egg, Bird, Drumstick, Feather } from "lucide-react";
 import {
   getAllCategories,
   getProductCountByCategory,
@@ -7,38 +7,69 @@ import {
   getBestSellers,
   getProductsByCategory,
 } from "@/lib/catalog";
-import { heroBanners, wellnessPromo } from "@/data/banners";
+import { heroBanners, wellnessPromo, campaignBanner, promoCards } from "@/data/banners";
 import { blogPosts } from "@/data/blog";
 
-import { Hero } from "@/components/home/hero";
+import { HeroCarousel } from "@/components/home/hero-carousel";
 import { Section } from "@/components/section";
 import { SectionHeader } from "@/components/section-header";
 import { CategoryCard } from "@/components/category/category-card";
 import { ProductGrid } from "@/components/product/product-grid";
 import { ProductCarousel } from "@/components/product/product-carousel";
 import { PromoBanner } from "@/components/home/promo-banner";
+import { FeatureBanner } from "@/components/home/feature-banner";
+import { PromoGrid } from "@/components/home/promo-grid";
 import { TrustFeatures } from "@/components/home/trust-features";
 import { BrandSection } from "@/components/home/brand-section";
 import { BlogCard } from "@/components/blog/blog-card";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { Button } from "@/components/ui/button";
 
+const flockStages = [
+  { icon: Egg, label: "Day-old chicks" },
+  { icon: Bird, label: "Broilers" },
+  { icon: Drumstick, label: "Layers" },
+  { icon: Feather, label: "Breeders" },
+];
+
 export default function HomePage() {
   const categories = getAllCategories();
   const featured = getFeaturedProducts(8);
   const bestSellers = getBestSellers(8);
-  const wellnessProducts = getProductsByCategory("vitamins").slice(0, 3);
+  const wellnessProducts = getProductsByCategory("vitamins-electrolytes").slice(0, 3);
 
   return (
     <>
-      <Hero banner={heroBanners[0]} showcase={featured.slice(0, 3)} />
+      <HeroCarousel banners={heroBanners} showcase={featured.slice(0, 3)} />
+
+      {/* Flock lifecycle strip */}
+      <div className="border-b border-border bg-card">
+        <div className="container-page flex flex-col items-center gap-4 py-5 sm:flex-row sm:justify-between">
+          <p className="text-sm font-semibold text-foreground">
+            Health for every stage of the flock
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            {flockStages.map((stage) => (
+              <span
+                key={stage.label}
+                className="flex items-center gap-2 text-sm font-medium text-muted-foreground"
+              >
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-brand-tint text-brand">
+                  <stage.icon size={16} />
+                </span>
+                {stage.label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Shop by category */}
       <Section id="categories">
         <SectionHeader
-          eyebrow="Browse the aisles"
+          eyebrow="Browse the range"
           title="Shop by category"
-          description="Everything from everyday medicines to wellness essentials, organised the way you'd expect."
+          description="From vaccines and antibiotics to biosecurity and feed supplements — organised the way a farm thinks."
           linkHref="/shop"
           linkLabel="All products"
         />
@@ -53,28 +84,38 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Vaccination campaign banner */}
+      <Section spacing="sm">
+        <FeatureBanner banner={campaignBanner} />
+      </Section>
+
       {/* Featured products */}
       <Section spacing="sm">
         <SectionHeader
           eyebrow="Handpicked for you"
           title="Featured products"
-          description="Trusted favourites our pharmacists and customers reach for most."
+          description="Trusted essentials our veterinary team and farmers reach for most."
           linkHref="/shop?filter=featured"
         />
         <ProductGrid products={featured} className="mt-8" priorityCount={4} />
       </Section>
 
-      {/* Wellness promo */}
+      {/* Vitamins promo */}
       <Section spacing="sm">
         <PromoBanner banner={wellnessPromo} products={wellnessProducts} variant="brand" />
+      </Section>
+
+      {/* Promo grid: biosecurity + distributor */}
+      <Section spacing="sm">
+        <PromoGrid cards={promoCards} />
       </Section>
 
       {/* Best sellers */}
       <Section spacing="sm">
         <SectionHeader
-          eyebrow="Loved by customers"
+          eyebrow="Loved by farmers"
           title="Best sellers"
-          description="The products flying off our shelves this week."
+          description="The products moving fastest across farms this week."
           linkHref="/shop?filter=bestsellers"
         />
         <ProductCarousel products={bestSellers} className="mt-8" />
@@ -84,9 +125,9 @@ export default function HomePage() {
       <div className="bg-muted/40">
         <Section>
           <SectionHeader
-            eyebrow="The VitalCare promise"
+            eyebrow="The PoultriMed promise"
             title="Why choose us"
-            description="A pharmacy experience built on trust, care and reliability."
+            description="A poultry-health partner built on genuine products, cold-chain and reliable delivery."
             align="center"
           />
           <div className="mt-10">
@@ -99,21 +140,21 @@ export default function HomePage() {
       <Section>
         <SectionHeader
           eyebrow="Trusted names"
-          title="Popular brands"
-          description="Genuine products from the healthcare brands you know."
+          title="Brands we carry"
+          description="Genuine products from the animal-health brands you know — plus our own GMP-certified range."
         />
         <div className="mt-8">
           <BrandSection />
         </div>
       </Section>
 
-      {/* Health & wellness content */}
+      {/* Poultry guides content */}
       <div className="bg-brand-tint/40">
         <Section>
           <SectionHeader
-            eyebrow="Health & wellness"
-            title="From the VitalCare journal"
-            description="Practical, easy-to-read guidance to help you live a little healthier every day."
+            eyebrow="Poultry health & management"
+            title="From the PoultriMed journal"
+            description="Practical, easy-to-read guidance to help you run a healthier, more productive flock."
             linkHref="/blog"
             linkLabel="All articles"
           />
@@ -133,11 +174,11 @@ export default function HomePage() {
               <span aria-hidden>+</span> Join the community
             </span>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Stay updated on your health
+              Poultry health tips in your inbox
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm text-primary-foreground/85 sm:text-base">
-              Get health tips, exclusive offers and product updates delivered
-              straight to your inbox.
+              Get flock-health tips, seasonal reminders, exclusive offers and
+              product updates — straight to your inbox.
             </p>
             <div className="mx-auto mt-7 max-w-md">
               <NewsletterForm className="[&_input]:bg-card [&_input]:text-foreground" />
@@ -149,20 +190,21 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Prescription helper strip */}
+      {/* Bulk / distributor strip */}
       <Section spacing="sm" className="pb-16">
         <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 text-center sm:flex-row sm:text-left">
           <div>
             <h3 className="font-display text-xl font-semibold text-foreground">
-              Have a prescription?
+              Managing a large flock?
             </h3>
             <p className="mt-1 text-sm text-muted-foreground">
-              Upload your prescription and our pharmacists will handle the rest.
+              Talk to our veterinary team for bulk pricing, vaccination
+              programmes and technical support.
             </p>
           </div>
           <Button asChild size="lg" variant="outline" className="gap-2">
-            <Link href="/shop?filter=prescription">
-              Prescription medicines
+            <Link href="/contact">
+              Contact our team
               <ArrowRight size={17} />
             </Link>
           </Button>

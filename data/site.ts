@@ -10,32 +10,32 @@ export const trustFeatures: TrustFeature[] = [
   {
     icon: "BadgeCheck",
     title: "100% genuine products",
-    description: "Sourced directly from authorised distributors and verified suppliers.",
+    description: "Sourced from authorised animal-health manufacturers and distributors.",
   },
   {
-    icon: "Truck",
-    title: "Fast & reliable delivery",
-    description: "Same-day dispatch with temperature-safe packaging for medicines.",
+    icon: "Snowflake",
+    title: "Cold-chain vaccines",
+    description: "Vaccines and biologicals handled at 2–8°C from depot to your farm.",
   },
   {
-    icon: "ShieldCheck",
-    title: "Secure payments",
-    description: "Encrypted checkout with trusted payment partners and COD.",
+    icon: "Award",
+    title: "GMP-certified quality",
+    description: "Our own range is manufactured to good-manufacturing-practice standards.",
   },
   {
     icon: "Stethoscope",
-    title: "Trusted healthcare",
-    description: "Every order reviewed by qualified pharmacists before dispatch.",
+    title: "Veterinary support",
+    description: "Guidance from qualified poultry vets on products and programmes.",
   },
   {
-    icon: "RotateCcw",
-    title: "Easy returns",
-    description: "Straightforward 7-day returns on eligible non-prescription items.",
+    icon: "Truck",
+    title: "Nationwide delivery",
+    description: "Fast dispatch and farm delivery across the country.",
   },
   {
     icon: "Headset",
-    title: "Customer support",
-    description: "Friendly pharmacists and support available 7 days a week.",
+    title: "Farmer support",
+    description: "Practical help for growers and distributors, 7 days a week.",
   },
 ];
 
@@ -49,11 +49,11 @@ export const footerColumns: FooterColumn[] = [
     title: "Shop",
     links: [
       { label: "All products", href: "/shop" },
-      { label: "Medicines", href: "/category/medicines" },
-      { label: "Vitamins & Supplements", href: "/category/vitamins" },
-      { label: "Personal Care", href: "/category/personal-care" },
-      { label: "Medical Devices", href: "/category/medical-devices" },
-      { label: "Offers", href: "/shop?sort=discount" },
+      { label: "Vaccines", href: "/category/vaccines" },
+      { label: "Antibiotics", href: "/category/antibiotics" },
+      { label: "Vitamins & Electrolytes", href: "/category/vitamins-electrolytes" },
+      { label: "Disinfectants", href: "/category/disinfectants-biosecurity" },
+      { label: "Offers", href: "/shop?filter=offers" },
     ],
   },
   {
@@ -69,7 +69,7 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Company",
     links: [
-      { label: "About VitalCare", href: "/about" },
+      { label: "About PoultriMed", href: "/about" },
       { label: "Privacy policy", href: "/privacy" },
       { label: "Terms & conditions", href: "/terms" },
       { label: "My account", href: "/account" },

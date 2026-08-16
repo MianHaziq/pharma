@@ -104,6 +104,8 @@ export interface Banner {
   secondaryCtaHref?: string;
   tone: string;
   align?: "left" | "center";
+  /** Illustration variant key, resolved in the UI (see BannerArt). */
+  art?: string;
 }
 
 export type OrderStatus =

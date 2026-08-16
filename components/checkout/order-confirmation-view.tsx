@@ -30,7 +30,7 @@ export function OrderConfirmationView() {
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
     try {
-      const raw = window.localStorage.getItem("vitalcare.lastOrder");
+      const raw = window.localStorage.getItem("poultrimed.lastOrder");
       if (raw) setOrder(JSON.parse(raw) as StoredOrder);
     } catch {
       // ignore

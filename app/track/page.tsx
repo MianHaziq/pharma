@@ -3,7 +3,7 @@ import { TrackView } from "@/components/order/track-view";
 
 export const metadata: Metadata = {
   title: "Track your order",
-  description: "Track the delivery status of your VitalCare Pharmacy order.",
+  description: "Track the delivery status of your PoultriMed order.",
 };
 
 export default async function TrackPage({

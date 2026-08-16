@@ -42,7 +42,7 @@ export default async function BlogPostPage({
         <Breadcrumbs
           items={[
             { label: "Home", href: "/" },
-            { label: "Health Tips", href: "/blog" },
+            { label: "Poultry Guides", href: "/blog" },
             { label: post.title },
           ]}
         />
@@ -107,8 +107,8 @@ export default async function BlogPostPage({
             <Info size={18} className="mt-0.5 shrink-0 text-brand" />
             <p className="text-sm text-muted-foreground">
               This article is placeholder demo content for illustration only and
-              is not medical advice. Always consult a qualified healthcare
-              professional for guidance specific to you.
+              is not veterinary advice. Always consult your own veterinarian for
+              guidance specific to your flock.
             </p>
           </div>
 

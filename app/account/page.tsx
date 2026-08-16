@@ -92,7 +92,7 @@ export default function AccountDashboard() {
           <div>
             <p className="text-sm font-semibold text-foreground">Need help?</p>
             <p className="text-xs text-muted-foreground">
-              Our pharmacists are here 7 days a week
+              Our vet team is here 7 days a week
             </p>
           </div>
           <ArrowRight size={17} className="ml-auto text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-brand" />

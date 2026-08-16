@@ -49,7 +49,7 @@ export function getBrandBySlug(slug: string): Brand | undefined {
 }
 
 export function getBrandName(id: string): string {
-  return getBrandById(id)?.name ?? "VitalCare";
+  return getBrandById(id)?.name ?? "PoultriMed";
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {
@@ -239,35 +239,35 @@ export function getPriceBounds(source: Product[] = products): {
 
 const reviewBank: Omit<Review, "id">[] = [
   {
-    author: "Sana M.",
+    author: "Kashif (Broiler farm)",
     rating: 5,
     date: "2026-07-30",
-    title: "Exactly as described",
-    body: "Genuine product, well packaged and delivered the next day. Will order again.",
+    title: "Genuine and well packed",
+    body: "Product was genuine, well packaged and delivered next day. Cold packs were still cold on arrival. Will order again.",
     verified: true,
   },
   {
-    author: "Bilal A.",
+    author: "Naveed (Layer unit)",
     rating: 5,
     date: "2026-07-18",
-    title: "Great value",
-    body: "Good price compared to my local pharmacy and the quality is exactly what I expected.",
+    title: "Good value for the farm",
+    body: "Better price than my local dealer and exactly the quality I expected for the flock. Reordering.",
     verified: true,
   },
   {
-    author: "Hira R.",
+    author: "Farm supervisor",
     rating: 4,
     date: "2026-07-02",
-    title: "Happy with it",
-    body: "Does the job well. Delivery was quick and the packaging kept everything safe.",
+    title: "Does the job",
+    body: "Worked well for us and the delivery was quick. Clear instructions on the pack made dosing simple.",
     verified: true,
   },
   {
-    author: "Usman K.",
+    author: "Adeel (Contract grower)",
     rating: 5,
     date: "2026-06-21",
-    title: "Trusted and reliable",
-    body: "I reorder this regularly. Always authentic and the service is dependable.",
+    title: "Reliable supply",
+    body: "I reorder this every cycle. Always authentic and the service is dependable — important when a shed is waiting.",
     verified: false,
   },
 ];

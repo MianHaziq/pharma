@@ -9,13 +9,13 @@ import { ProductImage } from "@/components/product/product-image";
 import { Icon } from "@/components/icon";
 import { cn } from "@/lib/utils";
 
-const POPULAR = ["Panadol", "Vitamin D3", "Cetaphil", "ORS", "Blood Pressure"];
+const POPULAR = ["Newcastle vaccine", "Enrofloxacin", "AD3E", "Amprolium", "Disinfectant"];
 
 export function SearchBar({
   className,
   autoFocus,
   onNavigate,
-  placeholder = "Search medicines, brands, health products…",
+  placeholder = "Search vaccines, medicines, brands…",
 }: {
   className?: string;
   autoFocus?: boolean;

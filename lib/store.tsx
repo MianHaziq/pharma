@@ -19,8 +19,8 @@ import type { Product } from "./types";
 // the hook surface (useStore) stays identical.
 // ─────────────────────────────────────────────────────────────
 
-const CART_KEY = "vitalcare.cart";
-const WISHLIST_KEY = "vitalcare.wishlist";
+const CART_KEY = "poultrimed.cart";
+const WISHLIST_KEY = "poultrimed.wishlist";
 export const FREE_DELIVERY_THRESHOLD = 3000;
 export const STANDARD_DELIVERY_FEE = 199;
 

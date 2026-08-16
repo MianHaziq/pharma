@@ -13,14 +13,14 @@ import type { Collection } from "@/components/shop/filter-types";
 export const metadata: Metadata = {
   title: "Shop all products",
   description:
-    "Browse genuine medicines, vitamins, personal care and medical devices. Filter by category, brand, price and rating.",
+    "Browse genuine poultry vaccines, medicines, vitamins, supplements and biosecurity. Filter by category, brand, price and rating.",
 };
 
 const HEADINGS: Record<Collection, { title: string; description: string }> = {
   all: {
     title: "All products",
     description:
-      "Browse our full range of genuine medicines, vitamins and everyday health essentials.",
+      "Browse our full range of genuine poultry vaccines, medicines, supplements and biosecurity.",
   },
   bestsellers: {
     title: "Best sellers",
@@ -28,20 +28,20 @@ const HEADINGS: Record<Collection, { title: string; description: string }> = {
   },
   offers: {
     title: "Special offers",
-    description: "Save more on selected medicines, vitamins and personal care.",
+    description: "Save more on selected vaccines, medicines and supplements.",
   },
   featured: {
     title: "Featured products",
-    description: "Handpicked favourites from our pharmacists.",
+    description: "Handpicked favourites from our veterinary team.",
   },
   new: {
     title: "New arrivals",
     description: "The latest additions to our shelves.",
   },
   prescription: {
-    title: "Prescription medicines",
+    title: "Veterinary (Rx) products",
     description:
-      "Prescription-only medicines. Add to cart and upload your prescription at checkout.",
+      "Products that require a veterinary prescription. Add to cart and upload your prescription at checkout.",
   },
 };
 

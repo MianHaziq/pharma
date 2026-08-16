@@ -3,7 +3,7 @@ import { OrderConfirmationView } from "@/components/checkout/order-confirmation-
 
 export const metadata: Metadata = {
   title: "Order confirmed",
-  description: "Your VitalCare Pharmacy order has been placed successfully.",
+  description: "Your PoultriMed order has been placed successfully.",
 };
 
 export default function OrderConfirmationPage() {

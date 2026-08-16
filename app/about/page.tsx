@@ -3,7 +3,7 @@ import { ContentPage } from "@/components/content-page";
 import { aboutPage } from "@/data/pages";
 
 export const metadata: Metadata = {
-  title: "About VitalCare",
+  title: "About PoultriMed",
   description: aboutPage.intro,
 };
 

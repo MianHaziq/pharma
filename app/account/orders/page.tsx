@@ -6,7 +6,7 @@ import { EmptyState } from "@/components/empty-state";
 
 export const metadata: Metadata = {
   title: "My orders",
-  description: "View and track all your VitalCare Pharmacy orders.",
+  description: "View and track all your PoultriMed orders.",
 };
 
 export default function OrdersPage() {

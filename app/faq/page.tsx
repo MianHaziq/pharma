@@ -50,7 +50,7 @@ export default function FaqPage() {
             Still have questions?
           </h2>
           <p className="mx-auto mt-2 max-w-md text-sm text-muted-foreground">
-            Our friendly support team and pharmacists are available seven days a
+            Our friendly support team and poultry vets are available seven days a
             week to help.
           </p>
           <Link

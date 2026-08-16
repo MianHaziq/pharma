@@ -6,14 +6,14 @@ import { ContactForm } from "@/components/contact/contact-form";
 export const metadata: Metadata = {
   title: "Contact us",
   description:
-    "Get in touch with the VitalCare support team and pharmacists — seven days a week.",
+    "Get in touch with the PoultriMed support team and poultry vets — seven days a week.",
 };
 
 const details = [
   { icon: Phone, label: "Call us", value: "+92 111 222 333", sub: "Mon–Sun, 9am–9pm" },
-  { icon: Mail, label: "Email", value: "care@vitalcare.example", sub: "Reply within 24 hours" },
-  { icon: MessageCircle, label: "Live chat", value: "Chat with a pharmacist", sub: "Available during opening hours" },
-  { icon: MapPin, label: "Visit", value: "Gulberg III, Lahore", sub: "Punjab, Pakistan" },
+  { icon: Mail, label: "Email", value: "care@poultrimed.example", sub: "Reply within 24 hours" },
+  { icon: MessageCircle, label: "Live chat", value: "Chat with our vet team", sub: "Available during opening hours" },
+  { icon: MapPin, label: "Visit", value: "Jhang Road, Faisalabad", sub: "Punjab, Pakistan" },
 ];
 
 export default function ContactPage() {
@@ -27,8 +27,9 @@ export default function ContactPage() {
           Contact us
         </h1>
         <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-          Questions about an order, a product or your health needs? Our support
-          team and qualified pharmacists are here for you seven days a week.
+          Questions about an order, a product or your flock&apos;s health? Our
+          support team and qualified poultry vets are here for you seven days a
+          week.
         </p>
       </div>
 

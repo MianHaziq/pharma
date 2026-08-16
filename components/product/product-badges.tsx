@@ -36,7 +36,7 @@ export function PrescriptionBadge({
       )}
     >
       <FileText size={12} />
-      {compact ? "Rx" : "Prescription"}
+      {compact ? "Rx" : "Vet Rx"}
     </span>
   );
 }
