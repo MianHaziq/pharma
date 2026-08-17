@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces } from "next/font/google";
+import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
-import { MobileBottomBar } from "@/components/layout/mobile-bottom-bar";
+import { WhatsAppButton } from "@/components/whatsapp-button";
+import { company } from "@/data/company";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -19,35 +20,50 @@ const fraunces = Fraunces({
   axes: ["opsz"],
 });
 
+const plexMono = IBM_Plex_Mono({
+  variable: "--font-plex",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://poultrimed.example"),
+  metadataBase: new URL(`https://${company.domain}`),
   title: {
-    default: "PoultriMed — Healthy Flocks, Stronger Yields",
-    template: "%s · PoultriMed",
+    default: `${company.name} — ${company.tagline}`,
+    template: `%s · ${company.name}`,
   },
-  description:
-    "Genuine poultry vaccines, medicines, vitamins, supplements and biosecurity for broilers, layers and breeders. GMP-certified, cold-chain delivery to your farm.",
+  description: company.description,
   keywords: [
-    "poultry medicine",
-    "poultry vaccines",
     "poultry health",
-    "veterinary supplements",
-    "poultry farm supplies",
+    "poultry pharmaceuticals",
+    "poultry vaccines",
+    "animal health biosciences",
+    "veterinary medicine",
+    "poultry nutrition",
     "biosecurity",
-    "coccidiostats",
-    "broiler layer health",
+    "feed additives",
   ],
+  openGraph: {
+    type: "website",
+    title: `${company.name} — ${company.tagline}`,
+    description: company.description,
+    siteName: company.name,
+  },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${fraunces.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-background text-foreground antialiased">
+    <html
+      lang="en"
+      className={`${inter.variable} ${fraunces.variable} ${plexMono.variable} h-full`}
+    >
+      <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
           <SiteHeader />
-          <main className="flex-1 pb-16 lg:pb-0">{children}</main>
+          <main className="min-w-0 flex-1">{children}</main>
           <SiteFooter />
-          <MobileBottomBar />
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

@@ -2,24 +2,44 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
+/*
+  AviCura — corporate design system.
+  Emerald (health · nature · poultry) + warm gold (premium accent), set on a
+  clean near-white "specimen paper". A monospace "index" layer carries catalog
+  codes and section markers — the signature of a biosciences dossier.
+*/
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
   --font-sans: var(--font-inter);
-  --font-mono: var(--font-inter);
   --font-heading: var(--font-fraunces);
   --font-display: var(--font-fraunces);
+  --font-mono: var(--font-plex);
 
-  --color-brand: var(--brand);
-  --color-brand-deep: var(--brand-deep);
-  --color-brand-tint: var(--brand-tint);
-  --color-sale: var(--sale);
-  --color-sale-foreground: var(--sale-foreground);
-  --color-gold: var(--gold);
+  /* Brand scale */
+  --color-paper: var(--paper);
   --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-emerald: var(--emerald);
+  --color-emerald-600: var(--emerald-600);
+  --color-emerald-700: var(--emerald-700);
+  --color-emerald-deep: var(--emerald-deep);
+  --color-emerald-950: var(--emerald-950);
+  --color-mint: var(--mint);
+  --color-mint-2: var(--mint-2);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
 
+  /* Back-compat aliases used across the app */
+  --color-brand: var(--emerald);
+  --color-brand-deep: var(--emerald-deep);
+  --color-brand-tint: var(--mint);
+
+  /* shadcn tokens */
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -41,97 +61,71 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --radius-3xl: calc(var(--radius) + 18px);
 
-  --shadow-card: 0 1px 2px 0 rgb(19 42 36 / 0.04), 0 1px 3px 0 rgb(19 42 36 / 0.03);
-  --shadow-elevated: 0 8px 30px -12px rgb(19 42 36 / 0.14);
-  --shadow-nav: 0 1px 0 0 rgb(19 42 36 / 0.06);
+  --shadow-card: 0 1px 2px 0 rgb(6 35 28 / 0.04), 0 4px 16px -8px rgb(6 35 28 / 0.10);
+  --shadow-elevated: 0 24px 60px -28px rgb(6 35 28 / 0.28);
+  --shadow-float: 0 30px 80px -40px rgb(6 35 28 / 0.45);
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.625rem;
 
-  /* Apothecary palette */
-  --background: #fcfbf8;
-  --foreground: #132a24;
-  --ink: #132a24;
+  /* Core palette */
+  --paper: #f5f8f4;
+  --ink: #0e211c;
+  --ink-soft: #52635b;
+
+  --emerald: #0b5a48;
+  --emerald-600: #0e6b57;
+  --emerald-700: #0a4a3d;
+  --emerald-deep: #06231c;
+  --emerald-950: #041a15;
+
+  --mint: #e7f0ec;
+  --mint-2: #edf4ef;
+  --gold: #bd9138;
+  --gold-soft: #e6c982;
+
+  --line: #e2e7e1;
+  --line-strong: #d2dad2;
+
+  /* shadcn mappings */
+  --background: var(--paper);
+  --foreground: var(--ink);
 
   --card: #ffffff;
-  --card-foreground: #132a24;
+  --card-foreground: var(--ink);
   --popover: #ffffff;
-  --popover-foreground: #132a24;
+  --popover-foreground: var(--ink);
 
-  --primary: #0f6e5c;
-  --primary-foreground: #f7fbf9;
+  --primary: var(--emerald);
+  --primary-foreground: #f3faf6;
 
-  --secondary: #e6f2ee;
-  --secondary-foreground: #0f5346;
+  --secondary: var(--mint);
+  --secondary-foreground: var(--emerald-700);
 
-  --muted: #f2f0ea;
-  --muted-foreground: #5c6b66;
+  --muted: #ecf1ea;
+  --muted-foreground: var(--ink-soft);
 
-  --accent: #edf5f1;
-  --accent-foreground: #0f5346;
+  --accent: var(--mint-2);
+  --accent-foreground: var(--emerald-700);
 
-  --destructive: #d6482b;
+  --destructive: #b4402d;
 
-  --border: #e7e3da;
-  --input: #e7e3da;
-  --ring: #0f6e5c;
-
-  /* Brand extensions */
-  --brand: #0f6e5c;
-  --brand-deep: #0a4a3d;
-  --brand-tint: #e6f2ee;
-  --sale: #d6482b;
-  --sale-foreground: #ffffff;
-  --gold: #d9a441;
-
-  --chart-1: #0f6e5c;
-  --chart-2: #3a9d84;
-  --chart-3: #d9a441;
-  --chart-4: #d6482b;
-  --chart-5: #5c6b66;
-
-  --sidebar: #ffffff;
-  --sidebar-foreground: #132a24;
-  --sidebar-primary: #0f6e5c;
-  --sidebar-primary-foreground: #f7fbf9;
-  --sidebar-accent: #edf5f1;
-  --sidebar-accent-foreground: #0f5346;
-  --sidebar-border: #e7e3da;
-  --sidebar-ring: #0f6e5c;
-}
-
-.dark {
-  --background: #0d1a16;
-  --foreground: #eaf2ee;
-  --card: #12241f;
-  --card-foreground: #eaf2ee;
-  --popover: #12241f;
-  --popover-foreground: #eaf2ee;
-  --primary: #35b399;
-  --primary-foreground: #062019;
-  --secondary: #17332b;
-  --secondary-foreground: #cfe9e0;
-  --muted: #17332b;
-  --muted-foreground: #9db5ac;
-  --accent: #17332b;
-  --accent-foreground: #cfe9e0;
-  --destructive: #f0674a;
-  --border: #23413890;
-  --input: #23413890;
-  --ring: #35b399;
-  --brand: #35b399;
-  --brand-deep: #cfe9e0;
-  --brand-tint: #17332b;
-  --sale: #f0674a;
-  --gold: #e0b256;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--emerald);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+  }
+  ::selection {
+    background: color-mix(in oklch, var(--emerald), transparent 78%);
+    color: var(--emerald-700);
   }
   body {
     @apply bg-background text-foreground;
@@ -145,9 +139,9 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-fraunces), Georgia, serif;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.018em;
+    font-weight: 550;
   }
-  /* Tabular figures for prices, quantities, and data */
   .tnum {
     font-variant-numeric: tabular-nums;
     font-feature-settings: "tnum";
@@ -155,49 +149,134 @@
 }
 
 @layer components {
-  /* Page shell width — consistent gutters across the whole app */
+  /* Consistent page gutters */
   .container-page {
     width: 100%;
     margin-inline: auto;
     max-width: 80rem;
-    padding-inline: 1rem;
+    padding-inline: 1.25rem;
   }
   @media (min-width: 640px) {
-    .container-page { padding-inline: 1.5rem; }
-  }
-  @media (min-width: 1024px) {
     .container-page { padding-inline: 2rem; }
   }
+  @media (min-width: 1024px) {
+    .container-page { padding-inline: 2.5rem; }
+  }
 
-  /* The "+" health eyebrow marker — the signature motif */
+  /* The mono "index" eyebrow — a specimen marker */
   .eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
+    gap: 0.6rem;
+    font-family: var(--font-plex), ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    color: var(--brand);
+    color: var(--emerald);
   }
   .eyebrow::before {
-    content: "+";
-    font-weight: 700;
-    font-size: 1rem;
-    line-height: 1;
-    color: var(--brand);
+    content: "";
+    width: 1.6rem;
+    height: 1px;
+    background: var(--gold);
+  }
+  .eyebrow-plain {
+    font-family: var(--font-plex), ui-monospace, monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  /* Fine hairline that reads as a lab rule */
+  .rule-gold {
+    height: 1px;
+    background: linear-gradient(to right, var(--gold), transparent);
   }
 }
 
-/* Hide scrollbars on horizontal carousels while keeping them scrollable */
+/* Hide scrollbars on horizontal rails */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Subtle apothecary cross-hatch backdrop used sparingly on tinted bands */
-.bg-grid-mint {
-  background-color: var(--brand-tint);
+/* Subtle emerald grid texture for tinted bands */
+.bg-grid {
   background-image:
-    linear-gradient(to right, rgb(15 110 92 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 110 92 / 0.05) 1px, transparent 1px);
-  background-size: 28px 28px;
+    linear-gradient(to right, rgb(11 90 72 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(11 90 72 / 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 34px 34px;
+}
+
+/* ── Motion ─────────────────────────────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1.04); }
+  to { transform: scale(1.16); }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 24s ease-out forwards;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 42s linear infinite;
+}
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* WhatsApp floating button — gentle attention ring */
+@keyframes wa-pulse {
+  0% { transform: scale(1); opacity: 0.5; }
+  70%, 100% { transform: scale(1.9); opacity: 0; }
+}
+.wa-ring {
+  animation: wa-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal,
+  .animate-slow-zoom,
+  .animate-marquee,
+  .animate-float-soft {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .wa-ring { display: none !important; }
 }
