@@ -4,7 +4,7 @@ import { photo } from "@/lib/images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { StatStrip } from "@/components/stat-strip";
 import { Icon } from "@/components/icon";
 import { CtaBand } from "@/components/cta-band";
@@ -63,15 +63,15 @@ export default function ResearchPage() {
       {/* Intro */}
       <section className="container-page py-20 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal className="order-2 lg:order-1">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-              <Photo
-                src={photo("labMolecular", 1100, 80)}
-                alt="Molecular research at the AviCura Innovation Center"
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="h-full w-full"
-              />
-            </div>
+          <Reveal variant="left" className="order-2 lg:order-1">
+            <ParallaxImage
+              src={photo("labMolecular", 1100, 80)}
+              alt="Molecular research at the AviCura Innovation Center"
+              sizes="(min-width: 1024px) 45vw, 90vw"
+              speed={0.14}
+              className="aspect-[4/3] rounded-3xl"
+              imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
+            />
           </Reveal>
           <div className="order-1 lg:order-2">
             <SectionHeading
@@ -79,7 +79,7 @@ export default function ResearchPage() {
               title="Research that answers to the farm."
               description="We are not chasing science for its own sake. Every program is measured against a simple question: does it make flocks healthier, more productive or more sustainable in the real world?"
             />
-            <div className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
+            <Reveal variant="right" delay={80} className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
               <p>
                 Our teams combine diagnostics, formulation science, vaccine
                 development and nutrition under one roof — so insight moves quickly
@@ -90,7 +90,7 @@ export default function ResearchPage() {
                 partners keeps our work grounded in the diseases and pressures that
                 matter most today.
               </p>
-            </div>
+            </Reveal>
           </div>
         </div>
 

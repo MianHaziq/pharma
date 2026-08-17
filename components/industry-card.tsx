@@ -29,7 +29,7 @@ export function IndustryCard({
     <Link
       href={href}
       className={cn(
-        "group relative flex min-h-[16rem] flex-col justify-end overflow-hidden rounded-2xl",
+        "group relative flex min-h-[16rem] flex-col justify-end overflow-hidden rounded-2xl ring-1 ring-transparent transition-all duration-500 ease-out hover:-translate-y-1 hover:ring-gold/30 hover:shadow-[var(--shadow-elevated)]",
         className,
       )}
     >
@@ -41,9 +41,11 @@ export function IndustryCard({
         className="absolute inset-0"
         imgClassName="transition-transform duration-[900ms] ease-out group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep via-emerald-deep/45 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep via-emerald-deep/45 to-transparent transition-opacity duration-500 group-hover:from-emerald-deep group-hover:via-emerald-deep/55" />
+      {/* Light sweep on hover */}
+      <span aria-hidden className="sheen absolute inset-0" />
 
-      <div className="relative p-6">
+      <div className="relative z-10 p-6">
         <span className="grid h-11 w-11 place-items-center rounded-xl bg-white/12 text-white ring-1 ring-white/20 backdrop-blur-sm">
           <Icon name={item.icon} size={20} />
         </span>

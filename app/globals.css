@@ -216,17 +216,68 @@
 
 /* ── Motion ─────────────────────────────────────────────── */
 
+/* Scroll reveals. Base handles the fade + easing; each variant sets the
+   direction / style the element travels in from. `is-visible` resolves them. */
 .reveal {
   opacity: 0;
-  transform: translateY(22px);
   transition:
-    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.85s ease;
   will-change: opacity, transform;
+}
+.reveal--up { transform: translateY(26px); }
+.reveal--down { transform: translateY(-26px); }
+.reveal--left { transform: translateX(-32px); }
+.reveal--right { transform: translateX(32px); }
+.reveal--scale { transform: scale(0.94); }
+.reveal--fade { transform: none; }
+.reveal--blur { transform: translateY(20px); filter: blur(10px); }
+/* Curtain wipe. Keep this wrapper corner-free; nest a rounded child if needed —
+   clip-path only affects the clip variant so card shadows are never cut. */
+.reveal--clip {
+  clip-path: inset(0 0 100% 0);
+  will-change: clip-path, opacity;
 }
 .reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: none;
+}
+.reveal--clip.is-visible {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Image "curtain" wipe used behind the clip reveal on framed photography. */
+@keyframes img-wipe {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+/* A single slow light-sweep across a surface on hover — used on dark image
+   cards. The parent must carry the `group` class. */
+.sheen {
+  position: relative;
+  isolation: isolate;
+}
+.sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    115deg,
+    transparent 35%,
+    rgb(255 255 255 / 0.14) 50%,
+    transparent 65%
+  );
+  transform: translateX(-130%);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.group:hover .sheen::after {
+  transform: translateX(130%);
 }
 
 @keyframes slow-zoom {
@@ -277,6 +328,9 @@
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
   }
+  .sheen::after { display: none !important; }
   .wa-ring { display: none !important; }
 }

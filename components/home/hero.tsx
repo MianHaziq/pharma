@@ -3,24 +3,27 @@ import { ArrowRight, ShieldCheck, MousePointerClick } from "lucide-react";
 import { company, heroStats } from "@/data/company";
 import { photo } from "@/lib/images";
 import { Button } from "@/components/ui/button";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { Counter } from "@/components/counter";
 
 export function Hero() {
   return (
     <section className="relative flex flex-col justify-end overflow-hidden bg-emerald-deep sm:min-h-svh">
-      {/* Background photograph */}
-      <Photo
+      {/* Background photograph — drifts slowly against the scroll for depth */}
+      <ParallaxImage
         src={photo("hero", 2200, 82)}
         alt="A healthy bird in prime condition"
         priority
         sizes="100vw"
+        speed={0.2}
         className="absolute inset-0"
         imgClassName="object-[80%_22%] sm:object-[68%_center] animate-slow-zoom"
       />
-      {/* Legibility overlays */}
+
+      {/* Legibility + depth overlays */}
       <div className="absolute inset-0 bg-gradient-to-t from-emerald-deep via-emerald-deep/45 to-emerald-deep/70" />
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-deep/85 via-emerald-deep/35 to-emerald-deep/10 sm:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_90%_at_15%_10%,transparent_40%,rgb(4_26_21_/_0.55)_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-20" />
 
       {/* Content */}
@@ -72,7 +75,10 @@ export function Hero() {
       </div>
 
       {/* Stats bar */}
-      <div className="relative border-t border-white/10 bg-emerald-deep/40 backdrop-blur-sm">
+      <div
+        className="relative border-t border-white/10 bg-emerald-deep/40 opacity-0 backdrop-blur-sm"
+        style={{ animation: "fade-in 0.9s ease-out 0.8s forwards" }}
+      >
         <div className="container-page grid grid-cols-3 divide-x divide-white/10">
           {heroStats.map((s) => (
             <div key={s.label} className="px-2 py-6 text-center sm:py-8">
@@ -89,7 +95,7 @@ export function Hero() {
 
       {/* Scroll cue */}
       <div className="pointer-events-none absolute right-6 top-[52%] hidden -translate-y-1/2 rotate-90 items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-white/40 lg:flex">
-        <MousePointerClick size={13} className="-rotate-90" />
+        <MousePointerClick size={13} className="-rotate-90 animate-float-soft" />
         Scroll
       </div>
     </section>

@@ -4,7 +4,7 @@ import { photo } from "@/lib/images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { CtaBand } from "@/components/cta-band";
 
 export const metadata: Metadata = {
@@ -47,15 +47,15 @@ export default function QualityPage() {
               </p>
             </div>
           </div>
-          <Reveal>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-              <Photo
-                src={photo("manufacturing", 1100, 80)}
-                alt="GMP-certified manufacturing at AviCura"
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="h-full w-full"
-              />
-            </div>
+          <Reveal variant="right">
+            <ParallaxImage
+              src={photo("manufacturing", 1100, 80)}
+              alt="GMP-certified manufacturing at AviCura"
+              sizes="(min-width: 1024px) 45vw, 90vw"
+              speed={0.14}
+              className="aspect-[4/3] rounded-3xl"
+              imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
+            />
           </Reveal>
         </div>
       </section>

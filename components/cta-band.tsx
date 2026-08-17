@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { Photo } from "./photo";
+import { ParallaxImage } from "./parallax-image";
 import { Reveal } from "./reveal";
 
 // Recurring conversion band. Optional background photograph; always emerald.
@@ -27,10 +27,11 @@ export function CtaBand({
     <section className={cn("container-page", className)}>
       <Reveal className="relative overflow-hidden rounded-3xl bg-emerald-deep">
         {image && (
-          <Photo
+          <ParallaxImage
             src={image}
             alt=""
             sizes="(min-width: 1280px) 1200px, 100vw"
+            speed={0.14}
             className="absolute inset-0"
             imgClassName="opacity-25"
           />

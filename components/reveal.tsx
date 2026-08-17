@@ -1,43 +1,42 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useInView } from "@/lib/use-in-view";
 import { cn } from "@/lib/utils";
 
+/**
+ * Direction / style the element travels in from as it enters the viewport.
+ * `clip` performs a soft top-to-bottom curtain wipe — nice for framed images.
+ */
+export type RevealVariant =
+  | "up"
+  | "down"
+  | "left"
+  | "right"
+  | "scale"
+  | "fade"
+  | "blur"
+  | "clip";
+
 // Scroll-triggered reveal. Adds `is-visible` when the element enters the
-// viewport; CSS handles the fade/rise and honours prefers-reduced-motion.
+// viewport; CSS handles the fade/travel and honours prefers-reduced-motion.
 export function Reveal({
   children,
   className,
   delay = 0,
+  variant = "up",
 }: {
   children: React.ReactNode;
   className?: string;
   /** Stagger delay in milliseconds. */
   delay?: number;
+  variant?: RevealVariant;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+  const { ref, inView } = useInView<HTMLDivElement>();
 
   return (
     <div
       ref={ref}
-      className={cn("reveal", visible && "is-visible", className)}
+      className={cn("reveal", `reveal--${variant}`, inView && "is-visible", className)}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >
       {children}

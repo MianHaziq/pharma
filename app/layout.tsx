@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { ScrollProgress } from "@/components/scroll-progress";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     >
       <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground antialiased">
         <Providers>
+          <ScrollProgress />
           <SiteHeader />
           <main className="min-w-0 flex-1">{children}</main>
           <SiteFooter />

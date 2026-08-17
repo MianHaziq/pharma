@@ -12,7 +12,7 @@ import { photo } from "@/lib/images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { StatStrip } from "@/components/stat-strip";
 import { Monogram } from "@/components/monogram";
 import { Icon } from "@/components/icon";
@@ -44,7 +44,7 @@ export default function AboutPage() {
               title="Built to raise the standard of poultry health."
               description={`Founded in ${company.established}, AviCura set out to close the gap between human-grade pharmaceutical quality and the fast-moving realities of commercial poultry production.`}
             />
-            <div className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
+            <Reveal variant="left" delay={80} className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
               <p>
                 What began as a small formulation lab in Utrecht is now an
                 international poultry-health company — with dedicated research,
@@ -57,22 +57,26 @@ export default function AboutPage() {
                 vaccines, medicines and nutrition are designed around the diseases,
                 stresses and economics that actually shape a flock's performance.
               </p>
-            </div>
+            </Reveal>
           </div>
 
-          <Reveal className="relative">
+          <Reveal variant="right" className="relative">
             <div className="grid grid-cols-2 gap-4">
-              <Photo
+              <ParallaxImage
                 src={photo("labBench", 700, 75)}
                 alt="Formulation research at AviCura"
                 sizes="(min-width: 1024px) 22vw, 45vw"
+                speed={0.1}
                 className="aspect-[3/4] rounded-2xl"
+                imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
               />
-              <Photo
+              <ParallaxImage
                 src={photo("henClose", 700, 75)}
                 alt="A healthy hen"
                 sizes="(min-width: 1024px) 22vw, 45vw"
+                speed={0.2}
                 className="mt-8 aspect-[3/4] rounded-2xl"
+                imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
               />
             </div>
           </Reveal>

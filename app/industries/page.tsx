@@ -6,7 +6,7 @@ import { img, photo } from "@/lib/images";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { Icon } from "@/components/icon";
 import { Button } from "@/components/ui/button";
 import { CtaBand } from "@/components/cta-band";
@@ -44,22 +44,30 @@ export default function IndustriesPage() {
                 id={item.slug}
                 className="grid scroll-mt-28 items-center gap-10 lg:grid-cols-2 lg:gap-16"
               >
-                <Reveal className={flip ? "lg:order-2" : ""}>
+                <Reveal
+                  variant={flip ? "right" : "left"}
+                  className={flip ? "lg:order-2" : ""}
+                >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-                    <Photo
+                    <ParallaxImage
                       src={img(item.image, 1100, 78)}
                       alt={item.name}
                       sizes="(min-width: 1024px) 45vw, 90vw"
-                      className="h-full w-full"
-                      imgClassName="hover:scale-105 transition-transform duration-[1200ms] ease-out"
+                      speed={0.14}
+                      className="absolute inset-0"
+                      imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
                     />
-                    <span className="absolute left-5 top-5 grid h-11 w-11 place-items-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-sm">
+                    <span className="absolute left-5 top-5 z-10 grid h-11 w-11 place-items-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-sm">
                       <Icon name={item.icon} size={20} />
                     </span>
                   </div>
                 </Reveal>
 
-                <div className={flip ? "lg:order-1" : ""}>
+                <Reveal
+                  variant={flip ? "left" : "right"}
+                  delay={80}
+                  className={flip ? "lg:order-1" : ""}
+                >
                   <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-emerald">
                     {String(i + 1).padStart(2, "0")} · {item.tagline}
                   </span>
@@ -83,7 +91,7 @@ export default function IndustriesPage() {
                       <ArrowRight data-icon="inline-end" />
                     </Link>
                   </Button>
-                </div>
+                </Reveal>
               </div>
             );
           })}

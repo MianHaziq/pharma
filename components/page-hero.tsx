@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Photo } from "./photo";
+import { ParallaxImage } from "./parallax-image";
+import { Reveal } from "./reveal";
 
 export interface Crumb {
   label: string;
@@ -30,16 +31,18 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden bg-emerald-deep">
       {image ? (
-        <Photo
+        <ParallaxImage
           src={image}
           alt=""
           priority
           sizes="100vw"
+          speed={0.18}
           className="absolute inset-0"
           imgClassName="opacity-30 animate-slow-zoom"
         />
       ) : null}
       <div className="absolute inset-0 bg-gradient-to-b from-emerald-deep/85 via-emerald-deep/80 to-emerald-950" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(120%_100%_at_20%_0%,transparent_45%,rgb(4_26_21_/_0.5)_100%)]" />
       <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-30" />
 
       <div className="container-page relative pt-28 pb-14 sm:pt-36 sm:pb-20">
@@ -66,22 +69,32 @@ export function PageHero({
 
         <div className={cn("mt-7 max-w-3xl", centered && "mx-auto text-center")}>
           {eyebrow && (
-            <span className="eyebrow text-gold-soft">{eyebrow}</span>
+            <Reveal variant="fade">
+              <span className="eyebrow text-gold-soft">{eyebrow}</span>
+            </Reveal>
           )}
-          <h1 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-6xl">
-            {title}
-          </h1>
+          <Reveal delay={80}>
+            <h1 className="mt-5 font-display text-4xl leading-[1.05] tracking-tight text-white text-balance sm:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+          </Reveal>
           {description && (
-            <p
-              className={cn(
-                "mt-6 max-w-2xl text-lg leading-relaxed text-white/75",
-                centered && "mx-auto",
-              )}
-            >
-              {description}
-            </p>
+            <Reveal delay={160}>
+              <p
+                className={cn(
+                  "mt-6 max-w-2xl text-lg leading-relaxed text-white/75",
+                  centered && "mx-auto",
+                )}
+              >
+                {description}
+              </p>
+            </Reveal>
           )}
-          {children && <div className="mt-9">{children}</div>}
+          {children && (
+            <Reveal delay={240} className="mt-9">
+              {children}
+            </Reveal>
+          )}
         </div>
       </div>
     </section>

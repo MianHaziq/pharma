@@ -20,9 +20,10 @@ import { photo } from "@/lib/images";
 
 import { Hero } from "@/components/home/hero";
 import { PartnerMarquee } from "@/components/home/partner-marquee";
+import { CapabilitiesBand } from "@/components/home/capabilities-band";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
+import { ParallaxImage } from "@/components/parallax-image";
 import { StatStrip } from "@/components/stat-strip";
 import { Icon } from "@/components/icon";
 import { CategoryCard } from "@/components/portfolio/category-card";
@@ -62,18 +63,25 @@ export default function HomePage() {
       {/* Company introduction */}
       <section className="container-page py-20 lg:py-28">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal className="relative">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <Photo
-                src={photo("labScientist", 1100, 80)}
-                alt="AviCura scientist at work in the laboratory"
-                sizes="(min-width: 1024px) 45vw, 90vw"
-                className="h-full w-full"
-                imgClassName="hover:scale-105 transition-transform duration-[1200ms] ease-out"
-              />
-            </div>
+          <div className="relative">
+            <Reveal variant="clip" className="relative aspect-[4/5]">
+              <div className="absolute inset-0 overflow-hidden rounded-3xl">
+                <ParallaxImage
+                  src={photo("labScientist", 1100, 80)}
+                  alt="AviCura scientist at work in the laboratory"
+                  sizes="(min-width: 1024px) 45vw, 90vw"
+                  speed={0.12}
+                  className="absolute inset-0"
+                  imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
+                />
+              </div>
+            </Reveal>
             {/* Floating credential card */}
-            <div className="absolute -bottom-6 -right-4 hidden w-60 rounded-2xl border border-line bg-card p-5 shadow-[var(--shadow-elevated)] sm:block">
+            <Reveal
+              variant="scale"
+              delay={300}
+              className="absolute -bottom-6 -right-4 hidden w-60 rounded-2xl border border-line bg-card p-5 shadow-[var(--shadow-elevated)] sm:block"
+            >
               <div className="font-display text-4xl font-medium tracking-tight text-emerald">
                 20<span className="text-gold">+</span>
               </div>
@@ -83,8 +91,8 @@ export default function HomePage() {
               <p className="mt-1 font-mono text-[0.68rem] tracking-wide text-muted-foreground">
                 From lab bench to farm gate
               </p>
-            </div>
-          </Reveal>
+            </Reveal>
+          </div>
 
           <div>
             <SectionHeading
@@ -93,13 +101,13 @@ export default function HomePage() {
               description="AviCura Biosciences was founded to bring pharmaceutical-grade rigour to poultry production. Two decades on, our vaccines, medicines and nutrition protect flocks in 45 markets — developed by our own research team and made in GMP-certified facilities."
             />
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
-              <Reveal className="rounded-2xl border border-line bg-card p-6">
+              <Reveal variant="left" className="rounded-2xl border border-line bg-card p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card)]">
                 <span className="eyebrow-plain text-emerald">Our mission</span>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {missionVision.mission}
                 </p>
               </Reveal>
-              <Reveal delay={100} className="rounded-2xl border border-line bg-card p-6">
+              <Reveal variant="right" delay={100} className="rounded-2xl border border-line bg-card p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card)]">
                 <span className="eyebrow-plain text-emerald">Our vision</span>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                   {missionVision.vision}
@@ -151,6 +159,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Manufacturing scale — cinematic full-bleed storytelling band */}
+      <CapabilitiesBand />
+
       {/* Why choose us */}
       <section className="container-page py-20 lg:py-28">
         <SectionHeading
@@ -179,10 +190,11 @@ export default function HomePage() {
 
       {/* Research & innovation */}
       <section className="relative overflow-hidden bg-emerald-deep">
-        <Photo
+        <ParallaxImage
           src={photo("labMolecular", 1600, 70)}
           alt=""
           sizes="100vw"
+          speed={0.18}
           className="absolute inset-0"
           imgClassName="opacity-15"
         />

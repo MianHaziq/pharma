@@ -9,7 +9,7 @@ export function Testimonials({ className }: { className?: string }) {
     <div className={cn("grid gap-5 lg:grid-cols-3", className)}>
       {testimonials.map((t, i) => (
         <Reveal key={t.name} delay={i * 100}>
-          <figure className="flex h-full min-w-0 flex-col rounded-2xl border border-line bg-card p-7 transition-shadow duration-300 hover:shadow-[var(--shadow-card)]">
+          <figure className="flex h-full min-w-0 flex-col rounded-2xl border border-line bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald/20 hover:shadow-[var(--shadow-elevated)]">
             <Quote size={26} className="text-gold" strokeWidth={1.5} />
             <blockquote className="mt-5 flex-1 text-[0.975rem] leading-relaxed text-ink/85">
               “{t.quote}”
