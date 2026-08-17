@@ -1,215 +1,347 @@
 import Link from "next/link";
-import { ArrowRight, Egg, Bird, Drumstick, Feather } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
 import {
   getAllCategories,
   getProductCountByCategory,
   getFeaturedProducts,
   getBestSellers,
-  getProductsByCategory,
 } from "@/lib/catalog";
-import { heroBanners, wellnessPromo, campaignBanner, promoCards } from "@/data/banners";
 import { blogPosts } from "@/data/blog";
+import {
+  stats,
+  differentiators,
+  researchPillars,
+  certifications,
+  industries,
+  missionVision,
+} from "@/data/company";
+import { photo } from "@/lib/images";
 
-import { HeroCarousel } from "@/components/home/hero-carousel";
-import { Section } from "@/components/section";
-import { SectionHeader } from "@/components/section-header";
-import { CategoryCard } from "@/components/category/category-card";
-import { ProductGrid } from "@/components/product/product-grid";
-import { ProductCarousel } from "@/components/product/product-carousel";
-import { PromoBanner } from "@/components/home/promo-banner";
-import { FeatureBanner } from "@/components/home/feature-banner";
-import { PromoGrid } from "@/components/home/promo-grid";
-import { TrustFeatures } from "@/components/home/trust-features";
-import { BrandSection } from "@/components/home/brand-section";
-import { BlogCard } from "@/components/blog/blog-card";
-import { NewsletterForm } from "@/components/newsletter-form";
+import { Hero } from "@/components/home/hero";
+import { PartnerMarquee } from "@/components/home/partner-marquee";
+import { SectionHeading } from "@/components/section-heading";
+import { Reveal } from "@/components/reveal";
+import { Photo } from "@/components/photo";
+import { StatStrip } from "@/components/stat-strip";
+import { Icon } from "@/components/icon";
+import { CategoryCard } from "@/components/portfolio/category-card";
+import { ProductCard } from "@/components/portfolio/product-card";
+import { ArticleCard } from "@/components/insights/article-card";
+import { IndustryCard } from "@/components/industry-card";
+import { MobileShowMore } from "@/components/mobile-show-more";
+import { Testimonials } from "@/components/testimonials";
+import { CtaBand } from "@/components/cta-band";
 import { Button } from "@/components/ui/button";
-
-const flockStages = [
-  { icon: Egg, label: "Day-old chicks" },
-  { icon: Bird, label: "Broilers" },
-  { icon: Drumstick, label: "Layers" },
-  { icon: Feather, label: "Breeders" },
-];
 
 export default function HomePage() {
   const categories = getAllCategories();
   const featured = getFeaturedProducts(8);
-  const bestSellers = getBestSellers(8);
-  const wellnessProducts = getProductsByCategory("vitamins-electrolytes").slice(0, 3);
+  const fill = getBestSellers(8).filter(
+    (p) => !featured.some((f) => f.id === p.id),
+  );
+  const showcase = [...featured, ...fill].slice(0, 8);
 
   return (
     <>
-      <HeroCarousel banners={heroBanners} showcase={featured.slice(0, 3)} />
+      <Hero />
 
-      {/* Flock lifecycle strip */}
-      <div className="border-b border-border bg-card">
-        <div className="container-page flex flex-col items-center gap-4 py-5 sm:flex-row sm:justify-between">
-          <p className="text-sm font-semibold text-foreground">
-            Health for every stage of the flock
+      {/* Trusted-by strip */}
+      <section className="overflow-hidden border-b border-line bg-card">
+        <div className="container-page flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12">
+          <p className="shrink-0 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
+            Trusted by integrators
+            <br className="hidden lg:block" /> &amp; distributors in 45+ countries
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
-            {flockStages.map((stage) => (
-              <span
-                key={stage.label}
-                className="flex items-center gap-2 text-sm font-medium text-muted-foreground"
-              >
-                <span className="grid h-8 w-8 place-items-center rounded-full bg-brand-tint text-brand">
-                  <stage.icon size={16} />
-                </span>
-                {stage.label}
-              </span>
-            ))}
+          <div className="w-full min-w-0 overflow-hidden lg:flex-1">
+            <PartnerMarquee />
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Shop by category */}
-      <Section id="categories">
-        <SectionHeader
-          eyebrow="Browse the range"
-          title="Shop by category"
-          description="From vaccines and antibiotics to biosecurity and feed supplements — organised the way a farm thinks."
-          linkHref="/shop"
-          linkLabel="All products"
-        />
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-          {categories.map((cat) => (
-            <CategoryCard
-              key={cat.id}
-              category={cat}
-              productCount={getProductCountByCategory(cat.slug)}
+      {/* Company introduction */}
+      <section className="container-page py-20 lg:py-28">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <Reveal className="relative">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+              <Photo
+                src={photo("labScientist", 1100, 80)}
+                alt="AviCura scientist at work in the laboratory"
+                sizes="(min-width: 1024px) 45vw, 90vw"
+                className="h-full w-full"
+                imgClassName="hover:scale-105 transition-transform duration-[1200ms] ease-out"
+              />
+            </div>
+            {/* Floating credential card */}
+            <div className="absolute -bottom-6 -right-4 hidden w-60 rounded-2xl border border-line bg-card p-5 shadow-[var(--shadow-elevated)] sm:block">
+              <div className="font-display text-4xl font-medium tracking-tight text-emerald">
+                20<span className="text-gold">+</span>
+              </div>
+              <p className="mt-1 text-sm font-medium text-ink">
+                Years of poultry science
+              </p>
+              <p className="mt-1 font-mono text-[0.68rem] tracking-wide text-muted-foreground">
+                From lab bench to farm gate
+              </p>
+            </div>
+          </Reveal>
+
+          <div>
+            <SectionHeading
+              eyebrow="Who we are"
+              title="A poultry-health partner built on science."
+              description="AviCura Biosciences was founded to bring pharmaceutical-grade rigour to poultry production. Two decades on, our vaccines, medicines and nutrition protect flocks in 45 markets — developed by our own research team and made in GMP-certified facilities."
             />
-          ))}
+            <div className="mt-8 grid gap-5 sm:grid-cols-2">
+              <Reveal className="rounded-2xl border border-line bg-card p-6">
+                <span className="eyebrow-plain text-emerald">Our mission</span>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {missionVision.mission}
+                </p>
+              </Reveal>
+              <Reveal delay={100} className="rounded-2xl border border-line bg-card p-6">
+                <span className="eyebrow-plain text-emerald">Our vision</span>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {missionVision.vision}
+                </p>
+              </Reveal>
+            </div>
+            <Reveal delay={160} className="mt-8">
+              <Button asChild size="xl" variant="outline">
+                <Link href="/about">
+                  More about AviCura
+                  <ArrowRight data-icon="inline-end" />
+                </Link>
+              </Button>
+            </Reveal>
+          </div>
         </div>
-      </Section>
 
-      {/* Vaccination campaign banner */}
-      <Section spacing="sm">
-        <FeatureBanner banner={campaignBanner} />
-      </Section>
+        <Reveal className="mt-16 lg:mt-20">
+          <StatStrip stats={stats} />
+        </Reveal>
+      </section>
 
-      {/* Featured products */}
-      <Section spacing="sm">
-        <SectionHeader
-          eyebrow="Handpicked for you"
-          title="Featured products"
-          description="Trusted essentials our veterinary team and farmers reach for most."
-          linkHref="/shop?filter=featured"
-        />
-        <ProductGrid products={featured} className="mt-8" priorityCount={4} />
-      </Section>
-
-      {/* Vitamins promo */}
-      <Section spacing="sm">
-        <PromoBanner banner={wellnessPromo} products={wellnessProducts} variant="brand" />
-      </Section>
-
-      {/* Promo grid: biosecurity + distributor */}
-      <Section spacing="sm">
-        <PromoGrid cards={promoCards} />
-      </Section>
-
-      {/* Best sellers */}
-      <Section spacing="sm">
-        <SectionHeader
-          eyebrow="Loved by farmers"
-          title="Best sellers"
-          description="The products moving fastest across farms this week."
-          linkHref="/shop?filter=bestsellers"
-        />
-        <ProductCarousel products={bestSellers} className="mt-8" />
-      </Section>
+      {/* Solutions / portfolio */}
+      <section className="border-y border-line bg-mint/40">
+        <div className="container-page py-20 lg:py-28">
+          <SectionHeading
+            eyebrow="Product portfolio"
+            title="Solutions for every stage of the flock."
+            description="A complete, categorised range — from vaccines and antibiotics to nutrition and biosecurity — organised the way a poultry health program is planned."
+            linkHref="/solutions"
+            linkLabel="Full portfolio"
+          />
+          <MobileShowMore
+            initial={4}
+            label="Show all categories"
+            className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            {categories.map((cat, i) => (
+              <Reveal key={cat.id} delay={(i % 4) * 80}>
+                <CategoryCard
+                  category={cat}
+                  index={i}
+                  count={getProductCountByCategory(cat.slug)}
+                  className="h-full"
+                />
+              </Reveal>
+            ))}
+          </MobileShowMore>
+        </div>
+      </section>
 
       {/* Why choose us */}
-      <div className="bg-muted/40">
-        <Section>
-          <SectionHeader
-            eyebrow="The PoultriMed promise"
-            title="Why choose us"
-            description="A poultry-health partner built on genuine products, cold-chain and reliable delivery."
-            align="center"
-          />
-          <div className="mt-10">
-            <TrustFeatures />
-          </div>
-        </Section>
-      </div>
-
-      {/* Popular brands */}
-      <Section>
-        <SectionHeader
-          eyebrow="Trusted names"
-          title="Brands we carry"
-          description="Genuine products from the animal-health brands you know — plus our own GMP-certified range."
+      <section className="container-page py-20 lg:py-28">
+        <SectionHeading
+          eyebrow="Why AviCura"
+          title="Reasons producers choose us."
+          description="The advantages that show up on the farm — in flock performance, supply reliability and the confidence that every dose is exactly what the label says."
         />
-        <div className="mt-8">
-          <BrandSection />
+        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          {differentiators.map((d, i) => (
+            <Reveal key={d.title} delay={(i % 3) * 80} className="bg-card">
+              <div className="group h-full p-7 transition-colors hover:bg-mint/40">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-mint text-emerald ring-1 ring-emerald/10 transition-colors group-hover:bg-emerald group-hover:text-white">
+                  <Icon name={d.icon} size={22} />
+                </span>
+                <h3 className="mt-5 font-display text-lg tracking-tight text-ink">
+                  {d.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {d.description}
+                </p>
+              </div>
+            </Reveal>
+          ))}
         </div>
-      </Section>
+      </section>
 
-      {/* Poultry guides content */}
-      <div className="bg-brand-tint/40">
-        <Section>
-          <SectionHeader
-            eyebrow="Poultry health & management"
-            title="From the PoultriMed journal"
-            description="Practical, easy-to-read guidance to help you run a healthier, more productive flock."
-            linkHref="/blog"
-            linkLabel="All articles"
+      {/* Research & innovation */}
+      <section className="relative overflow-hidden bg-emerald-deep">
+        <Photo
+          src={photo("labMolecular", 1600, 70)}
+          alt=""
+          sizes="100vw"
+          className="absolute inset-0"
+          imgClassName="opacity-15"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-emerald-deep via-emerald-deep/95 to-emerald-950" />
+        <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-30" />
+        <div className="container-page relative py-20 lg:py-28">
+          <SectionHeading
+            dark
+            align="center"
+            eyebrow="Research & innovation"
+            title="Science is our starting point."
+            description="Our Innovation Center turns real field challenges into targeted, field-proven solutions — across diagnostics, formulation, vaccines and stewardship."
           />
-          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {blogPosts.map((post) => (
-              <BlogCard key={post.id} post={post} />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {researchPillars.map((p, i) => (
+              <Reveal key={p.title} delay={i * 90}>
+                <div className="h-full rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition-colors hover:border-gold/30 hover:bg-white/[0.07]">
+                  <span className="grid h-12 w-12 place-items-center rounded-xl bg-gold/15 text-gold-soft ring-1 ring-gold/20">
+                    <Icon name={p.icon} size={22} />
+                  </span>
+                  <h3 className="mt-5 font-display text-lg tracking-tight text-white">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/65">
+                    {p.description}
+                  </p>
+                </div>
+              </Reveal>
             ))}
           </div>
-        </Section>
-      </div>
+          <Reveal className="mt-12 text-center">
+            <Button asChild size="xl" variant="onDark">
+              <Link href="/research">
+                Inside our R&amp;D
+                <ArrowRight data-icon="inline-end" />
+              </Link>
+            </Button>
+          </Reveal>
+        </div>
+      </section>
 
-      {/* Newsletter CTA */}
-      <Section>
-        <div className="relative overflow-hidden rounded-2xl bg-brand-deep px-6 py-12 text-center text-primary-foreground sm:px-12 sm:py-16">
-          <div className="mx-auto max-w-xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.08em] text-primary-foreground/80">
-              <span aria-hidden>+</span> Join the community
-            </span>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
-              Poultry health tips in your inbox
-            </h2>
-            <p className="mx-auto mt-3 max-w-md text-sm text-primary-foreground/85 sm:text-base">
-              Get flock-health tips, seasonal reminders, exclusive offers and
-              product updates — straight to your inbox.
-            </p>
-            <div className="mx-auto mt-7 max-w-md">
-              <NewsletterForm className="[&_input]:bg-card [&_input]:text-foreground" />
+      {/* Featured products */}
+      <section className="container-page py-20 lg:py-28">
+        <SectionHeading
+          eyebrow="From the range"
+          title="Featured products."
+          description="A selection from a portfolio of 180+ registered products, each backed by full documentation and technical support."
+          linkHref="/solutions"
+          linkLabel="View all products"
+        />
+        <MobileShowMore
+          initial={4}
+          label="Show more products"
+          className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        >
+          {showcase.map((product, i) => (
+            <Reveal key={product.id} delay={(i % 4) * 80}>
+              <ProductCard product={product} className="h-full" />
+            </Reveal>
+          ))}
+        </MobileShowMore>
+      </section>
+
+      {/* Quality & certifications */}
+      <section className="border-y border-line bg-mint/40">
+        <div className="container-page py-20 lg:py-28">
+          <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
+            <div>
+              <SectionHeading
+                eyebrow="Quality & compliance"
+                title="Quality you can audit, batch after batch."
+                description="Every product is manufactured under GMP and released only against full pharmacopoeial specifications — with lot-level traceability from raw material to farm."
+                linkHref="/quality"
+                linkLabel="Our quality system"
+              />
             </div>
-            <p className="mt-4 text-xs text-primary-foreground/70">
-              No spam. Unsubscribe any time.
-            </p>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
+              {certifications.map((c, i) => (
+                <Reveal key={c.code} delay={(i % 3) * 70}>
+                  <div className="flex h-full flex-col rounded-2xl border border-line bg-card p-5 transition-shadow hover:shadow-[var(--shadow-card)]">
+                    <span className="font-display text-2xl font-medium tracking-tight text-emerald">
+                      {c.code}
+                    </span>
+                    <span className="mt-2 text-xs font-medium text-ink">
+                      {c.name}
+                    </span>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Bulk / distributor strip */}
-      <Section spacing="sm" className="pb-16">
-        <div className="flex flex-col items-center justify-between gap-4 rounded-2xl border border-border bg-card p-6 text-center sm:flex-row sm:text-left">
-          <div>
-            <h3 className="font-display text-xl font-semibold text-foreground">
-              Managing a large flock?
-            </h3>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Talk to our veterinary team for bulk pricing, vaccination
-              programmes and technical support.
-            </p>
-          </div>
-          <Button asChild size="lg" variant="outline" className="gap-2">
-            <Link href="/contact">
-              Contact our team
-              <ArrowRight size={17} />
-            </Link>
-          </Button>
+      {/* Industries */}
+      <section className="container-page py-20 lg:py-28">
+        <SectionHeading
+          eyebrow="Industries we serve"
+          title="Built for how poultry is produced."
+          description="From day-old chicks to integrated production at scale, our programs adapt to the realities of each operation."
+          linkHref="/industries"
+          linkLabel="All industries"
+        />
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6">
+          {industries.map((item, i) => (
+            <Reveal
+              key={item.slug}
+              delay={(i % 3) * 80}
+              className={i < 2 ? "lg:col-span-3" : "lg:col-span-2"}
+            >
+              <IndustryCard item={item} className="h-full" priority={i < 2} />
+            </Reveal>
+          ))}
         </div>
-      </Section>
+      </section>
+
+      {/* Testimonials */}
+      <section className="border-y border-line bg-mint/40">
+        <div className="container-page py-20 lg:py-28">
+          <SectionHeading
+            eyebrow="In their words"
+            title="Trusted by the people who raise the flock."
+            align="center"
+          />
+          <div className="mt-14">
+            <Testimonials />
+          </div>
+        </div>
+      </section>
+
+      {/* Insights */}
+      <section className="container-page py-20 lg:py-28">
+        <SectionHeading
+          eyebrow="Insights"
+          title="Knowledge from the field."
+          description="Practical guidance on poultry health and management from the AviCura technical team."
+          linkHref="/insights"
+          linkLabel="All insights"
+        />
+        <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {blogPosts.map((post, i) => (
+            <Reveal key={post.id} delay={(i % 4) * 80}>
+              <ArticleCard post={post} className="h-full" />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <div className="pb-20 lg:pb-28">
+        <CtaBand
+          eyebrow="Let's work together"
+          title="Let's build a healthier future for poultry."
+          description="Talk to our veterinary and commercial team about vaccination programs, product supply and distribution partnerships."
+          primary={{ label: "Contact our team", href: "/contact" }}
+          secondary={{ label: "Explore the portfolio", href: "/solutions" }}
+          image={photo("flockField", 1600, 70)}
+        />
+      </div>
     </>
   );
 }
