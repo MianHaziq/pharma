@@ -1,53 +1,66 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { company } from "@/data/company";
 
+// AviCura wordmark. The emblem is a stylised feather (poultry) with a gold quill
+// node (the science accent). `tone="light"` is for dark backgrounds.
 export function Logo({
   className,
   showText = true,
+  tone = "ink",
 }: {
   className?: string;
   showText?: boolean;
+  tone?: "ink" | "light";
 }) {
+  const light = tone === "light";
   return (
     <Link
       href="/"
+      aria-label={`${company.name} home`}
       className={cn(
-        "inline-flex items-center gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md",
+        "inline-flex items-center gap-2.5 rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         className,
       )}
-      aria-label="PoultriMed home"
     >
-      <span className="grid h-9 w-9 place-items-center rounded-[10px] bg-brand text-primary-foreground shadow-sm">
-        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-          <g fill="currentColor">
-            {/* body + head */}
-            <circle cx="10.4" cy="14" r="5.2" />
-            <circle cx="15.2" cy="9.2" r="3.6" />
-            {/* crest tuft */}
-            <path
-              d="M14.2 3.4c.5.8.4 1.8-.3 2.5"
-              stroke="currentColor"
-              strokeWidth="1.3"
-              fill="none"
-              strokeLinecap="round"
-            />
-            {/* beak */}
-            <path d="M18.2 7.9l3.1 1.3-3.1 1.3z" />
-            {/* legs */}
-            <rect x="8.5" y="18.4" width="1.3" height="3" rx="0.6" />
-            <rect x="11.5" y="18.4" width="1.3" height="3" rx="0.6" />
+      <span
+        className={cn(
+          "grid h-10 w-10 place-items-center rounded-xl shadow-sm ring-1 transition-colors",
+          light ? "bg-white/10 ring-white/20" : "bg-emerald ring-emerald/20",
+        )}
+      >
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none" aria-hidden="true">
+          <g
+            stroke="#ffffff"
+            strokeWidth="1.7"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M6.5 22.5C9 12.5 14 7 22 6" />
+            <path d="M12.3 12.6c1.6-1.8 4.4-2.7 7.4-2.8" />
+            <path d="M10.1 16c1.9-1.7 4.7-2.6 7.5-2.6" />
+            <path d="M8.4 19.4c1.8-1.4 4.3-2.2 6.9-2.2" />
           </g>
-          {/* eye */}
-          <circle cx="16.3" cy="8.7" r="0.75" fill="#0A4A3D" />
+          <circle cx="22" cy="6" r="2.4" fill="var(--gold)" />
         </svg>
       </span>
       {showText && (
         <span className="flex flex-col leading-none">
-          <span className="font-display text-lg font-semibold tracking-tight text-foreground">
-            PoultriMed
+          <span
+            className={cn(
+              "font-display text-[1.35rem] font-semibold tracking-tight",
+              light ? "text-white" : "text-ink",
+            )}
+          >
+            {company.name}
           </span>
-          <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-            Poultry Health
+          <span
+            className={cn(
+              "mt-1 font-mono text-[0.6rem] font-medium uppercase tracking-[0.28em]",
+              light ? "text-white/55" : "text-muted-foreground",
+            )}
+          >
+            Biosciences
           </span>
         </span>
       )}
