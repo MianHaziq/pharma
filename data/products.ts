@@ -472,7 +472,7 @@ export const products: Product[] = [
   {
     id: "p-ad3e",
     slug: "poultrimed-ad3e-vitamin-solution",
-    name: "PoultriMed AD3E Vitamin Solution",
+    name: "AviCura AD3E Vitamin Solution",
     brandId: "brand-poultrimed",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "multivitamins",
@@ -884,7 +884,7 @@ export const products: Product[] = [
   {
     id: "p-probiotic-plus",
     slug: "poultrimed-probiotic-plus",
-    name: "PoultriMed ProBiotic Plus",
+    name: "AviCura ProBiotic Plus",
     brandId: "brand-poultrimed",
     categorySlug: "probiotics-gut-health",
     subcategorySlug: "probiotics",

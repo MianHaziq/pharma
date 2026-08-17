@@ -49,7 +49,7 @@ export function getBrandBySlug(slug: string): Brand | undefined {
 }
 
 export function getBrandName(id: string): string {
-  return getBrandById(id)?.name ?? "PoultriMed";
+  return getBrandById(id)?.name ?? "AviCura";
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {

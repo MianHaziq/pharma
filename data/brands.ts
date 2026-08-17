@@ -7,7 +7,7 @@ export const brands: Brand[] = [
   {
     id: "brand-poultrimed",
     slug: "poultrimed",
-    name: "PoultriMed",
+    name: "AviCura",
     logoText: "PMD",
     description:
       "Our own GMP-certified range of poultry health essentials — formulated for local flocks and priced for the farm.",
