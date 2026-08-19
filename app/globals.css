@@ -223,7 +223,6 @@
   transition:
     opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
     transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    clip-path 0.95s cubic-bezier(0.16, 1, 0.3, 1),
     filter 0.85s ease;
   will-change: opacity, transform;
 }
@@ -234,25 +233,35 @@
 .reveal--scale { transform: scale(0.94); }
 .reveal--fade { transform: none; }
 .reveal--blur { transform: translateY(20px); filter: blur(10px); }
-/* Curtain wipe. Keep this wrapper corner-free; nest a rounded child if needed —
-   clip-path only affects the clip variant so card shadows are never cut. */
-.reveal--clip {
-  clip-path: inset(0 0 100% 0);
-  will-change: clip-path, opacity;
-}
 .reveal.is-visible {
   opacity: 1;
   transform: none;
   filter: none;
 }
-.reveal--clip.is-visible {
-  clip-path: inset(0 0 0 0);
-}
 
-/* Image "curtain" wipe used behind the clip reveal on framed photography. */
-@keyframes img-wipe {
-  from { clip-path: inset(0 0 100% 0); }
-  to { clip-path: inset(0 0 0 0); }
+/* Curtain wipe for framed photography. A panel covers the frame and slides
+   away on reveal — the PANEL does the hiding, never the observed element, so the
+   box keeps normal geometry. (Self-clipping the element to zero stops
+   IntersectionObserver from ever firing.) Curtain colour matches the section
+   ground via --reveal-curtain (defaults to paper). */
+.reveal--clip {
+  position: relative;
+  overflow: hidden;
+  opacity: 1;
+  will-change: opacity;
+}
+.reveal--clip::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: var(--reveal-curtain, var(--paper));
+  transform: translateY(0);
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.reveal--clip.is-visible::after {
+  transform: translateY(-101%);
 }
 
 /* A single slow light-sweep across a surface on hover — used on dark image
@@ -309,6 +318,60 @@
   to { opacity: 1; transform: none; }
 }
 
+/* ---------- Mobile drawer (Sheet) — smooth iOS/ChatGPT-style motion ---------- */
+/* Enter: fast-in, soft settle (the Vaul/iOS drawer curve). Exit: gentle accelerate. */
+@keyframes sheet-in-right {
+  from { transform: translate3d(100%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+@keyframes sheet-out-right {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(100%, 0, 0); }
+}
+@keyframes sheet-in-left {
+  from { transform: translate3d(-100%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+@keyframes sheet-out-left {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100%, 0, 0); }
+}
+@keyframes sheet-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sheet-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes sheet-item-in {
+  from { opacity: 0; transform: translateX(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+.sheet-overlay[data-state="open"] {
+  animation: sheet-fade-in 0.45s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.sheet-overlay[data-state="closed"] {
+  animation: sheet-fade-out 0.35s cubic-bezier(0.5, 0, 0.75, 0) both;
+}
+
+.sheet-panel {
+  will-change: transform;
+}
+.sheet-panel[data-side="right"][data-state="open"] {
+  animation: sheet-in-right 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.sheet-panel[data-side="right"][data-state="closed"] {
+  animation: sheet-out-right 0.4s cubic-bezier(0.5, 0, 0.75, 0) both;
+}
+.sheet-panel[data-side="left"][data-state="open"] {
+  animation: sheet-in-left 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+.sheet-panel[data-side="left"][data-state="closed"] {
+  animation: sheet-out-left 0.4s cubic-bezier(0.5, 0, 0.75, 0) both;
+}
+
+/* Gentle staggered reveal of the links once the panel is open */
+.sheet-panel[data-state="open"] .sheet-item {
+  animation: sheet-item-in 0.5s cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation-delay: calc(0.12s + var(--i, 0) * 0.045s);
+}
+
 /* WhatsApp floating button — gentle attention ring */
 @keyframes wa-pulse {
   0% { transform: scale(1); opacity: 0.5; }
@@ -329,8 +392,14 @@
     opacity: 1 !important;
     transform: none !important;
     filter: none !important;
-    clip-path: none !important;
   }
+  .reveal--clip::after { display: none !important; }
   .sheen::after { display: none !important; }
   .wa-ring { display: none !important; }
+  .sheet-overlay[data-state],
+  .sheet-panel[data-side][data-state],
+  .sheet-panel[data-state="open"] .sheet-item {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
 }

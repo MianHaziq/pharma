@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, ArrowRight, Phone, Mail } from "lucide-react";
@@ -118,12 +118,13 @@ function MobileMenu({ transparent }: { transparent: boolean }) {
         </SheetHeader>
 
         <nav className="flex flex-col p-4">
-          {primaryNav.map((item) => (
+          {primaryNav.map((item, i) => (
             <SheetClose asChild key={item.href}>
               <Link
                 href={item.href}
+                style={{ "--i": i } as CSSProperties}
                 className={cn(
-                  "flex items-center justify-between rounded-lg px-3 py-3.5 text-[0.95rem] font-medium transition-colors",
+                  "sheet-item flex items-center justify-between rounded-lg px-3 py-3.5 text-[0.95rem] font-medium transition-colors",
                   isActive(pathname, item.href)
                     ? "bg-mint text-emerald"
                     : "text-ink hover:bg-muted",
@@ -135,7 +136,12 @@ function MobileMenu({ transparent }: { transparent: boolean }) {
             </SheetClose>
           ))}
           <SheetClose asChild>
-            <Button asChild size="xl" className="mt-4">
+            <Button
+              asChild
+              size="xl"
+              className="sheet-item mt-4"
+              style={{ "--i": primaryNav.length } as CSSProperties}
+            >
               <Link href="/contact">Contact us</Link>
             </Button>
           </SheetClose>
