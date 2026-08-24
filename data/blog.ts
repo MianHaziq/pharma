@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
     category: "Vaccination",
     readTime: "5 min read",
     date: "2026-08-04",
-    author: "AviCura Technical Team",
+    author: "Bilal Technical Team",
     tone: "sky",
     content: [
       "A good vaccination programme is the backbone of flock health. The goal is simple: protect birds before disease challenge arrives, while working with — not against — the maternal antibodies chicks carry from the breeder.",
@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     category: "Gut Health",
     readTime: "4 min read",
     date: "2026-07-26",
-    author: "AviCura Technical Team",
+    author: "Bilal Technical Team",
     tone: "coral",
     content: [
       "Coccidiosis is caused by Eimeria parasites that damage the gut lining, leading to poor absorption, wet litter and — in clinical cases — blood in droppings and rising mortality. Even subclinical infection quietly erodes feed conversion.",
@@ -49,7 +49,7 @@ export const blogPosts: BlogPost[] = [
     category: "Biosecurity",
     readTime: "4 min read",
     date: "2026-07-16",
-    author: "AviCura Technical Team",
+    author: "Bilal Technical Team",
     tone: "steel",
     content: [
       "The cheapest disease to treat is the one that never gets in. Strong biosecurity is mostly routine: control who and what enters, and clean thoroughly between flocks.",
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
     category: "Management",
     readTime: "3 min read",
     date: "2026-07-06",
-    author: "AviCura Technical Team",
+    author: "Bilal Technical Team",
     tone: "amber",
     content: [
       "Heat stress cuts feed intake, slows growth and, at its worst, raises mortality. Birds lose the ability to cool themselves efficiently as temperature and humidity rise, so management has to do the work for them.",

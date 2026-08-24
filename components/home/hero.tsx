@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 
 // The three pillars, echoed as a professional feature row over the hero art.
 const heroFeatures = [
-  { icon: Syringe, title: "Vaccines & Medicines", note: "GMP-certified, field-proven" },
+  { icon: Syringe, title: "Vaccines & Medicines", note: "Trusted brands, cold-chain kept" },
   { icon: Wheat, title: "Nutrition & Gut Health", note: "Balanced performance nutrition" },
-  { icon: Stethoscope, title: "Veterinary Support", note: "Expert care for every flock" },
+  { icon: Stethoscope, title: "Veterinary Support", note: "Expert product guidance" },
 ];
 
 // Trust cluster — monogram initials stand in for producer logos/photos.
@@ -62,9 +62,9 @@ export function Hero() {
             className="mt-4 font-display text-[2.05rem] leading-[1.07] tracking-tight text-white text-balance opacity-0 sm:text-[2.5rem] xl:mt-6 xl:text-[4.2rem]"
             style={{ animation: "fade-in 0.8s ease-out 0.22s forwards" }}
           >
-            Advancing poultry health
+            Trusted poultry health
             <br className="hidden xl:block" />{" "}
-            <span className="text-gold-soft">through science.</span>
+            <span className="text-gold-soft">brands, delivered.</span>
           </h1>
 
           {/* Supporting line — laptops only; kept off smaller screens to reveal
@@ -73,9 +73,9 @@ export function Hero() {
             className="hidden max-w-lg text-lg leading-relaxed text-white/80 opacity-0 xl:mt-6 xl:block"
             style={{ animation: "fade-in 0.8s ease-out 0.36s forwards" }}
           >
-            From vaccines and medicines to nutrition and veterinary support —
-            AviCura is with you at every stage of the flock, from the laboratory
-            to the farm.
+            From vaccines and medicines to nutrition and biosecurity, Bilal
+            Pharmaceuticals imports and distributes the animal-health brands
+            poultry producers rely on — backed by expert support.
           </p>
 
           {/* Feature pillars — clean stack below xl, a compact divided row on
@@ -146,7 +146,7 @@ export function Hero() {
                 Trusted by producers
               </div>
               <div className="font-mono text-[0.68rem] uppercase tracking-[0.12em] text-white/55">
-                across 45+ countries
+                farms · vets · retailers
               </div>
             </div>
           </div>

@@ -260,7 +260,7 @@ export default async function ProductPage({
 
       <div className="py-20 lg:py-28">
         <CtaBand
-          title="Bring AviCura quality to your operation."
+          title="Bring trusted brands to your operation."
           description="Talk to our team about product supply, programs and distribution."
           primary={{ label: "Contact our team", href: "/contact" }}
           secondary={{ label: "Explore the portfolio", href: "/solutions" }}

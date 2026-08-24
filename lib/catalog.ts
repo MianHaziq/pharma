@@ -49,7 +49,7 @@ export function getBrandBySlug(slug: string): Brand | undefined {
 }
 
 export function getBrandName(id: string): string {
-  return getBrandById(id)?.name ?? "AviCura";
+  return getBrandById(id)?.name ?? "Bilal Pharmaceuticals";
 }
 
 export function getProductsByCategory(categorySlug: string): Product[] {

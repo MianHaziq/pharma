@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ArrowRight } from "lucide-react";
 import {
   stats,
   values,
@@ -21,7 +20,7 @@ import { CtaBand } from "@/components/cta-band";
 export const metadata: Metadata = {
   title: "About the company",
   description:
-    "AviCura Biosciences brings pharmaceutical-grade rigour to poultry health — from research and manufacturing to the people behind every product.",
+    "Bilal Pharmaceuticals imports and distributes trusted poultry-health brands — the company, its values and the people behind every delivery.",
 };
 
 export default function AboutPage() {
@@ -29,8 +28,8 @@ export default function AboutPage() {
     <>
       <PageHero
         eyebrow="Our company"
-        title="Pharmaceutical rigour, poultry expertise."
-        description="For two decades AviCura has developed and manufactured the vaccines, medicines and nutrition that keep the world's flocks healthy and productive."
+        title="Trusted brands, poultry expertise."
+        description="Bilal Pharmaceuticals imports and distributes the vaccines, medicines and nutrition that keep flocks healthy — pairing the world's leading brands with reliable supply and expert support."
         image={photo("manufacturing", 1800, 70)}
         crumbs={[{ label: "Home", href: "/" }, { label: "Company" }]}
       />
@@ -41,21 +40,21 @@ export default function AboutPage() {
           <div>
             <SectionHeading
               eyebrow="Our story"
-              title="Built to raise the standard of poultry health."
-              description={`Founded in ${company.established}, AviCura set out to close the gap between human-grade pharmaceutical quality and the fast-moving realities of commercial poultry production.`}
+              title="Built to make quality poultry health accessible."
+              description={`Founded in ${company.established}, Bilal Pharmaceuticals set out to give local poultry producers dependable access to the trusted animal-health brands they need.`}
             />
             <Reveal variant="left" delay={80} className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
               <p>
-                What began as a small formulation lab in Utrecht is now an
-                international poultry-health company — with dedicated research,
-                GMP-certified manufacturing and veterinary teams supporting
-                producers across 45 markets.
+                What began as a small importing business is now a trusted
+                distribution partner — sourcing from leading international
+                manufacturers and supplying poultry farms, veterinarians and
+                retailers with reliable stock and honest advice.
               </p>
               <p>
                 We are specialists, not generalists. Poultry is not one line among
-                many; it is the whole of what we do. That focus is why our
-                vaccines, medicines and nutrition are designed around the diseases,
-                stresses and economics that actually shape a flock's performance.
+                many; it is the whole of what we do. That focus is why we curate a
+                portfolio built around the diseases, stresses and economics that
+                actually shape how a flock performs.
               </p>
             </Reveal>
           </div>
@@ -64,7 +63,7 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4">
               <ParallaxImage
                 src={photo("labBench", 700, 75)}
-                alt="Formulation research at AviCura"
+                alt="Quality poultry-health products distributed by Bilal Pharmaceuticals"
                 sizes="(min-width: 1024px) 22vw, 45vw"
                 speed={0.1}
                 className="aspect-[3/4] rounded-2xl"
@@ -109,7 +108,7 @@ export default function AboutPage() {
       <section className="container-page py-20 lg:py-28">
         <SectionHeading
           eyebrow="What we stand for"
-          title="The principles behind every batch."
+          title="The principles behind every delivery."
           align="center"
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -136,8 +135,8 @@ export default function AboutPage() {
         <div className="container-page py-20 lg:py-28">
           <SectionHeading
             eyebrow="Our journey"
-            title="Two decades of growth."
-            description="A steady progression from a single formulation lab to an international poultry-health company."
+            title="Years of steady growth."
+            description="A steady progression from a small importing business to a trusted poultry-health distribution partner."
           />
           <ol className="mt-14 space-y-0">
             {milestones.map((m, i) => (
@@ -169,8 +168,8 @@ export default function AboutPage() {
       <section className="container-page py-20 lg:py-28">
         <SectionHeading
           eyebrow="Leadership"
-          title="The team behind AviCura."
-          description="Scientists and operators who have spent their careers in animal health."
+          title="The team behind Bilal Pharmaceuticals."
+          description="Experienced people who have spent their careers in poultry health and distribution."
         />
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {leadership.map((person, i) => (
@@ -198,10 +197,10 @@ export default function AboutPage() {
       <div className="pb-20 lg:pb-28">
         <CtaBand
           eyebrow="Work with us"
-          title="Bring pharmaceutical quality to your flock."
-          description="Partner with a poultry-health company that treats quality as non-negotiable."
+          title="Bring trusted brands to your flock."
+          description="Partner with a poultry-health distributor that treats quality and reliability as non-negotiable."
           primary={{ label: "Contact our team", href: "/contact" }}
-          secondary={{ label: "Explore solutions", href: "/solutions" }}
+          secondary={{ label: "Explore products", href: "/solutions" }}
           image={photo("brooderHouse", 1600, 70)}
         />
       </div>

@@ -1,115 +1,64 @@
 import type { Brand } from "@/lib/types";
 
-// Brand names reference well-known animal-health companies as "brands carried"
-// by this demo store. All descriptions are original placeholder copy.
+// The principal brands Bilal Pharmaceuticals imports & distributes, plus its own
+// curated house line. These are the client's confirmed partners — the Foshan and
+// IPPE photographs on the About page document the Leads Pharma relationship
+// first-hand. Product descriptions are original demo copy; confirm the final
+// range and any specialist claims with each principal before launch.
 
 export const brands: Brand[] = [
   {
-    id: "brand-poultrimed",
-    slug: "poultrimed",
-    name: "AviCura",
-    logoText: "PMD",
+    id: "brand-bilal-select",
+    slug: "bilal-select",
+    name: "Bilal Select",
+    logoText: "BS",
     description:
-      "Our own GMP-certified range of poultry health essentials — formulated for local flocks and priced for the farm.",
+      "Our own curated, exclusively-imported line of animal-health essentials — hand-picked for quality and priced for the farm.",
     featured: true,
   },
   {
-    id: "brand-zoetis",
-    slug: "zoetis",
-    name: "Zoetis",
-    logoText: "Zoetis",
+    id: "brand-toppharma",
+    slug: "top-pharma",
+    name: "Top Pharma",
+    logoText: "Top",
     description:
-      "Global animal-health leader known for poultry vaccines, anti-infectives and medicated feed additives.",
+      "A broad range of veterinary pharmaceuticals — anti-infectives, water-soluble medicines and supportive care for everyday animal health.",
     featured: true,
   },
   {
-    id: "brand-ceva",
-    slug: "ceva",
-    name: "Ceva",
-    logoText: "CEVA",
+    id: "brand-leads",
+    slug: "leads-pharma",
+    name: "Leads Pharma",
+    logoText: "Leads",
     description:
-      "Poultry vaccination specialist with a strong hatchery and live-vaccine portfolio.",
+      "Islamabad-based animal-health principal with a strong vaccine and specialty portfolio — a partner we work with directly at source and at international shows.",
     featured: true,
   },
   {
-    id: "brand-msd",
-    slug: "msd-animal-health",
-    name: "MSD Animal Health",
-    logoText: "MSD",
+    id: "brand-vetycare",
+    slug: "vety-care",
+    name: "Vety Care (Pvt.) Ltd.",
+    logoText: "Vety",
     description:
-      "Research-driven vaccines and biologicals trusted across commercial poultry operations.",
+      "Veterinary-care specialists offering tonics, supplements and supportive therapies that keep animals performing through the cycle.",
     featured: true,
   },
   {
-    id: "brand-boehringer",
-    slug: "boehringer-ingelheim",
-    name: "Boehringer Ingelheim",
-    logoText: "BI",
+    id: "brand-orient",
+    slug: "orient-traders",
+    name: "Orient Traders",
+    logoText: "Orient",
     description:
-      "Animal-health innovator with a broad poultry vaccine and health-management range.",
+      "Trusted importers of feed additives, disinfectants and biosecurity products for modern operations.",
     featured: true,
   },
   {
-    id: "brand-elanco",
-    slug: "elanco",
-    name: "Elanco",
-    logoText: "Elanco",
+    id: "brand-multivet",
+    slug: "multivet-pharma",
+    name: "Multivet Pharma",
+    logoText: "Multivet",
     description:
-      "Feed additives, anticoccidials and productivity solutions for modern poultry farming.",
+      "Multivitamins, electrolytes and nutritional specialties engineered to support growth, hydration and stress recovery.",
     featured: true,
-  },
-  {
-    id: "brand-hipra",
-    slug: "hipra",
-    name: "HIPRA",
-    logoText: "HIPRA",
-    description:
-      "Vaccine-focused animal-health company with autogenous and conventional poultry biologicals.",
-    featured: true,
-  },
-  {
-    id: "brand-virbac",
-    slug: "virbac",
-    name: "Virbac",
-    logoText: "Virbac",
-    description:
-      "Independent animal-health brand offering anti-infectives, dewormers and supplements.",
-    featured: true,
-  },
-  {
-    id: "brand-huvepharma",
-    slug: "huvepharma",
-    name: "Huvepharma",
-    logoText: "Huve",
-    description:
-      "Anticoccidials, enzymes and probiotics engineered for gut health and performance.",
-    featured: false,
-  },
-  {
-    id: "brand-phibro",
-    slug: "phibro",
-    name: "Phibro",
-    logoText: "Phibro",
-    description:
-      "Nutritional specialties, mineral premixes and mycotoxin management for poultry.",
-    featured: false,
-  },
-  {
-    id: "brand-vetoquinol",
-    slug: "vetoquinol",
-    name: "Vetoquinol",
-    logoText: "Vetoq",
-    description:
-      "Veterinary pharmaceuticals spanning anti-infectives, tonics and supportive care.",
-    featured: false,
-  },
-  {
-    id: "brand-kepro",
-    slug: "kepro",
-    name: "Kepro",
-    logoText: "Kepro",
-    description:
-      "Water-soluble medicines, vitamins and disinfectants for practical farm use.",
-    featured: false,
   },
 ];

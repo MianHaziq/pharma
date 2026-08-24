@@ -8,18 +8,18 @@ import { ParallaxImage } from "@/components/parallax-image";
 import { CtaBand } from "@/components/cta-band";
 
 export const metadata: Metadata = {
-  title: "Quality & compliance",
+  title: "Quality & handling",
   description:
-    "GMP manufacturing, independent batch release, cold-chain integrity and full traceability — how AviCura guarantees quality in every dose.",
+    "Authorised sourcing, cold-chain storage, careful handling and full traceability — how Bilal Pharmaceuticals protects quality in every product it supplies.",
 };
 
 export default function QualityPage() {
   return (
     <>
       <PageHero
-        eyebrow="Quality & compliance"
-        title="Quality you can audit, batch after batch."
-        description="In poultry health there is no room for variability. Every AviCura product is built to a specification and proven against it before it ever reaches a farm."
+        eyebrow="Quality & handling"
+        title="Quality protected, batch after batch."
+        description="In poultry health there is no room for variability. Every product we supply is sourced through authorised channels and handled with care until it reaches your farm."
         image={photo("qualityControl", 1800, 70)}
         crumbs={[{ label: "Home", href: "/" }, { label: "Quality" }]}
       />
@@ -30,27 +30,27 @@ export default function QualityPage() {
           <div>
             <SectionHeading
               eyebrow="Our commitment"
-              title="Quality is not a department — it's the design."
-              description="From facility design to the final release check, quality is engineered into every step rather than inspected in at the end."
+              title="Quality is not a step — it's every step."
+              description="From choosing which manufacturers to work with to the final dispatch check, quality is built into how we source, store and handle every product."
             />
             <div className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
               <p>
-                Our manufacturing sites operate under Good Manufacturing Practice,
-                with separate lines for biologicals and pharmaceuticals to prevent
-                cross-contamination and protect potency.
+                We source only from reputable manufacturers, through their
+                official and authorised distribution channels — never unverified
+                product.
               </p>
               <p>
-                Independent quality units test at every critical stage, and a
-                qualified person releases each batch only when it fully meets
-                pharmacopoeial specifications — with lot-level traceability that
-                follows the product all the way to the farm.
+                Goods are held in clean, temperature-appropriate conditions — cold
+                chain where required — and checked for authenticity, condition and
+                shelf life, with lot-level traceability that follows each product
+                all the way to the farm.
               </p>
             </div>
           </div>
           <Reveal variant="right">
             <ParallaxImage
               src={photo("manufacturing", 1100, 80)}
-              alt="GMP-certified manufacturing at AviCura"
+              alt="Temperature-controlled storage and handling at Bilal Pharmaceuticals"
               sizes="(min-width: 1024px) 45vw, 90vw"
               speed={0.14}
               className="aspect-[4/3] rounded-3xl"
@@ -66,8 +66,8 @@ export default function QualityPage() {
           <SectionHeading
             dark
             eyebrow="The quality system"
-            title="Five controls behind every dose."
-            description="A single, documented chain of custody from raw material to farm gate."
+            title="Five controls behind every delivery."
+            description="A single, documented chain of custody from the manufacturer to your farm gate."
           />
           <div className="mt-14 space-y-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
             {qualitySteps.map((s, i) => (
@@ -116,9 +116,9 @@ export default function QualityPage() {
       <section className="border-t border-line bg-mint/40">
         <div className="container-page py-20 lg:py-28">
           <SectionHeading
-            eyebrow="Certifications & standards"
-            title="Independently verified, market by market."
-            description="Our systems are certified to internationally recognised standards, with documentation maintained for every market we serve."
+            eyebrow="Standards we uphold"
+            title="The standards behind how we work."
+            description="The practices and compliance standards we hold ourselves to when sourcing, storing and supplying poultry-health products."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {certifications.map((c, i) => (
@@ -138,8 +138,9 @@ export default function QualityPage() {
             ))}
           </div>
           <p className="mt-8 font-mono text-[0.72rem] leading-relaxed tracking-wide text-muted-foreground">
-            Certification names shown are illustrative placeholders for this demo
-            and can be replaced with AviCura's actual certificates.
+            Standards shown are illustrative placeholders for this demo and can be
+            replaced with the real licenses and certificates held by Bilal
+            Pharmaceuticals.
           </p>
         </div>
       </section>

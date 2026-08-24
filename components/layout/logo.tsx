@@ -2,8 +2,9 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { company } from "@/data/company";
 
-// AviCura wordmark. The emblem is a stylised feather (poultry) with a gold quill
-// node (the science accent). `tone="light"` is for dark backgrounds.
+// Bilal Pharmaceuticals wordmark. Placeholder emblem for the demo — replace with
+// the client's "b" monogram from the business card. `tone="light"` is for dark
+// backgrounds.
 export function Logo({
   className,
   showText = true,
@@ -60,7 +61,7 @@ export function Logo({
               light ? "text-white/55" : "text-muted-foreground",
             )}
           >
-            Biosciences
+            Pharmaceuticals
           </span>
         </span>
       )}

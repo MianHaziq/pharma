@@ -1,47 +1,55 @@
 // ─────────────────────────────────────────────────────────────
-// AviCura — single source of truth for corporate content.
-// All copy is original demo content for a fictional company. Swap any value
-// here (name, contact, stats, people, nav) and it updates across the site.
+// Bilal Pharmaceuticals — single source of truth for corporate content.
+// The company is an IMPORTER & DISTRIBUTOR of poultry-health products (it does
+// not manufacture). Swap any value here (name, contact, stats, people, nav) and
+// it updates across the site.
+//
+// NOTE FOR REVIEW: values marked "// placeholder" (founding year, headline
+// numbers, milestone dates, leadership beyond the CEO, testimonials) are demo
+// figures — replace them with the client's real details before launch.
 // ─────────────────────────────────────────────────────────────
 
-import { photos } from "@/lib/images";
+import { photos, team } from "@/lib/images";
 
 export const company = {
-  name: "AviCura",
-  legalName: "AviCura Biosciences",
-  tagline: "Advancing poultry health through science",
-  established: 2004,
-  domain: "avicura.example",
-  registration: "AVC",
+  name: "Bilal Pharmaceuticals",
+  legalName: "Bilal Pharmaceuticals",
+  tagline: "Importers & distributors of animal-health products",
+  established: 2010, // placeholder — confirm real founding year
+  domain: "bilalpharmaceuticals.pk",
+  registration: "BP",
   description:
-    "AviCura Biosciences develops and manufactures pharmaceuticals, vaccines and nutritional health solutions for modern poultry production — engineered in the laboratory and proven on the farm.",
+    "Bilal Pharmaceuticals imports and distributes trusted animal-health products — vaccines, medicines, nutrition and biosecurity from leading manufacturers — backed by reliable supply and expert technical support.",
   descriptionShort:
-    "Pharmaceuticals, vaccines and nutrition for modern poultry production.",
-  phone: "+31 30 555 0140",
-  email: "hello@avicura.example",
-  salesEmail: "partnerships@avicura.example",
-  vetEmail: "vetsupport@avicura.example",
-  mediaEmail: "media@avicura.example",
+    "Trusted animal-health products from leading manufacturers.",
+  phone: "+92 336 8883 198",
+  phone2: "+92 302 8699 198",
+  email: "chbilalpharmaceuticals@gmail.com",
+  // Single mailbox on the card — role addresses point to the same inbox for now.
+  salesEmail: "chbilalpharmaceuticals@gmail.com",
+  vetEmail: "chbilalpharmaceuticals@gmail.com",
+  mediaEmail: "chbilalpharmaceuticals@gmail.com",
+  ceo: "Muhammad Imran",
   hq: {
-    line1: "Bioscience Park, Building 7",
-    line2: "3584 CM Utrecht, Netherlands",
+    line1: "Rathore Heights, Plot No. 14, Johar Blvd",
+    line2: "DHA Phase 5, Islamabad, Pakistan",
   },
   disclaimer:
-    "AviCura is a fictional company. This site is a design demonstration and all content is illustrative — not veterinary advice.",
+    "Some figures, imagery and profiles on this site are placeholders for the design demo and will be replaced with final content.",
 };
 
 export const socials = [
   { name: "linkedin", label: "LinkedIn", href: "#" },
+  { name: "facebook", label: "Facebook", href: "#" },
   { name: "x", label: "X", href: "#" },
   { name: "youtube", label: "YouTube", href: "#" },
-  { name: "facebook", label: "Facebook", href: "#" },
 ] as const;
 
 // ── Navigation ────────────────────────────────────────────────
 export const primaryNav = [
   { label: "Company", href: "/about" },
-  { label: "Solutions", href: "/solutions" },
-  { label: "Research", href: "/research" },
+  { label: "Products", href: "/solutions" },
+  { label: "Brands", href: "/research" },
   { label: "Quality", href: "/quality" },
   { label: "Industries", href: "/industries" },
   { label: "Insights", href: "/insights" },
@@ -51,18 +59,18 @@ export const footerNav = [
   {
     title: "Company",
     links: [
-      { label: "About AviCura", href: "/about" },
-      { label: "Research & Innovation", href: "/research" },
-      { label: "Quality & Compliance", href: "/quality" },
+      { label: "About us", href: "/about" },
+      { label: "Brands we distribute", href: "/research" },
+      { label: "Quality & handling", href: "/quality" },
       { label: "Industries", href: "/industries" },
       { label: "Insights", href: "/insights" },
       { label: "Contact", href: "/contact" },
     ],
   },
   {
-    title: "Solutions",
+    title: "Products",
     links: [
-      { label: "Portfolio overview", href: "/solutions" },
+      { label: "Product portfolio", href: "/solutions" },
       { label: "Vaccines", href: "/solutions/vaccines" },
       { label: "Antibiotics", href: "/solutions/antibiotics" },
       { label: "Vitamins & Electrolytes", href: "/solutions/vitamins-electrolytes" },
@@ -74,9 +82,9 @@ export const footerNav = [
     title: "Resources",
     links: [
       { label: "Technical support", href: "/contact" },
-      { label: "Certifications", href: "/quality" },
+      { label: "Standards we uphold", href: "/quality" },
       { label: "Newsroom", href: "/insights" },
-      { label: "Partnerships", href: "/contact" },
+      { label: "Become a partner", href: "/contact" },
     ],
   },
   {
@@ -89,71 +97,73 @@ export const footerNav = [
 ];
 
 // ── Headline statistics (animated counters) ───────────────────
+// Distributor metrics — no geographic/coverage claims. // placeholder numbers
 export const stats = [
-  { value: 20, prefix: "", suffix: "+", label: "Years of poultry science" },
-  { value: 180, prefix: "", suffix: "+", label: "Registered products" },
-  { value: 45, prefix: "", suffix: "", label: "Countries served" },
-  { value: 30, prefix: "", suffix: "+", label: "Active research programs" },
+  { value: 15, prefix: "", suffix: "+", label: "Years serving poultry producers" },
+  { value: 6, prefix: "", suffix: "", label: "Principal brands we represent" },
+  { value: 200, prefix: "", suffix: "+", label: "Poultry-health products supplied" },
+  { value: 800, prefix: "", suffix: "+", label: "Farms & vets served" },
 ];
 
 export const heroStats = [
-  { value: 45, prefix: "", suffix: "", label: "Countries served" },
-  { value: 180, prefix: "", suffix: "+", label: "Registered products" },
-  { value: 20, prefix: "", suffix: "+", label: "Years of science" },
+  { value: 6, prefix: "", suffix: "", label: "Brands represented" },
+  { value: 200, prefix: "", suffix: "+", label: "Products supplied" },
+  { value: 15, prefix: "", suffix: "+", label: "Years in poultry health" },
 ];
 
+// Distributor capabilities — no coverage/geography. // placeholder figures
 export const capabilities = [
-  { value: "1.8B", label: "Doses produced each year" },
-  { value: "12", label: "Dedicated production lines" },
-  { value: "98.7%", label: "On-time, in-full delivery" },
-  { value: "2–8°C", label: "Validated cold chain" },
+  { value: "6", label: "Principal brands represented" },
+  { value: "200+", label: "Products in the portfolio" },
+  { value: "2–8°C", label: "Cold-chain storage & handling" },
+  { value: "48h", label: "Typical order dispatch" },
 ];
 
 // ── Mission / vision ──────────────────────────────────────────
 export const missionVision = {
   mission:
-    "To protect the health and productivity of the world's poultry with science-led pharmaceuticals, vaccines and nutrition that producers can trust.",
+    "To give poultry producers dependable access to the world's most trusted animal-health products — sourced with care, stored correctly and delivered with expert support.",
   vision:
-    "A world where every flock is raised healthier, more efficiently and more responsibly — supported by accessible veterinary science.",
+    "To be the poultry sector's most trusted partner for quality animal-health products and the technical know-how to use them well.",
 };
 
 // ── Why choose us ─────────────────────────────────────────────
 export const differentiators = [
   {
     icon: "ShieldCheck",
-    title: "Quality without compromise",
+    title: "Trusted brands only",
     description:
-      "Every batch is released against pharmacopoeial specifications, with full traceability from raw material to finished vial.",
-  },
-  {
-    icon: "FlaskConical",
-    title: "Science at the core",
-    description:
-      "A dedicated R&D team and diagnostic partners turn real field challenges into targeted, proven solutions.",
-  },
-  {
-    icon: "Factory",
-    title: "Advanced manufacturing",
-    description:
-      "GMP-certified facilities with separate biological and pharmaceutical lines and validated cold-chain handling.",
-  },
-  {
-    icon: "Stethoscope",
-    title: "Veterinary expertise",
-    description:
-      "Poultry veterinarians support customers with vaccination programs, diagnostics and on-farm guidance.",
+      "We import and distribute only established, quality-assured animal-health brands — every product traceable to its manufacturer.",
   },
   {
     icon: "Truck",
-    title: "Reliable global supply",
+    title: "Reliable supply",
     description:
-      "A resilient supply network and cold-chain logistics keep 45+ markets consistently stocked.",
+      "Well-managed inventory and dependable dispatch keep the essential products within reach when your flock needs them.",
   },
   {
-    icon: "ClipboardCheck",
-    title: "Regulatory compliance",
+    icon: "Snowflake",
+    title: "Cold chain protected",
     description:
-      "Products registered and maintained to the standards of every market we serve, backed by full documentation.",
+      "Vaccines and sensitive biologicals are stored and handled under proper temperature control to protect their potency.",
+  },
+  {
+    icon: "Stethoscope",
+    title: "Veterinary support",
+    description:
+      "Our team helps you choose the right product and use it correctly, with practical poultry-health guidance.",
+  },
+  {
+    icon: "PackageCheck",
+    title: "Quality you can verify",
+    description:
+      "Product documentation, certificates and batch information are available on request for everything we supply.",
+  },
+  {
+    icon: "Users",
+    title: "Long-term partnership",
+    description:
+      "We build lasting relationships with farms, veterinarians and retailers — not one-off transactions.",
   },
 ];
 
@@ -163,194 +173,173 @@ export const values = [
     icon: "ShieldCheck",
     title: "Integrity",
     description:
-      "We do what protects the flock and the farmer, even when no one is auditing. Quality is never a variable.",
+      "We supply only what we would use ourselves. Authenticity and quality are never negotiable.",
   },
   {
-    icon: "Microscope",
-    title: "Scientific rigor",
+    icon: "Truck",
+    title: "Reliability",
     description:
-      "Decisions are grounded in evidence — from the research bench to the field trial to the batch record.",
+      "Producers plan around us, so we hold stock and deliver on our word — consignment after consignment.",
   },
   {
     icon: "Users",
     title: "Partnership",
     description:
-      "We succeed when our customers do, so we invest in long-term technical relationships, not transactions.",
+      "We succeed when our customers do, so we invest in long-term relationships, not transactions.",
   },
   {
-    icon: "Leaf",
-    title: "Responsibility",
+    icon: "Stethoscope",
+    title: "Expertise",
     description:
-      "We champion antimicrobial stewardship and lower-impact production as part of a healthier food system.",
+      "Sound, honest product advice grounded in real poultry-health experience.",
   },
 ];
 
 // ── History / milestones ──────────────────────────────────────
+// placeholder dates — confirm the real timeline with the client
 export const milestones = [
   {
-    year: "2004",
-    title: "Founded in Utrecht",
+    year: "2010",
+    title: "Founded in Islamabad",
     description:
-      "AviCura is established to bring pharmaceutical-grade quality to poultry health.",
-  },
-  {
-    year: "2009",
-    title: "First GMP facility",
-    description:
-      "Commissioning of our first good-manufacturing-practice line for water-soluble medicines.",
+      "Bilal Pharmaceuticals is established to bring quality poultry-health products to local producers.",
   },
   {
     year: "2013",
-    title: "Vaccine platform",
+    title: "First brand partnerships",
     description:
-      "Launch of our live and inactivated vaccine platform for respiratory and enteric disease.",
+      "Distribution agreements signed with leading international animal-health brands.",
   },
   {
-    year: "2017",
-    title: "Innovation Center",
+    year: "2016",
+    title: "Cold-chain storage",
     description:
-      "Opening of the AviCura Innovation Center for diagnostics and formulation research.",
+      "Investment in temperature-controlled storage to protect vaccines and biologicals.",
   },
   {
-    year: "2021",
-    title: "45 markets",
+    year: "2019",
+    title: "A wider portfolio",
     description:
-      "Registration and distribution expand across Europe, MEA, the Americas and Asia Pacific.",
+      "The range grows across vaccines, medicines, nutrition and biosecurity.",
+  },
+  {
+    year: "2022",
+    title: "Technical support team",
+    description:
+      "A dedicated team is added to advise producers on product selection and use.",
   },
   {
     year: "2025",
-    title: "Sustainable biologics",
+    title: "A trusted partner",
     description:
-      "A new biologics suite opens alongside a program to lower the footprint of every dose.",
+      "Serving poultry farms, veterinarians and retailers with a complete poultry-health range.",
   },
 ];
 
-// ── Global presence ───────────────────────────────────────────
-export const offices = [
-  {
-    region: "Europe",
-    city: "Utrecht, Netherlands",
-    detail: "Global headquarters & central R&D",
-    isHq: true,
-  },
-  {
-    region: "North America",
-    city: "Atlanta, United States",
-    detail: "Regional office & technical services",
-    isHq: false,
-  },
-  {
-    region: "Middle East & Africa",
-    city: "Dubai, UAE",
-    detail: "Distribution hub & veterinary support",
-    isHq: false,
-  },
-  {
-    region: "Asia Pacific",
-    city: "Singapore",
-    detail: "Regional office & product registration",
-    isHq: false,
-  },
-];
-
-// ── Research pillars ──────────────────────────────────────────
+// ── Why source through us (distribution pillars) ──────────────
 export const researchPillars = [
   {
-    icon: "Microscope",
-    title: "Applied diagnostics",
+    icon: "Globe",
+    title: "Global sourcing",
     description:
-      "Serological and molecular monitoring that turns field data into sharper, more effective programs.",
+      "We bring proven poultry-health products from leading international manufacturers directly to your operation.",
   },
   {
-    icon: "FlaskConical",
-    title: "Formulation science",
+    icon: "Snowflake",
+    title: "Cold chain & storage",
     description:
-      "Stable, palatable, water-soluble and in-feed formulations built for real farm conditions.",
+      "Temperature-controlled storage and careful handling protect potency from arrival to delivery.",
   },
   {
-    icon: "Dna",
-    title: "Vaccine development",
+    icon: "Stethoscope",
+    title: "Technical guidance",
     description:
-      "Live, inactivated and vector platforms targeting the respiratory and enteric diseases that matter most.",
+      "Practical advice on product selection, dosing and vaccination programs for your flock.",
   },
   {
-    icon: "Leaf",
-    title: "Antimicrobial stewardship",
+    icon: "Truck",
+    title: "Dependable supply",
     description:
-      "Gut-health and nutrition programs that reduce reliance on antibiotics without losing performance.",
+      "Consistent availability and responsive service that farms and veterinarians can plan around.",
   },
 ];
 
-// ── Quality process (an ordered sequence) ─────────────────────
+// ── Sourcing → delivery process (an ordered sequence) ─────────
 export const qualitySteps = [
   {
     step: "01",
-    title: "Raw material control",
+    title: "Careful brand selection",
     description:
-      "Every incoming material is sampled, tested and quarantined until it meets specification.",
+      "We partner only with reputable manufacturers whose quality systems we trust.",
   },
   {
     step: "02",
-    title: "Validated manufacturing",
+    title: "Verified sourcing",
     description:
-      "Production runs on qualified equipment under documented, GMP-controlled processes.",
+      "Products are procured through official, authorised channels with complete documentation.",
   },
   {
     step: "03",
-    title: "In-process testing",
+    title: "Proper storage",
     description:
-      "Critical quality attributes are monitored at every stage — not only at the end of the line.",
+      "Goods are held in clean, temperature-appropriate conditions — cold chain where required.",
   },
   {
     step: "04",
-    title: "Independent batch release",
+    title: "Careful handling & dispatch",
     description:
-      "A qualified person releases each batch only against full pharmacopoeial specifications.",
+      "Orders are checked, handled and dispatched to preserve product integrity and shelf life.",
   },
   {
     step: "05",
-    title: "Cold chain & traceability",
+    title: "Traceability & support",
     description:
-      "Temperature-controlled logistics and lot-level traceability protect potency all the way to the farm.",
+      "Batch and expiry details are recorded, with documentation and advice available on request.",
   },
 ];
 
-// ── Certifications ────────────────────────────────────────────
+// ── Standards we uphold ───────────────────────────────────────
+// Distributor-appropriate credentials (not manufacturing certs). // placeholder
 export const certifications = [
   {
-    code: "GMP",
-    name: "Good Manufacturing Practice",
+    code: "DRAP",
+    name: "Regulatory compliance",
     description:
-      "Manufacturing facilities audited and certified to WHO-aligned GMP standards.",
+      "We handle and supply products in line with Drug Regulatory Authority of Pakistan requirements.",
   },
   {
-    code: "ISO 9001",
-    name: "Quality Management",
-    description: "A certified quality-management system across the organization.",
+    code: "2–8°C",
+    name: "Temperature control",
+    description:
+      "Storage and handling procedures designed to protect vaccines and sensitive biologicals.",
   },
   {
-    code: "ISO 14001",
-    name: "Environmental Management",
-    description: "Independently certified environmental management and reporting.",
+    code: "QA",
+    name: "Incoming quality checks",
+    description:
+      "Every consignment is verified for authenticity, condition and remaining shelf life.",
   },
   {
-    code: "GLP",
-    name: "Good Laboratory Practice",
-    description: "Research and testing conducted under GLP-compliant conditions.",
+    code: "LOT",
+    name: "Batch traceability",
+    description:
+      "Lot and expiry details are recorded so any product can be traced and documented.",
   },
   {
-    code: "HACCP",
-    name: "Hazard Analysis",
-    description: "Preventive food-safety controls across nutritional product lines.",
+    code: "OEM",
+    name: "Authorised sourcing",
+    description:
+      "Products are procured only through the manufacturers' authorised distribution channels.",
   },
   {
-    code: "ISO 45001",
-    name: "Occupational Health & Safety",
-    description: "A certified framework protecting the people behind every product.",
+    code: "DOCS",
+    name: "Full documentation",
+    description:
+      "Certificates of analysis and product data are available to customers on request.",
   },
 ];
 
-// ── Industries / applications ─────────────────────────────────
+// ── Industries / applications (poultry only) ──────────────────
 export const industries = [
   {
     slug: "broilers",
@@ -359,7 +348,7 @@ export const industries = [
     image: photos.brooderHouse,
     tagline: "From placement to processing",
     description:
-      "Programs that protect growth, uniformity and feed efficiency across the grow-out cycle.",
+      "Products that protect growth, uniformity and feed efficiency across the grow-out cycle.",
     points: [
       "Respiratory & enteric disease control",
       "Gut-health and performance nutrition",
@@ -373,9 +362,9 @@ export const industries = [
     image: photos.henClose,
     tagline: "Long-cycle health & shell quality",
     description:
-      "Sustained immunity, calcium metabolism and shell quality across long laying cycles.",
+      "Support for sustained immunity, calcium metabolism and shell quality across long laying cycles.",
     points: [
-      "Multi-age immunity programs",
+      "Multi-age immunity products",
       "Calcium & mineral support",
       "Stress and heat management",
     ],
@@ -387,25 +376,11 @@ export const industries = [
     image: photos.roosterProfile,
     tagline: "Protection for the next generation",
     description:
-      "Immunity and reproductive performance that pass maternal protection to the chicks.",
+      "Immunity and reproductive-health products that help pass maternal protection to the chicks.",
     points: [
       "Maternal antibody programs",
       "Reproductive-health nutrition",
-      "Vaccination & titre monitoring",
-    ],
-  },
-  {
-    slug: "hatcheries",
-    name: "Hatcheries",
-    icon: "Egg",
-    image: photos.eggsCollect,
-    tagline: "A strong, even start",
-    description:
-      "Day-one protection and hatchery hygiene for uniform, resilient chicks.",
-    points: [
-      "Hatchery vaccination",
-      "Egg & environment disinfection",
-      "Early-life nutrition",
+      "Vaccines & titre monitoring support",
     ],
   },
   {
@@ -413,58 +388,45 @@ export const industries = [
     name: "Integrated production",
     icon: "Factory",
     image: photos.farmPanorama,
-    tagline: "End-to-end health management",
+    tagline: "End-to-end supply",
     description:
-      "Coordinated health programs for large, vertically integrated operations at scale.",
+      "Consistent supply of a full product range for large, vertically integrated operations.",
     points: [
-      "Standardized health protocols",
-      "Central technical services",
-      "Supply reliability at volume",
+      "Standardised product supply",
+      "Central technical support",
+      "Reliable availability at volume",
     ],
   },
 ];
 
 // ── Leadership (monogram avatars) ─────────────────────────────
+// Only the CEO is confirmed (from the business card). Add the rest of the team
+// with real names, roles and photos before launch. // placeholder
 export const leadership = [
   {
-    name: "Dr. Elise Vermeer",
+    name: "Muhammad Imran",
     role: "Chief Executive Officer",
-    focus: "Veterinary microbiologist with 20 years in animal-health leadership.",
-    initials: "EV",
-  },
-  {
-    name: "Dr. Marcus Reilly",
-    role: "Chief Scientific Officer",
-    focus: "Leads vaccine and formulation research across all AviCura platforms.",
-    initials: "MR",
-  },
-  {
-    name: "Priya Nair",
-    role: "VP, Global Quality",
-    focus: "Accountable for GMP compliance and batch release worldwide.",
-    initials: "PN",
-  },
-  {
-    name: "Tomás Herrera",
-    role: "VP, Commercial",
-    focus: "Builds distributor and integrator partnerships across 45 markets.",
-    initials: "TH",
+    focus:
+      "Leads Bilal Pharmaceuticals' sourcing, brand partnerships and technical service to poultry producers — and represents the company personally at international trade shows and supplier audits.",
+    initials: "MI",
+    image: team.ceoPortrait,
   },
 ];
 
 // ── Testimonials ──────────────────────────────────────────────
+// placeholder testimonials — replace with real customer quotes
 export const testimonials = [
   {
     quote:
-      "AviCura's vaccination program and technical support cut our respiratory challenges dramatically. What keeps us with them is the consistency — batch after batch.",
+      "Bilal Pharmaceuticals keeps the vaccines and medicines we depend on in stock and in good condition. Their team knows poultry and always picks up the phone.",
     name: "Daniel Okonkwo",
     role: "Production Director",
-    org: "Integrated broiler operation · 4.2M birds",
+    org: "Integrated broiler operation",
     initials: "DO",
   },
   {
     quote:
-      "As a consulting vet I recommend products I can stand behind. AviCura's documentation, titre data and field results give me the confidence to do that.",
+      "As a consulting vet, I need reliable products and honest advice. Bilal supplies trusted brands and backs them with real technical support.",
     name: "Dr. Sarah Bloom",
     role: "Consulting Poultry Veterinarian",
     org: "Independent practice",
@@ -472,44 +434,104 @@ export const testimonials = [
   },
   {
     quote:
-      "Reliable supply is everything for a distributor. AviCura delivers on time, in full, with the cold chain intact — and their team picks up the phone.",
+      "Consistent supply and correct cold-chain handling matter to us. Bilal delivers on both — order after order.",
     name: "Rahul Mehta",
-    role: "Head of Distribution",
-    org: "Regional animal-health distributor",
+    role: "Farm Owner",
+    org: "Commercial layer farm",
     initials: "RM",
   },
 ];
 
-// ── Trusted-by marquee ────────────────────────────────────────
+// ── Brands we import & distribute (marquee) ───────────────────
 export const partners = [
-  "Nutrecta",
-  "Avanor Group",
-  "BioNexa",
-  "Provet Global",
-  "AgriHealth",
-  "Vetalink",
-  "Coretica",
-  "Zenith Farms",
+  "Bilal Select",
+  "Top Pharma",
+  "Leads Pharma",
+  "Vety Care",
+  "Orient Traders",
+  "Multivet Pharma",
+];
+
+// ── On the record — real trade-show, supplier & industry engagements ──────
+// Documented by the client's own photography (see /public/team). Captions are
+// deliberately factual: what the photo verifiably shows, no unconfirmed names.
+export const onTheRecord = [
+  {
+    image: team.ippeExpo,
+    tag: "IPPE · USA",
+    title: "International Production & Processing Expo",
+    caption:
+      "On the floor at IPPE — the world's largest annual poultry, meat and feed event — keeping sourcing and product knowledge current.",
+    aspect: "portrait" as const,
+    position: "center 30%",
+  },
+  {
+    image: team.space2024,
+    tag: "SPACE 2024 · Rennes, France",
+    title: "Salon International des Productions Animales",
+    caption:
+      "SPACE 2024, one of Europe's leading animal-production exhibitions — meeting principals and evaluating new animal-health lines.",
+    aspect: "landscape" as const,
+    position: "center 28%",
+  },
+  {
+    image: team.foshanVisit,
+    tag: "Foshan · China",
+    title: "Supplier & packaging audit",
+    caption:
+      "A supplier visit in Foshan, Guangdong — seeing manufacturing and packaging first-hand before product reaches our customers.",
+    aspect: "wide" as const,
+    position: "center 42%",
+  },
+  {
+    image: team.award2026,
+    tag: "Zaryans Business Group · 2026",
+    title: "40 Years Annual Business Conference of Excellence",
+    caption:
+      "Recognised at the Zaryans Business Group conference — an event backed by poultry and agri-business names including Quality Poultry Breeders and PACE Pharma.",
+    aspect: "landscape" as const,
+    position: "center 35%",
+  },
+  {
+    image: team.industrySeminar,
+    tag: "Industry roundtable · Pakistan",
+    title: "At the table with the sector",
+    caption:
+      "Sitting in on a poultry-sector roundtable — staying close to the questions producers and veterinarians are actually asking.",
+    aspect: "landscape" as const,
+    position: "center 32%",
+  },
+  {
+    image: team.newYork,
+    tag: "New York · USA",
+    title: "Relationships handled in person",
+    caption:
+      "Principal and supplier relationships are managed personally — from Islamabad to trade floors across Asia, Europe and North America.",
+    // Landscape frame + bottom alignment shows the street-level scene and keeps
+    // the building fascia out of frame.
+    aspect: "landscape" as const,
+    position: "center bottom",
+  },
 ];
 
 // ── Contact channels ──────────────────────────────────────────
 export const contactChannels = [
   {
-    icon: "Users",
-    title: "Partnerships & distribution",
-    description: "Become a distribution partner or discuss volume supply.",
-    detail: "partnerships@avicura.example",
+    icon: "Boxes",
+    title: "Sales & orders",
+    description: "Product enquiries, pricing and placing an order.",
+    detail: "chbilalpharmaceuticals@gmail.com",
   },
   {
     icon: "Stethoscope",
-    title: "Veterinary & technical support",
-    description: "Program design, diagnostics and product guidance.",
-    detail: "vetsupport@avicura.example",
+    title: "Technical & veterinary support",
+    description: "Product selection, dosing and vaccination guidance.",
+    detail: "chbilalpharmaceuticals@gmail.com",
   },
   {
-    icon: "Newspaper",
-    title: "Media & press",
-    description: "Interviews, statements and company information.",
-    detail: "media@avicura.example",
+    icon: "Users",
+    title: "Brand partnerships",
+    description: "Manufacturers seeking a distribution partner.",
+    detail: "chbilalpharmaceuticals@gmail.com",
   },
 ];

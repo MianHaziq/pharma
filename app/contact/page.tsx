@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
-import { company, contactChannels, offices } from "@/data/company";
+import { company, contactChannels } from "@/data/company";
 import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { Icon } from "@/components/icon";
@@ -10,7 +10,7 @@ import { photo } from "@/lib/images";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Talk to the AviCura team about vaccination programs, product supply, technical support and distribution partnerships.",
+    "Talk to the Bilal Pharmaceuticals team about product supply, orders, technical support and brand partnerships.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="Let's talk poultry health."
-        description="Whether you're planning a vaccination program, sourcing product or exploring a partnership, our veterinary and commercial teams are ready to help."
+        description="Whether you're placing an order, sourcing a specific product or exploring a brand partnership, our team is ready to help."
         image={photo("farmHouse", 1800, 70)}
         crumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
@@ -60,7 +60,7 @@ export default function ContactPage() {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-emerald" />
                 <div className="text-sm text-ink">
-                  <div className="font-medium">Global headquarters</div>
+                  <div className="font-medium">Head office</div>
                   <div className="mt-1 text-muted-foreground">
                     {company.hq.line1}
                     <br />
@@ -77,6 +77,13 @@ export default function ContactPage() {
                   {company.phone}
                 </a>
                 <a
+                  href={`tel:${company.phone2.replace(/\s/g, "")}`}
+                  className="flex items-center gap-3 text-ink hover:text-emerald"
+                >
+                  <Phone size={17} className="text-emerald" />
+                  {company.phone2}
+                </a>
+                <a
                   href={`mailto:${company.email}`}
                   className="flex items-center gap-3 text-ink hover:text-emerald"
                 >
@@ -85,7 +92,7 @@ export default function ContactPage() {
                 </a>
                 <p className="flex items-center gap-3 text-muted-foreground">
                   <Clock size={17} className="text-emerald" />
-                  Mon–Fri · 08:00–18:00 CET
+                  Mon–Sat · 09:00–18:00 PKT
                 </p>
               </div>
             </div>
@@ -106,40 +113,6 @@ export default function ContactPage() {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      {/* Offices */}
-      <section className="border-t border-line bg-mint/40">
-        <div className="container-page py-16 lg:py-20">
-          <span className="eyebrow text-emerald">Global presence</span>
-          <h2 className="mt-4 font-display text-3xl tracking-tight text-ink">
-            Where to find us
-          </h2>
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {offices.map((o, i) => (
-              <Reveal key={o.city} delay={i * 80}>
-                <div className="h-full rounded-2xl border border-line bg-card p-6">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[0.7rem] uppercase tracking-wider text-muted-foreground">
-                      {o.region}
-                    </span>
-                    {o.isHq && (
-                      <span className="rounded bg-gold/15 px-1.5 py-0.5 font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-gold">
-                        HQ
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="mt-3 font-display text-lg tracking-tight text-ink">
-                    {o.city}
-                  </h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">
-                    {o.detail}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
     </>

@@ -14,7 +14,7 @@ import { CtaBand } from "@/components/cta-band";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Practical guidance on poultry health, nutrition, biosecurity and flock management from the AviCura technical team.",
+    "Practical guidance on poultry health, nutrition, biosecurity and flock management from the Bilal Pharmaceuticals technical team.",
 };
 
 export default function InsightsPage() {
@@ -26,7 +26,7 @@ export default function InsightsPage() {
       <PageHero
         eyebrow="Insights & newsroom"
         title="Knowledge from the field."
-        description="Field notes, guidance and company news from the veterinarians and scientists behind AviCura."
+        description="Field notes, guidance and company news from the poultry-health team at Bilal Pharmaceuticals."
         image={photo("henPortrait", 1800, 70)}
         crumbs={[{ label: "Home", href: "/" }, { label: "Insights" }]}
       />
@@ -105,7 +105,7 @@ export default function InsightsPage() {
       <div className="pb-20 lg:pb-28">
         <CtaBand
           eyebrow="Stay informed"
-          title="Get AviCura insights in your inbox."
+          title="Get Bilal Pharmaceuticals insights in your inbox."
           description="Occasional field notes, product updates and company news — no noise."
           primary={{ label: "Contact our team", href: "/contact" }}
           secondary={{ label: "Explore solutions", href: "/solutions" }}

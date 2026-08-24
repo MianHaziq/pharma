@@ -3,10 +3,12 @@
 @import "shadcn/tailwind.css";
 
 /*
-  AviCura — corporate design system.
-  Emerald (health · nature · poultry) + warm gold (premium accent), set on a
-  clean near-white "specimen paper". A monospace "index" layer carries catalog
-  codes and section markers — the signature of a biosciences dossier.
+  Bilal Pharmaceuticals — corporate design system.
+  NOTE: colours below are the current demo theme (emerald + gold). The brand
+  direction is being revisited — two demo palettes are planned (business-card
+  navy blue + white, and a professional orange + white). Update the tokens in
+  :root when the palette is chosen.
+  A monospace "index" layer carries catalog codes and section markers.
 */
 
 @theme inline {

@@ -7,7 +7,7 @@ import { Reveal } from "./reveal";
 
 // Recurring conversion band. Optional background photograph; always emerald.
 export function CtaBand({
-  eyebrow = "Partner with AviCura",
+  eyebrow = "Partner with Bilal Pharmaceuticals",
   title,
   description,
   primary = { label: "Contact our team", href: "/contact" },

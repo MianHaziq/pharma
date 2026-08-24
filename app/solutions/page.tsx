@@ -14,9 +14,9 @@ import { ProductCard } from "@/components/portfolio/product-card";
 import { CtaBand } from "@/components/cta-band";
 
 export const metadata: Metadata = {
-  title: "Solutions & portfolio",
+  title: "Products & portfolio",
   description:
-    "The complete AviCura portfolio — vaccines, antibiotics, nutrition, gut health, biosecurity and more for modern poultry production.",
+    "The Bilal Pharmaceuticals portfolio — vaccines, antibiotics, nutrition, gut health, biosecurity and more, from the world's leading poultry-health brands.",
 };
 
 export default function SolutionsPage() {
@@ -30,11 +30,11 @@ export default function SolutionsPage() {
   return (
     <>
       <PageHero
-        eyebrow="Solutions · Portfolio"
+        eyebrow="Products · Portfolio"
         title="A complete poultry-health portfolio."
-        description="180+ registered products across eight therapeutic categories — each developed by our research team, made under GMP and backed by full technical support."
+        description="A broad range across every therapeutic category — sourced from the world's leading animal-health brands and backed by full technical support. Detailed product listings are coming soon."
         image={photo("production", 1800, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Solutions" }]}
+        crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
       />
 
       {/* Categories */}
@@ -79,10 +79,10 @@ export default function SolutionsPage() {
       <div className="py-20 lg:py-28">
         <CtaBand
           eyebrow="Technical support"
-          title="Not sure which solution fits?"
-          description="Our poultry veterinarians help design programs around your flock, your challenges and your production system."
-          primary={{ label: "Talk to a vet", href: "/contact" }}
-          secondary={{ label: "See our research", href: "/research" }}
+          title="Not sure which product fits?"
+          description="Our team helps you choose the right products for your flock, your challenges and your production system."
+          primary={{ label: "Talk to our team", href: "/contact" }}
+          secondary={{ label: "See our brands", href: "/research" }}
           image={photo("labPipette", 1600, 70)}
         />
       </div>

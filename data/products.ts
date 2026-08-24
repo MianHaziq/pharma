@@ -11,7 +11,7 @@ export const products: Product[] = [
     id: "p-nd-lasota",
     slug: "newcastle-disease-vaccine-lasota",
     name: "Newcastle Disease Vaccine (LaSota)",
-    brandId: "brand-ceva",
+    brandId: "brand-leads",
     categorySlug: "vaccines",
     subcategorySlug: "live-vaccines",
     shortDescription:
@@ -36,7 +36,7 @@ export const products: Product[] = [
     usage:
       "Reconstitute in cool, clean, chlorine-free water and administer to withheld birds. Typical use at day 7 and repeated per your veterinarian's programme.",
     warnings:
-      "For veterinary use in poultry only. Maintain cold chain (2–8°C). Vaccinate only healthy birds. Use reconstituted vaccine within 2 hours.",
+      "For veterinary use only. Maintain cold chain (2–8°C). Vaccinate only healthy birds. Use reconstituted vaccine within 2 hours.",
     reviews: [
       {
         id: "r-nd-1",
@@ -62,7 +62,7 @@ export const products: Product[] = [
     id: "p-ib-h120",
     slug: "infectious-bronchitis-vaccine-h120",
     name: "Infectious Bronchitis Vaccine (H120)",
-    brandId: "brand-msd",
+    brandId: "brand-leads",
     categorySlug: "vaccines",
     subcategorySlug: "live-vaccines",
     shortDescription: "Live H120 strain for respiratory protection in chicks.",
@@ -80,19 +80,19 @@ export const products: Product[] = [
     keyBenefits: [
       "Early protection against infectious bronchitis",
       "Gentle Mass-type H120 strain",
-      "Ideal for hatchery or first-week use",
+      "Ideal for first-week use",
     ],
     ingredients: ["Live IB virus, H120 strain ≥ 10^3.5 EID50 / dose"],
     usage:
       "Administer via eye-drop, coarse spray or drinking water to day-old or young chicks as directed by your veterinarian.",
     warnings:
-      "For veterinary use in poultry only. Store at 2–8°C. Use immediately after reconstitution.",
+      "For veterinary use only. Store at 2–8°C. Use immediately after reconstitution.",
   },
   {
     id: "p-gumboro-inter",
     slug: "gumboro-ibd-vaccine-intermediate",
     name: "Gumboro (IBD) Vaccine — Intermediate",
-    brandId: "brand-zoetis",
+    brandId: "brand-toppharma",
     categorySlug: "vaccines",
     subcategorySlug: "live-vaccines",
     shortDescription:
@@ -117,13 +117,13 @@ export const products: Product[] = [
     usage:
       "Administer via drinking water at the age advised by your veterinarian, typically between days 12–18.",
     warnings:
-      "For veterinary use in poultry only. Maintain cold chain. Time vaccination against maternal antibody decline for best results.",
+      "For veterinary use only. Maintain cold chain. Time vaccination against maternal antibody decline for best results.",
   },
   {
     id: "p-nd-ib-killed",
     slug: "nd-ib-killed-oil-vaccine",
     name: "ND + IB Killed Oil Emulsion Vaccine",
-    brandId: "brand-boehringer",
+    brandId: "brand-leads",
     categorySlug: "vaccines",
     subcategorySlug: "killed-vaccines",
     shortDescription:
@@ -155,7 +155,7 @@ export const products: Product[] = [
     id: "p-fowl-pox",
     slug: "fowl-pox-vaccine",
     name: "Fowl Pox Vaccine (Live)",
-    brandId: "brand-hipra",
+    brandId: "brand-vetycare",
     categorySlug: "vaccines",
     subcategorySlug: "live-vaccines",
     shortDescription: "Live vaccine applied by wing-web for fowl pox control.",
@@ -179,18 +179,18 @@ export const products: Product[] = [
     usage:
       "Reconstitute with supplied diluent and apply by wing-web stab, typically at 6–10 weeks. Check for 'takes' after 7–10 days.",
     warnings:
-      "For veterinary use in poultry only. Maintain cold chain. Confirm vaccination 'takes' and revaccinate non-responders.",
+      "For veterinary use only. Maintain cold chain. Confirm vaccination 'takes' and revaccinate non-responders.",
   },
   {
     id: "p-marek-hvt",
     slug: "mareks-disease-vaccine-hvt",
     name: "Marek's Disease Vaccine (HVT)",
-    brandId: "brand-msd",
+    brandId: "brand-leads",
     categorySlug: "vaccines",
-    subcategorySlug: "hatchery-vaccines",
+    subcategorySlug: "day-old-vaccines",
     shortDescription: "Cell-associated HVT vaccine for day-old chicks.",
     description:
-      "A herpesvirus of turkeys (HVT) vaccine for immunisation of day-old chicks against Marek's disease. Handled under strict cold-chain and administered at the hatchery.",
+      "A herpesvirus of turkeys (HVT) vaccine for immunisation of day-old chicks against Marek's disease. Handled under strict cold-chain and administered at day-old.",
     images: ["art:bottle:lavender", "art:bottle:steel"],
     price: 2450,
     currency: "PKR",
@@ -202,12 +202,12 @@ export const products: Product[] = [
     packSize: "1000 doses / ampoule",
     keyBenefits: [
       "Protects against Marek's disease from day one",
-      "Hatchery-administered for uniform coverage",
+      "Administered at day-old for uniform coverage",
       "Cell-associated HVT strain",
     ],
     ingredients: ["Live HVT (FC-126 strain)", "Liquid nitrogen storage"],
     usage:
-      "Thaw and dilute per protocol; inject 0.2 ml subcutaneously at day-old. For hatchery/professional use.",
+      "Thaw and dilute per protocol; inject 0.2 ml subcutaneously at day-old. For professional use.",
     warnings:
       "Veterinary prescription required. Requires liquid-nitrogen storage and trained handling. Order with cold-chain delivery.",
   },
@@ -215,7 +215,7 @@ export const products: Product[] = [
     id: "p-nd-clone30",
     slug: "newcastle-clone-vaccine",
     name: "Newcastle Clone Vaccine",
-    brandId: "brand-ceva",
+    brandId: "brand-leads",
     categorySlug: "vaccines",
     subcategorySlug: "live-vaccines",
     shortDescription: "Cloned lentogenic strain for a gentle respiratory take.",
@@ -239,7 +239,7 @@ export const products: Product[] = [
     usage:
       "Administer via coarse spray or drinking water from day-old as advised by your veterinarian.",
     warnings:
-      "For veterinary use in poultry only. Maintain cold chain and use promptly after reconstitution.",
+      "For veterinary use only. Maintain cold chain and use promptly after reconstitution.",
   },
 
   // ─── Antibiotics & Antibacterials ──────────────────────────
@@ -247,7 +247,7 @@ export const products: Product[] = [
     id: "p-enrofloxacin",
     slug: "enrofloxacin-10-oral-solution",
     name: "Enrofloxacin 10% Oral Solution",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "antibiotics",
     subcategorySlug: "water-soluble",
     shortDescription:
@@ -273,7 +273,7 @@ export const products: Product[] = [
     usage:
       "Add to drinking water at the rate advised by your veterinarian (commonly 0.5–1 ml per litre) for 3–5 consecutive days.",
     warnings:
-      "For veterinary use in poultry only. Not for layers producing eggs for human consumption. Observe the withdrawal period before slaughter. Use under veterinary supervision.",
+      "For veterinary use only. Not for layers producing eggs for human consumption. Observe the withdrawal period before slaughter. Use under veterinary supervision.",
     reviews: [
       {
         id: "r-enro-1",
@@ -290,7 +290,7 @@ export const products: Product[] = [
     id: "p-tylosin",
     slug: "tylosin-tartrate-soluble-powder",
     name: "Tylosin Tartrate Soluble Powder",
-    brandId: "brand-huvepharma",
+    brandId: "brand-orient",
     categorySlug: "antibiotics",
     subcategorySlug: "respiratory",
     shortDescription: "Macrolide powder targeting chronic respiratory disease.",
@@ -315,13 +315,13 @@ export const products: Product[] = [
     usage:
       "Dissolve in drinking water per veterinary guidance for 3–5 days. Prepare fresh medicated water daily.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period. Do not use in layers producing eggs for consumption.",
+      "For veterinary use only. Observe withdrawal period. Do not use in layers producing eggs for consumption.",
   },
   {
     id: "p-doxy",
     slug: "doxycycline-50-wsp",
     name: "Doxycycline 50% WSP",
-    brandId: "brand-virbac",
+    brandId: "brand-vetycare",
     categorySlug: "antibiotics",
     subcategorySlug: "respiratory",
     shortDescription: "Water-soluble tetracycline for respiratory infections.",
@@ -345,13 +345,13 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water at the dose advised by your veterinarian for 3–5 days.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period before slaughter.",
+      "For veterinary use only. Observe withdrawal period before slaughter.",
   },
   {
     id: "p-colistin",
     slug: "colistin-sulphate-oral-solution",
     name: "Colistin Sulphate Oral Solution",
-    brandId: "brand-kepro",
+    brandId: "brand-multivet",
     categorySlug: "antibiotics",
     subcategorySlug: "water-soluble",
     shortDescription: "Oral colistin for enteric E. coli infections.",
@@ -375,13 +375,13 @@ export const products: Product[] = [
     usage:
       "Add to drinking water at the labelled rate for 3–5 days, under veterinary supervision.",
     warnings:
-      "For veterinary use in poultry only. Use responsibly under veterinary guidance. Observe withdrawal period.",
+      "For veterinary use only. Use responsibly under veterinary guidance. Observe withdrawal period.",
   },
   {
     id: "p-amoxicillin",
     slug: "amoxicillin-70-soluble-powder",
     name: "Amoxicillin 70% Soluble Powder",
-    brandId: "brand-vetoquinol",
+    brandId: "brand-vetycare",
     categorySlug: "antibiotics",
     subcategorySlug: "water-soluble",
     shortDescription: "Broad-spectrum penicillin for systemic infections.",
@@ -405,18 +405,18 @@ export const products: Product[] = [
     usage:
       "Dissolve in drinking water per veterinary guidance for 3–5 days. Prepare fresh daily.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period before slaughter.",
+      "For veterinary use only. Observe withdrawal period before slaughter.",
   },
   {
     id: "p-ceftiofur",
     slug: "ceftiofur-sodium-injectable",
     name: "Ceftiofur Sodium Injectable",
-    brandId: "brand-zoetis",
+    brandId: "brand-toppharma",
     categorySlug: "antibiotics",
     subcategorySlug: "injectables",
     shortDescription: "Day-old injectable cephalosporin for early E. coli.",
     description:
-      "An injectable ceftiofur sodium for the control of early bacterial challenge, including E. coli, in day-old chicks at the hatchery. A third-generation cephalosporin for professional use.",
+      "An injectable ceftiofur sodium for the control of early bacterial challenge, including E. coli, in day-old chicks. A third-generation cephalosporin for professional use.",
     images: ["art:bottle:steel", "art:bottle:sky"],
     price: 2200,
     currency: "PKR",
@@ -429,11 +429,11 @@ export const products: Product[] = [
     keyBenefits: [
       "Early E. coli control at day-old",
       "Third-generation cephalosporin",
-      "Hatchery-administered",
+      "Administered at day-old",
     ],
     ingredients: ["Ceftiofur sodium 50 mg / ml (reconstituted)"],
     usage:
-      "Reconstitute and inject subcutaneously at day-old per hatchery protocol. Professional use only.",
+      "Reconstitute and inject subcutaneously at day-old per protocol. Professional use only.",
     warnings:
       "Veterinary prescription required. Critically important antimicrobial — use only under veterinary direction. Observe withdrawal period.",
   },
@@ -441,7 +441,7 @@ export const products: Product[] = [
     id: "p-neomycin-oxytet",
     slug: "neomycin-oxytetracycline-soluble-powder",
     name: "Neomycin + Oxytetracycline Soluble Powder",
-    brandId: "brand-kepro",
+    brandId: "brand-multivet",
     categorySlug: "antibiotics",
     subcategorySlug: "water-soluble",
     shortDescription: "Combination powder for mixed enteric infections.",
@@ -465,15 +465,15 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water per veterinary guidance for 3–5 days.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period before slaughter.",
+      "For veterinary use only. Observe withdrawal period before slaughter.",
   },
 
   // ─── Vitamins & Electrolytes ───────────────────────────────
   {
     id: "p-ad3e",
-    slug: "poultrimed-ad3e-vitamin-solution",
-    name: "AviCura AD3E Vitamin Solution",
-    brandId: "brand-poultrimed",
+    slug: "bilal-ad3e-vitamin-solution",
+    name: "Bilal AD3E Vitamin Solution",
+    brandId: "brand-bilal-select",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "multivitamins",
     shortDescription:
@@ -525,7 +525,7 @@ export const products: Product[] = [
     id: "p-electrolyte-c",
     slug: "electrolyte-vitamin-c-powder",
     name: "Electrolyte + Vitamin C Powder",
-    brandId: "brand-phibro",
+    brandId: "brand-multivet",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "electrolytes",
     shortDescription: "Rehydration and anti-stress support for hot weather.",
@@ -555,7 +555,7 @@ export const products: Product[] = [
     id: "p-stress-pack",
     slug: "poultry-stress-pack",
     name: "Poultry Stress Pack",
-    brandId: "brand-ceva",
+    brandId: "brand-leads",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "stress-packs",
     shortDescription: "Vitamins + electrolytes for vaccination & transport days.",
@@ -585,7 +585,7 @@ export const products: Product[] = [
     id: "p-liver-tonic",
     slug: "liver-tonic-sorbitol-bcomplex",
     name: "Liver Tonic (Sorbitol + B-Complex)",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "amino-acids",
     shortDescription: "Supports liver function, appetite and detoxification.",
@@ -614,7 +614,7 @@ export const products: Product[] = [
     id: "p-growth-booster",
     slug: "amino-acid-growth-booster",
     name: "Amino Acid Growth Booster",
-    brandId: "brand-elanco",
+    brandId: "brand-orient",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "amino-acids",
     shortDescription: "Essential amino acids to push weight gain & uniformity.",
@@ -642,7 +642,7 @@ export const products: Product[] = [
     id: "p-cal-phos",
     slug: "calcium-phosphorus-oral-d3",
     name: "Calcium + Phosphorus Oral (with D3)",
-    brandId: "brand-virbac",
+    brandId: "brand-vetycare",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "multivitamins",
     shortDescription: "Shell quality and skeletal strength for layers.",
@@ -670,7 +670,7 @@ export const products: Product[] = [
     id: "p-bcomplex",
     slug: "b-complex-k3-water-soluble",
     name: "B-Complex + K3 Water Soluble",
-    brandId: "brand-kepro",
+    brandId: "brand-multivet",
     categorySlug: "vitamins-electrolytes",
     subcategorySlug: "multivitamins",
     shortDescription: "B-vitamins and K3 for metabolism and clotting.",
@@ -700,7 +700,7 @@ export const products: Product[] = [
     id: "p-amprolium",
     slug: "amprolium-20-soluble-powder",
     name: "Amprolium 20% Soluble Powder",
-    brandId: "brand-huvepharma",
+    brandId: "brand-orient",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "curatives",
     shortDescription: "Curative treatment for clinical coccidiosis.",
@@ -725,13 +725,13 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water at the curative rate for 5–7 days, then a reduced preventive rate if advised.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period. Avoid concurrent thiamine supplementation during treatment.",
+      "For veterinary use only. Observe withdrawal period. Avoid concurrent thiamine supplementation during treatment.",
   },
   {
     id: "p-toltrazuril",
     slug: "toltrazuril-2-5-oral-suspension",
     name: "Toltrazuril 2.5% Oral Suspension",
-    brandId: "brand-kepro",
+    brandId: "brand-multivet",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "curatives",
     shortDescription: "Single-course anticoccidial active on all stages.",
@@ -756,13 +756,13 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water for 2 consecutive days at the labelled rate; repeat after 5 days if needed.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period before slaughter.",
+      "For veterinary use only. Observe withdrawal period before slaughter.",
   },
   {
     id: "p-salinomycin",
     slug: "salinomycin-12-feed-premix",
     name: "Salinomycin 12% Feed Premix",
-    brandId: "brand-zoetis",
+    brandId: "brand-toppharma",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "coccidiostats",
     shortDescription: "In-feed ionophore for coccidiosis prevention.",
@@ -792,7 +792,7 @@ export const products: Product[] = [
     id: "p-piperazine",
     slug: "piperazine-dewormer-solution",
     name: "Piperazine Dewormer Solution",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "dewormers",
     shortDescription: "Water-based dewormer for roundworm control.",
@@ -816,13 +816,13 @@ export const products: Product[] = [
     usage:
       "Provide as the sole source of drinking water for one day; repeat after 10–14 days if reinfestation is likely.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period. Ensure birds drink the medicated water.",
+      "For veterinary use only. Observe withdrawal period. Ensure birds drink the medicated water.",
   },
   {
     id: "p-levamisole",
     slug: "levamisole-albendazole-oral",
     name: "Levamisole + Albendazole Oral",
-    brandId: "brand-virbac",
+    brandId: "brand-vetycare",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "dewormers",
     shortDescription: "Broad-spectrum dewormer for round & tapeworms.",
@@ -847,13 +847,13 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water at the labelled rate; repeat as advised by your veterinarian.",
     warnings:
-      "For veterinary use in poultry only. Do not use in layers producing eggs for consumption. Observe withdrawal period.",
+      "For veterinary use only. Do not use in layers producing eggs for consumption. Observe withdrawal period.",
   },
   {
     id: "p-diclazuril",
     slug: "diclazuril-0-5-oral",
     name: "Diclazuril 0.5% Oral",
-    brandId: "brand-elanco",
+    brandId: "brand-orient",
     categorySlug: "anticoccidials-dewormers",
     subcategorySlug: "coccidiostats",
     shortDescription: "Low-dose anticoccidial with a clean withdrawal.",
@@ -877,15 +877,15 @@ export const products: Product[] = [
     usage:
       "Administer in drinking water at the labelled rate for the recommended period.",
     warnings:
-      "For veterinary use in poultry only. Observe withdrawal period before slaughter.",
+      "For veterinary use only. Observe withdrawal period before slaughter.",
   },
 
   // ─── Probiotics & Gut Health ───────────────────────────────
   {
     id: "p-probiotic-plus",
-    slug: "poultrimed-probiotic-plus",
-    name: "AviCura ProBiotic Plus",
-    brandId: "brand-poultrimed",
+    slug: "bilal-probiotic-plus",
+    name: "Bilal ProBiotic Plus",
+    brandId: "brand-bilal-select",
     categorySlug: "probiotics-gut-health",
     subcategorySlug: "probiotics",
     shortDescription:
@@ -917,7 +917,7 @@ export const products: Product[] = [
     id: "p-acidifier",
     slug: "organic-acidifier-gut-ph",
     name: "Organic Acidifier (Gut pH)",
-    brandId: "brand-kepro",
+    brandId: "brand-multivet",
     categorySlug: "probiotics-gut-health",
     subcategorySlug: "acidifiers",
     shortDescription: "Organic acid blend to lower gut pH & curb pathogens.",
@@ -946,7 +946,7 @@ export const products: Product[] = [
     id: "p-toxin-binder",
     slug: "mycotoxin-binder-feed-grade",
     name: "Mycotoxin Binder (Feed Grade)",
-    brandId: "brand-phibro",
+    brandId: "brand-multivet",
     categorySlug: "probiotics-gut-health",
     subcategorySlug: "toxin-binders",
     shortDescription: "Binds aflatoxins & mould toxins in feed.",
@@ -974,7 +974,7 @@ export const products: Product[] = [
     id: "p-prebiotic-mos",
     slug: "prebiotic-mos-beta-glucan",
     name: "Prebiotic MOS + Beta-Glucan",
-    brandId: "brand-huvepharma",
+    brandId: "brand-orient",
     categorySlug: "probiotics-gut-health",
     subcategorySlug: "probiotics",
     shortDescription: "Yeast-derived prebiotic for immunity & gut structure.",
@@ -1004,7 +1004,7 @@ export const products: Product[] = [
     id: "p-glut-qac",
     slug: "glutaraldehyde-qac-disinfectant",
     name: "Glutaraldehyde + QAC Disinfectant",
-    brandId: "brand-ceva",
+    brandId: "brand-leads",
     categorySlug: "disinfectants-biosecurity",
     subcategorySlug: "disinfectants",
     shortDescription:
@@ -1047,7 +1047,7 @@ export const products: Product[] = [
     id: "p-iodine-disinfectant",
     slug: "iodine-disinfectant-concentrate",
     name: "Iodine Disinfectant Concentrate",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "disinfectants-biosecurity",
     subcategorySlug: "disinfectants",
     shortDescription: "Iodophor concentrate for water lines & surfaces.",
@@ -1076,7 +1076,7 @@ export const products: Product[] = [
     id: "p-footbath",
     slug: "footbath-disinfectant-powder",
     name: "Footbath Disinfectant Powder",
-    brandId: "brand-virbac",
+    brandId: "brand-vetycare",
     categorySlug: "disinfectants-biosecurity",
     subcategorySlug: "footbath",
     shortDescription: "Long-lasting footbath powder for shed entrances.",
@@ -1105,7 +1105,7 @@ export const products: Product[] = [
     id: "p-fumigation",
     slug: "peroxymonosulfate-fumigation-powder",
     name: "Peroxymonosulfate Fumigation Powder",
-    brandId: "brand-msd",
+    brandId: "brand-leads",
     categorySlug: "disinfectants-biosecurity",
     subcategorySlug: "fumigation",
     shortDescription: "Formaldehyde-free terminal fumigation & fogging.",
@@ -1138,7 +1138,7 @@ export const products: Product[] = [
     id: "p-growth-premix",
     slug: "broiler-growth-promoter-premix",
     name: "Broiler Growth Promoter Premix",
-    brandId: "brand-elanco",
+    brandId: "brand-orient",
     categorySlug: "feed-supplements",
     subcategorySlug: "growth-promoters",
     shortDescription: "Non-antibiotic in-feed premix for daily gain.",
@@ -1167,7 +1167,7 @@ export const products: Product[] = [
     id: "p-multienzyme",
     slug: "multi-enzyme-feed-additive",
     name: "Multi-Enzyme Feed Additive",
-    brandId: "brand-huvepharma",
+    brandId: "brand-orient",
     categorySlug: "feed-supplements",
     subcategorySlug: "enzymes",
     shortDescription: "Enzyme blend to unlock more energy from feed.",
@@ -1195,7 +1195,7 @@ export const products: Product[] = [
     id: "p-mineral-premix",
     slug: "layer-trace-mineral-premix",
     name: "Layer Trace Mineral Premix",
-    brandId: "brand-phibro",
+    brandId: "brand-multivet",
     categorySlug: "feed-supplements",
     subcategorySlug: "minerals",
     shortDescription: "Chelated trace minerals for shell & performance.",
@@ -1225,7 +1225,7 @@ export const products: Product[] = [
     id: "p-fogger",
     slug: "poultry-fogger-sprayer-5l",
     name: "Poultry Fogger / Sprayer (5L)",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "farm-equipment",
     subcategorySlug: "climate",
     shortDescription: "Pressure fogger for disinfection & vaccination.",
@@ -1255,7 +1255,7 @@ export const products: Product[] = [
     id: "p-thermo-hygro",
     slug: "digital-thermo-hygrometer",
     name: "Digital Thermo-Hygrometer",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "farm-equipment",
     subcategorySlug: "monitoring",
     shortDescription: "Monitor shed temperature & humidity accurately.",
@@ -1285,7 +1285,7 @@ export const products: Product[] = [
     id: "p-bell-drinker",
     slug: "automatic-bell-drinker-set",
     name: "Automatic Bell Drinker (Set of 5)",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "farm-equipment",
     subcategorySlug: "drinkers-feeders",
     shortDescription: "Self-regulating bell drinkers for clean water supply.",
@@ -1314,7 +1314,7 @@ export const products: Product[] = [
     id: "p-brooder-kit",
     slug: "brooder-starter-kit",
     name: "Brooder Starter Kit",
-    brandId: "brand-poultrimed",
+    brandId: "brand-bilal-select",
     categorySlug: "farm-equipment",
     subcategorySlug: "climate",
     shortDescription: "Everything to brood day-old chicks with confidence.",

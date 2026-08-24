@@ -51,8 +51,8 @@ export default function HomePage() {
       <section className="overflow-hidden border-b border-line bg-card">
         <div className="container-page flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-12">
           <p className="shrink-0 font-mono text-[0.7rem] uppercase tracking-[0.16em] text-muted-foreground">
-            Trusted by integrators
-            <br className="hidden lg:block" /> &amp; distributors in 45+ countries
+            Brands we
+            <br className="hidden lg:block" /> import &amp; distribute
           </p>
           <div className="w-full min-w-0 overflow-hidden lg:flex-1">
             <PartnerMarquee />
@@ -68,7 +68,7 @@ export default function HomePage() {
               <div className="absolute inset-0 overflow-hidden rounded-3xl">
                 <ParallaxImage
                   src={photo("labScientist", 1100, 80)}
-                  alt="AviCura scientist at work in the laboratory"
+                  alt="Quality poultry-health products distributed by Bilal Pharmaceuticals"
                   sizes="(min-width: 1024px) 45vw, 90vw"
                   speed={0.12}
                   className="absolute inset-0"
@@ -83,13 +83,13 @@ export default function HomePage() {
               className="absolute -bottom-6 -right-4 hidden w-60 rounded-2xl border border-line bg-card p-5 shadow-[var(--shadow-elevated)] sm:block"
             >
               <div className="font-display text-4xl font-medium tracking-tight text-emerald">
-                20<span className="text-gold">+</span>
+                12<span className="text-gold">+</span>
               </div>
               <p className="mt-1 text-sm font-medium text-ink">
-                Years of poultry science
+                Leading brands distributed
               </p>
               <p className="mt-1 font-mono text-[0.68rem] tracking-wide text-muted-foreground">
-                From lab bench to farm gate
+                One trusted supply partner
               </p>
             </Reveal>
           </div>
@@ -97,8 +97,8 @@ export default function HomePage() {
           <div>
             <SectionHeading
               eyebrow="Who we are"
-              title="A poultry-health partner built on science."
-              description="AviCura Biosciences was founded to bring pharmaceutical-grade rigour to poultry production. Two decades on, our vaccines, medicines and nutrition protect flocks in 45 markets — developed by our own research team and made in GMP-certified facilities."
+              title="Your trusted poultry-health distribution partner."
+              description="Bilal Pharmaceuticals imports and distributes the vaccines, medicines, nutrition and biosecurity products that keep flocks healthy — sourcing from the world's leading animal-health brands and backing every product with reliable supply and expert support."
             />
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               <Reveal variant="left" className="rounded-2xl border border-line bg-card p-6 transition-shadow duration-300 hover:shadow-[var(--shadow-card)]">
@@ -117,7 +117,7 @@ export default function HomePage() {
             <Reveal delay={160} className="mt-8">
               <Button asChild size="xl" variant="outline">
                 <Link href="/about">
-                  More about AviCura
+                  More about Bilal Pharmaceuticals
                   <ArrowRight data-icon="inline-end" />
                 </Link>
               </Button>
@@ -165,7 +165,7 @@ export default function HomePage() {
       {/* Why choose us */}
       <section className="container-page py-20 lg:py-28">
         <SectionHeading
-          eyebrow="Why AviCura"
+          eyebrow="Why Bilal Pharmaceuticals"
           title="Reasons producers choose us."
           description="The advantages that show up on the farm — in flock performance, supply reliability and the confidence that every dose is exactly what the label says."
         />
@@ -204,9 +204,9 @@ export default function HomePage() {
           <SectionHeading
             dark
             align="center"
-            eyebrow="Research & innovation"
-            title="Science is our starting point."
-            description="Our Innovation Center turns real field challenges into targeted, field-proven solutions — across diagnostics, formulation, vaccines and stewardship."
+            eyebrow="Why source through us"
+            title="More than a supplier — a poultry-health partner."
+            description="From global sourcing and cold-chain storage to hands-on technical guidance, we make it easy to get the right products, in the right condition, with the support to use them well."
           />
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {researchPillars.map((p, i) => (
@@ -228,7 +228,7 @@ export default function HomePage() {
           <Reveal className="mt-12 text-center">
             <Button asChild size="xl" variant="onDark">
               <Link href="/research">
-                Inside our R&amp;D
+                See the brands we distribute
                 <ArrowRight data-icon="inline-end" />
               </Link>
             </Button>
@@ -241,7 +241,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="From the range"
           title="Featured products."
-          description="A selection from a portfolio of 180+ registered products, each backed by full documentation and technical support."
+          description="A selection from a broad portfolio of poultry-health products from the world's leading brands — each backed by full documentation and technical support."
           linkHref="/solutions"
           linkLabel="View all products"
         />
@@ -264,11 +264,11 @@ export default function HomePage() {
           <div className="grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center lg:gap-16">
             <div>
               <SectionHeading
-                eyebrow="Quality & compliance"
-                title="Quality you can audit, batch after batch."
-                description="Every product is manufactured under GMP and released only against full pharmacopoeial specifications — with lot-level traceability from raw material to farm."
+                eyebrow="Quality & handling"
+                title="Quality protected, every step of the way."
+                description="We source only from trusted manufacturers and protect every product through proper storage, cold-chain handling and lot-level traceability — from arrival to your farm gate."
                 linkHref="/quality"
-                linkLabel="Our quality system"
+                linkLabel="How we protect quality"
               />
             </div>
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
@@ -330,7 +330,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Insights"
           title="Knowledge from the field."
-          description="Practical guidance on poultry health and management from the AviCura technical team."
+          description="Practical guidance on poultry health and management from the Bilal Pharmaceuticals technical team."
           linkHref="/insights"
           linkLabel="All insights"
         />

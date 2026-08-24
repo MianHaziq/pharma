@@ -6,9 +6,9 @@ import { ParallaxImage } from "@/components/parallax-image";
 import { Reveal } from "@/components/reveal";
 import { Button } from "@/components/ui/button";
 
-// Full-bleed cinematic band: a large manufacturing photograph drifting behind
-// the site's production numbers. The one big "scale" moment on the homepage —
-// it breaks up the card rhythm and carries the story from science to supply.
+// Full-bleed cinematic band: a large warehouse/logistics photograph drifting
+// behind the distributor's supply numbers. The one big "scale" moment on the
+// homepage — it breaks up the card rhythm and carries the supply story.
 export function CapabilitiesBand() {
   return (
     <section className="relative overflow-hidden bg-emerald-deep">
@@ -26,18 +26,19 @@ export function CapabilitiesBand() {
       <div className="container-page relative grid gap-12 py-20 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-20 lg:py-28">
         <div>
           <Reveal variant="fade">
-            <span className="eyebrow text-gold-soft">Manufacturing at scale</span>
+            <span className="eyebrow text-gold-soft">Supply you can rely on</span>
           </Reveal>
           <Reveal delay={80}>
             <h2 className="mt-5 max-w-xl font-display text-3xl leading-[1.08] tracking-tight text-white text-balance sm:text-4xl lg:text-[2.9rem]">
-              Pharmaceutical rigour, delivered at industrial volume.
+              The right products, in good condition, when you need them.
             </h2>
           </Reveal>
           <Reveal delay={160}>
             <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70">
-              Separate biological and pharmaceutical lines, a validated cold
-              chain and lot-level traceability let us hold specification from the
-              first vial to the millionth — reliably, market after market.
+              A well-managed portfolio of trusted brands, temperature-controlled
+              storage and lot-level traceability let us protect every product
+              from the manufacturer to your farm gate — consignment after
+              consignment.
             </p>
           </Reveal>
           <Reveal delay={240} className="mt-9">

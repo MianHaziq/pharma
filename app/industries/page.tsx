@@ -14,7 +14,7 @@ import { CtaBand } from "@/components/cta-band";
 export const metadata: Metadata = {
   title: "Industries we serve",
   description:
-    "From broilers and layers to breeders, hatcheries and integrated production — AviCura programs adapt to every poultry operation.",
+    "From broilers and layers to breeders, hatcheries and integrated production — Bilal Pharmaceuticals supplies the right products for every poultry operation.",
 };
 
 export default function IndustriesPage() {
@@ -32,7 +32,7 @@ export default function IndustriesPage() {
         <SectionHeading
           eyebrow="Applications"
           title="One partner across the production chain."
-          description="Five focus areas, each supported by dedicated products, programs and technical guidance."
+          description="Five focus areas, each supported by the right products, trusted brands and technical guidance."
         />
 
         <div className="mt-16 space-y-20 lg:space-y-28">
@@ -87,7 +87,7 @@ export default function IndustriesPage() {
                   </ul>
                   <Button asChild variant="outline" size="lg" className="mt-7">
                     <Link href="/solutions">
-                      Relevant solutions
+                      Relevant products
                       <ArrowRight data-icon="inline-end" />
                     </Link>
                   </Button>
@@ -100,11 +100,11 @@ export default function IndustriesPage() {
 
       <div className="pb-20 lg:pb-28">
         <CtaBand
-          eyebrow="Tailored programs"
-          title="Let's design a program for your operation."
-          description="Whatever you produce, our veterinary team can build a health and vaccination program around it."
+          eyebrow="Tailored supply"
+          title="Let's stock the right products for your operation."
+          description="Whatever you produce, our team can help you source the right products and brands for your flock."
           primary={{ label: "Talk to our team", href: "/contact" }}
-          secondary={{ label: "Explore solutions", href: "/solutions" }}
+          secondary={{ label: "Explore products", href: "/solutions" }}
           image={photo("eggsCollect", 1600, 70)}
         />
       </div>

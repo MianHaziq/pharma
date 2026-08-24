@@ -7,13 +7,13 @@ export const categories: Category[] = [
     name: "Vaccines",
     tagline: "Protect the flock from day one",
     description:
-      "Live, killed and hatchery vaccines for Newcastle, Gumboro, IB, Marek's and more — cold-chain handled and quality assured.",
+      "Live and killed vaccines for Newcastle, Gumboro, IB, Marek's and more — cold-chain handled and quality assured.",
     icon: "Syringe",
     tone: "sky",
     subcategories: [
       { id: "sub-live", slug: "live-vaccines", name: "Live Vaccines" },
       { id: "sub-killed", slug: "killed-vaccines", name: "Killed Vaccines" },
-      { id: "sub-hatchery", slug: "hatchery-vaccines", name: "Hatchery Vaccines" },
+      { id: "sub-hatchery", slug: "day-old-vaccines", name: "Day-old Vaccines" },
     ],
   },
   {
