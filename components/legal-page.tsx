@@ -1,6 +1,3 @@
-import { PageHero } from "@/components/page-hero";
-import { Reveal } from "@/components/reveal";
-
 export interface LegalSection {
   heading: string;
   body?: string[];
@@ -20,47 +17,34 @@ export function LegalPage({
 }) {
   return (
     <>
-      <PageHero
-        eyebrow="Legal"
-        title={title}
-        description={intro}
-        crumbs={[{ label: "Home", href: "/" }, { label: title }]}
-      />
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap wrap--narrow">
+          <div data-anim="rise">
+            <p className="eyebrow">Legal</p>
+            <h1 className="d1">{title}</h1>
+            <p className="lead mt-24">{intro}</p>
+            <p className="note mt-16">Last updated · {updated}</p>
+          </div>
+        </div>
+      </div>
 
-      <section className="container-page max-w-3xl py-16 lg:py-20">
-        <p className="font-mono text-[0.72rem] uppercase tracking-wider text-muted-foreground">
-          Last updated · {updated}
-        </p>
-        <div className="mt-10 space-y-12">
-          {sections.map((s) => (
-            <Reveal key={s.heading}>
-              <div>
-                <h2 className="font-display text-xl tracking-tight text-ink sm:text-2xl">
-                  {s.heading}
-                </h2>
-                <div className="mt-3 rule-gold w-14" />
-                {s.body && (
-                  <div className="mt-5 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-                    {s.body.map((p, i) => (
-                      <p key={i}>{p}</p>
-                    ))}
-                  </div>
-                )}
-                {s.list && (
-                  <ul className="mt-5 space-y-2.5">
-                    {s.list.map((item) => (
-                      <li key={item} className="flex gap-3 text-[0.95rem] text-ink">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </Reveal>
+      <div className="sec">
+        <div className="wrap wrap--narrow">
+          {sections.map((s, i) => (
+            <div data-anim="rise" key={s.heading} style={{ marginBottom: i === sections.length - 1 ? 0 : 40 }}>
+              <h2 className="d3">{s.heading}</h2>
+              {s.body && s.body.map((p, j) => <p key={j} className="mt-16">{p}</p>)}
+              {s.list && (
+                <div className="kv kv--bare mt-16">
+                  {s.list.map((item) => (
+                    <div className="kv__row" key={item}><span className="kv__v kv__v--l">{item}</span><span className="kv__dots" /></div>
+                  ))}
+                </div>
+              )}
+            </div>
           ))}
         </div>
-      </section>
+      </div>
     </>
   );
 }

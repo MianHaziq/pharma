@@ -1,28 +1,31 @@
 import type { Metadata } from "next";
-import { Inter, Fraunces, IBM_Plex_Mono } from "next/font/google";
+import { Archivo, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
-import { ScrollProgress } from "@/components/scroll-progress";
+import { Sprite } from "@/components/site/sprite";
+import { Curtain } from "@/components/site/curtain";
+import { Motion } from "@/components/site/motion";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { WhatsAppButton } from "@/components/whatsapp-button";
 import { company } from "@/data/company";
 
-const inter = Inter({
-  variable: "--font-inter",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
   display: "swap",
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
-  axes: ["opsz"],
 });
 
 const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex",
+  variable: "--font-plex-mono",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
@@ -36,20 +39,24 @@ export const metadata: Metadata = {
   },
   description: company.description,
   keywords: [
-    "poultry health",
-    "poultry pharmaceuticals",
-    "poultry vaccines",
-    "animal health biosciences",
-    "veterinary medicine",
-    "poultry nutrition",
-    "biosecurity",
+    "animal health",
+    "animal health importer Pakistan",
+    "veterinary vaccines",
     "feed additives",
+    "water sanitizers",
+    "biosecurity",
+    "animal health distributor Islamabad",
   ],
   openGraph: {
     type: "website",
     title: `${company.name} — ${company.tagline}`,
     description: company.description,
     siteName: company.name,
+    images: [{ url: "/BilalPharmaLogo.jpeg", width: 1497, height: 1284, alt: company.name }],
+  },
+  icons: {
+    icon: [{ url: "/favicon.ico" }, { url: "/BilalPharmaLogo.jpeg", type: "image/jpeg" }],
+    apple: [{ url: "/BilalPharmaLogo.jpeg" }],
   },
 };
 
@@ -57,15 +64,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${plexMono.variable} h-full`}
+      className={`${archivo.variable} ${plexSans.variable} ${plexMono.variable}`}
     >
-      <body className="min-h-full flex flex-col overflow-x-clip bg-background text-foreground antialiased">
+      <body>
         <Providers>
-          <ScrollProgress />
+          <Sprite />
+          <Curtain />
+          <div className="progress" id="prog" />
           <SiteHeader />
-          <main className="min-w-0 flex-1">{children}</main>
+          <main id="pages">{children}</main>
           <SiteFooter />
           <WhatsAppButton />
+          <Motion />
         </Providers>
       </body>
     </html>
