@@ -24,7 +24,7 @@ export default function TermsPage() {
           heading: "Product information",
           body: [
             "Information about products is provided for general reference. Availability, registration and approved indications vary by country. Always follow the approved local label and the guidance of a qualified veterinarian.",
-            "Nothing on this website is veterinary advice, a diagnosis or a treatment recommendation for any specific flock.",
+            "Nothing on this website is veterinary advice, a diagnosis or a treatment recommendation for any specific animal or operation.",
           ],
         },
         {

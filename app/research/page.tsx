@@ -1,149 +1,124 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { researchPillars } from "@/data/company";
-import { brands } from "@/data/brands";
 import { photo } from "@/lib/images";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { Reveal } from "@/components/reveal";
-import { ParallaxImage } from "@/components/parallax-image";
-import { Icon } from "@/components/icon";
-import { Button } from "@/components/ui/button";
-import { CtaBand } from "@/components/cta-band";
+import { Ph } from "@/components/site/ph";
+import { Chips } from "@/components/site/chips";
+import { brands } from "@/data/brands";
 
 export const metadata: Metadata = {
   title: "Brands we distribute",
   description:
-    "Bilal Pharmaceuticals imports and distributes trusted poultry-health brands — vaccines, medicines, nutrition and biosecurity from the world's leading animal-health manufacturers.",
+    "The animal-health principals Bilal Pharmaceuticals imports and distributes in Pakistan — each chosen for fit, documentation and handling.",
 };
+
+// Real principals enriched with a category, representative photo and handling notes.
+const DETAIL: Record<string, { cat: string; photo: Parameters<typeof photo>[0]; segments: string; storage: string }> = {
+  "brand-bilal-select": { cat: "House line · multi-category", photo: "qualityControl", segments: "All four", storage: "Per product" },
+  "brand-toppharma": { cat: "Anti-infectives & medicines", photo: "labPipette", segments: "All four", storage: "Cool, dark" },
+  "brand-leads": { cat: "Vaccines & specialties", photo: "microscope", segments: "All four", storage: "Cold chain 2–8°C" },
+  "brand-vetycare": { cat: "Tonics & supportive care", photo: "labBench", segments: "Layers, breeders", storage: "Cool, dry" },
+  "brand-orient": { cat: "Feed additives & biosecurity", photo: "manufacturing", segments: "All four", storage: "Dry, ambient" },
+  "brand-multivet": { cat: "Vitamins & nutrition", photo: "production", segments: "All four", storage: "Cool, dark" },
+};
+
+const CRITERIA = [
+  { k: "Fit", t: "Is it needed here?", d: "The product has to solve a problem operations here actually have, at a price the market can carry." },
+  { k: "Documentation", t: "Is the paperwork complete?", d: "Registration, labelling, technical data sheets and withdrawal information all need to be in order." },
+  { k: "Handling", t: "Can we store it correctly?", d: "If a product needs conditions we can't guarantee end to end, we don't take it on." },
+  { k: "Support", t: "Will the maker back it?", d: "We want a principal who answers technical questions, not one who ships and disappears." },
+];
 
 export default function BrandsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Brands"
-        title="The brands producers trust, in one place."
-        description="We partner with leading international animal-health manufacturers so poultry producers can source proven products — with reliable supply and expert support behind every one."
-        image={photo("labMolecular", 1800, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Brands" }]}
-      />
-
-      {/* Intro */}
-      <section className="container-page py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal variant="left" className="order-2 lg:order-1">
-            <ParallaxImage
-              src={photo("qualityControl", 1100, 80)}
-              alt="Trusted poultry-health brands distributed by Bilal Pharmaceuticals"
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              speed={0.14}
-              className="aspect-[4/3] rounded-3xl"
-              imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
-            />
-          </Reveal>
-          <div className="order-1 lg:order-2">
-            <SectionHeading
-              eyebrow="Curated, not cluttered"
-              title="A portfolio you can rely on."
-              description="Every brand we carry earns its place. We work with manufacturers whose quality systems we trust, then handle their products with the care they deserve."
-            />
-            <Reveal variant="right" delay={80} className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-              <p>
-                From world-leading vaccine specialists to focused nutrition and
-                biosecurity manufacturers, our range spans the full poultry-health
-                program — sourced through official, authorised channels.
-              </p>
-              <p>
-                Are you a manufacturer looking for a dependable distribution
-                partner? We are always open to adding the right brand to our
-                portfolio.
-              </p>
-            </Reveal>
-            <Reveal delay={160} className="mt-8">
-              <Button asChild size="xl">
-                <Link href="/contact">
-                  Become a brand partner
-                  <ArrowRight data-icon="inline-end" />
-                </Link>
-              </Button>
-            </Reveal>
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap">
+          <div className="split" style={{ alignItems: "end" }}>
+            <div data-anim="rise">
+              <p className="eyebrow">Our principals</p>
+              <h1 className="d1">The brands <span className="hl">we distribute.</span></h1>
+            </div>
+            <div data-anim="rise">
+              <p className="lead">This is the heart of what we do. Every brand below was chosen for its fit with local conditions, and each one is imported, stored and supplied by us directly.</p>
+              <p className="note">Brand logos are placeholders until artwork is supplied. Product descriptions are indicative — confirm the final range with each principal.</p>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Brand grid */}
-      <section className="border-y border-line bg-mint/40">
-        <div className="container-page py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Our portfolio"
-            title="Brands we import & distribute."
-            description="A selection of the animal-health brands we supply. Brand names are shown for the demo — confirm the final line-up with the client."
-          />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {brands.map((brand, i) => (
-              <Reveal key={brand.id} delay={(i % 3) * 80}>
-                <div className="flex h-full flex-col rounded-2xl border border-line bg-card p-7">
-                  <div className="flex items-center gap-3">
-                    <span className="grid h-12 min-w-12 place-items-center rounded-xl bg-mint px-3 font-display text-sm font-semibold tracking-tight text-emerald ring-1 ring-emerald/10">
-                      {brand.logoText}
-                    </span>
-                    {brand.featured && (
-                      <span className="rounded bg-gold/15 px-1.5 py-0.5 font-mono text-[0.6rem] font-semibold uppercase tracking-wider text-gold">
-                        Featured
-                      </span>
-                    )}
+      <div className="sec" style={{ paddingTop: 56 }}>
+        <div className="wrap">
+          <Chips items={["All categories", "Vaccines", "Feed additives", "Sanitation", "Nutrition", "Gut health", "Antimicrobials"]} />
+
+          <div className="grid g3 mt-40" data-stagger="70">
+            {brands.map((b) => {
+              const d = DETAIL[b.id];
+              return (
+                <article className="bplate" data-anim="rise" key={b.id}>
+                  <div className="bplate__ph">
+                    <Ph anim={false} className="ph--flat" src={photo(d.photo, 720, 78)} alt={`${b.name} — ${d.cat}`} slot="Logo slot" />
                   </div>
-                  <h3 className="mt-5 font-display text-lg tracking-tight text-ink">
-                    {brand.name}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {brand.description}
-                  </p>
-                </div>
-              </Reveal>
+                  <div className="bplate__top">
+                    <div><span className="bplate__cat">{d.cat}</span><span className="d3">{b.name}</span></div>
+                  </div>
+                  <div className="bplate__body">
+                    <p className="bplate__desc">{b.description}</p>
+                    <div className="bplate__foot">
+                      <div className="kv">
+                        <div className="kv__row"><span className="kv__k">Segments</span><span className="kv__dots" /><span className="kv__v">{d.segments}</span></div>
+                        <div className="kv__row"><span className="kv__k">Storage</span><span className="kv__dots" /><span className="kv__v">{d.storage}</span></div>
+                      </div>
+                      <div className="chips mt-24"><span className="chip chip--dot" style={{ cursor: "default" }}>Imported &amp; distributed</span></div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+
+          <div className="placeholder mt-56" data-anim="rise">
+            <span className="d3">More brands are being added.</span>
+            <p>Our roster grows as we take on new principals. If you&apos;re looking for a specific brand, ask — we may already carry it or be able to source it.</p>
+            <Link href="/contact" className="btn">Ask about a brand <span className="arw">→</span></Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">Before we say yes</p>
+            <h2 className="d2">How a brand joins this page.</h2>
+            <p className="lead">Representing a brand means putting our name next to it. We look at four things before we do.</p>
+          </div>
+          <div className="grid g4" data-stagger="70">
+            {CRITERIA.map((c) => (
+              <div className="card tilt" data-anim="pop" key={c.k}>
+                <span className="card__k">{c.k}</span>
+                <span className="d4">{c.t}</span>
+                <p>{c.d}</p>
+              </div>
             ))}
           </div>
         </div>
-      </section>
+      </div>
 
-      {/* Why source through us */}
-      <section className="container-page py-20 lg:py-28">
-        <SectionHeading
-          eyebrow="Why source through us"
-          title="More than a name on the box."
-          description="Buying through Bilal Pharmaceuticals means the brand you trust, handled the way it should be."
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2">
-          {researchPillars.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 2) * 100}>
-              <div className="flex h-full gap-5 rounded-2xl border border-line bg-card p-7">
-                <span className="grid h-14 w-14 shrink-0 place-items-center rounded-xl bg-emerald text-white">
-                  <Icon name={p.icon} size={26} />
-                </span>
-                <div>
-                  <h3 className="font-display text-xl tracking-tight text-ink">
-                    {p.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {p.description}
-                  </p>
-                </div>
+      <div className="sec sec--band">
+        <span className="spot" aria-hidden="true" />
+        <div className="wrap">
+          <div className="split split--mid">
+            <div data-anim="rise">
+              <p className="eyebrow eyebrow--onband">Manufacturers &amp; suppliers</p>
+              <h2 className="d2">Want your brand on this page?</h2>
+            </div>
+            <div data-anim="rise">
+              <p className="lead">We&apos;re open to conversations with animal-health manufacturers looking for a distribution partner in Pakistan. Send us your product range and technical documentation to start.</p>
+              <div className="btns mt-32">
+                <Link href="/contact" className="btn btn--onband">Talk to us about representation <span className="arw">→</span></Link>
               </div>
-            </Reveal>
-          ))}
+            </div>
+          </div>
         </div>
-      </section>
-
-      <div className="pb-20 lg:pb-28">
-        <CtaBand
-          eyebrow="Let's talk supply"
-          title="Looking for a specific brand or product?"
-          description="Tell us what you need — we source, stock and supply trusted poultry-health brands to farms, veterinarians and retailers."
-          primary={{ label: "Contact our team", href: "/contact" }}
-          secondary={{ label: "Browse the range", href: "/solutions" }}
-          image={photo("labBench", 1600, 70)}
-        />
       </div>
     </>
   );

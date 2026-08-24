@@ -1,115 +1,99 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { photo, type PhotoKey } from "@/lib/images";
+import { Ph } from "@/components/site/ph";
+import { Chips } from "@/components/site/chips";
 import { blogPosts } from "@/data/blog";
-import { postImage } from "@/lib/portfolio";
-import { formatDate } from "@/lib/format";
-import { photo } from "@/lib/images";
-import { PageHero } from "@/components/page-hero";
-import { Reveal } from "@/components/reveal";
-import { Photo } from "@/components/photo";
-import { ArticleCard } from "@/components/insights/article-card";
-import { CtaBand } from "@/components/cta-band";
 
 export const metadata: Metadata = {
-  title: "Insights",
+  title: "Insights & news",
   description:
-    "Practical guidance on poultry health, nutrition, biosecurity and flock management from the Bilal Pharmaceuticals technical team.",
+    "Practical notes for the people we supply — handling, storage, seasonal risks and what's new in the Bilal Pharmaceuticals range.",
 };
+
+const ART_PHOTOS: PhotoKey[] = ["farmHouse", "eggsFarm", "henStanding", "brooderHouse", "labBench", "chicks"];
 
 export default function InsightsPage() {
   const [featured, ...rest] = blogPosts;
-  const categories = Array.from(new Set(blogPosts.map((p) => p.category)));
 
   return (
     <>
-      <PageHero
-        eyebrow="Insights & newsroom"
-        title="Knowledge from the field."
-        description="Field notes, guidance and company news from the poultry-health team at Bilal Pharmaceuticals."
-        image={photo("henPortrait", 1800, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Insights" }]}
-      />
-
-      <section className="container-page py-20 lg:py-24">
-        {/* Category chips */}
-        <div className="flex flex-wrap gap-2">
-          <span className="rounded-full bg-emerald px-3.5 py-1.5 font-mono text-[0.72rem] tracking-wide text-white">
-            All
-          </span>
-          {categories.map((c) => (
-            <span
-              key={c}
-              className="rounded-full border border-line bg-card px-3.5 py-1.5 font-mono text-[0.72rem] tracking-wide text-muted-foreground"
-            >
-              {c}
-            </span>
-          ))}
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap">
+          <div className="split" style={{ alignItems: "end" }}>
+            <div data-anim="rise">
+              <p className="eyebrow">Insights &amp; news</p>
+              <h1 className="d1">Notes from <span className="hl">the field.</span></h1>
+            </div>
+            <div data-anim="rise">
+              <p className="lead">Practical writing for the people we supply — handling, storage, seasonal risks and what&apos;s new in our range.</p>
+              <p className="note">Articles are original demo content and not a substitute for veterinary advice.</p>
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* Featured */}
-        {featured && (
-          <Reveal className="mt-10">
-            <Link
-              href={`/insights/${featured.slug}`}
-              className="group grid overflow-hidden rounded-3xl border border-line bg-card lg:grid-cols-2"
-            >
-              <Photo
-                src={postImage(featured, 1200, 80)}
-                alt={featured.title}
-                priority
-                sizes="(min-width: 1024px) 50vw, 100vw"
-                className="aspect-[16/10] lg:aspect-auto lg:h-full"
-                imgClassName="transition-transform duration-700 group-hover:scale-105"
-              >
-                <span className="absolute left-5 top-5 rounded-md bg-emerald-deep/80 px-2.5 py-1 font-mono text-[0.64rem] font-medium uppercase tracking-wider text-white backdrop-blur-sm">
-                  Featured
-                </span>
-              </Photo>
-              <div className="flex flex-col justify-center p-8 lg:p-12">
-                <div className="flex items-center gap-2 font-mono text-[0.72rem] tracking-wide text-muted-foreground">
-                  <span className="text-emerald">{featured.category}</span>
-                  <span className="text-line-strong">·</span>
-                  <time dateTime={featured.date}>{formatDate(featured.date)}</time>
-                  <span className="text-line-strong">·</span>
-                  <span>{featured.readTime}</span>
-                </div>
-                <h2 className="mt-4 font-display text-2xl leading-tight tracking-tight text-ink transition-colors group-hover:text-emerald sm:text-3xl">
-                  {featured.title}
-                </h2>
-                <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-                  {featured.excerpt}
-                </p>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald">
-                  Read article
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform duration-300 group-hover:translate-x-1"
-                  />
-                </span>
+      {featured && (
+        <div className="sec">
+          <div className="wrap">
+            <div className="split split--mid">
+              <div data-anim="rise">
+                <Ph className="r-43" src={photo("freeRange", 1000, 78)} alt={featured.title} cap={featured.title} />
               </div>
-            </Link>
-          </Reveal>
-        )}
-
-        {/* Grid */}
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((post, i) => (
-            <Reveal key={post.id} delay={(i % 3) * 80}>
-              <ArticleCard post={post} className="h-full" />
-            </Reveal>
-          ))}
+              <div data-anim="rise">
+                <p className="eyebrow">Featured · {featured.category}</p>
+                <h2 className="d2">{featured.title}</h2>
+                <p className="lead mt-24">{featured.excerpt}</p>
+                <p className="note">{featured.readTime}</p>
+                <p className="mt-32 mb-0"><Link href={`/insights/${featured.slug}`} className="txtlink">Read the article <span className="arw">→</span></Link></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      )}
 
-      <div className="pb-20 lg:pb-28">
-        <CtaBand
-          eyebrow="Stay informed"
-          title="Get Bilal Pharmaceuticals insights in your inbox."
-          description="Occasional field notes, product updates and company news — no noise."
-          primary={{ label: "Contact our team", href: "/contact" }}
-          secondary={{ label: "Explore solutions", href: "/solutions" }}
-        />
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div style={{ marginBottom: 40 }}>
+            <Chips items={["All", "Vaccination", "Gut Health", "Biosecurity", "Company news"]} />
+          </div>
+          <div className="grid g3" data-stagger="80">
+            {rest.map((post, i) => (
+              <Link href={`/insights/${post.slug}`} className="artcard" data-anim="rise" key={post.id} style={{ color: "inherit" }}>
+                <div className="artcard__img">
+                  <Ph anim={false} className="ph--flat" src={photo(ART_PHOTOS[i % ART_PHOTOS.length], 720, 76)} alt={post.title} />
+                </div>
+                <div className="artcard__b">
+                  <div className="artcard__meta">{post.category} · {post.readTime.replace(" read", "")}</div>
+                  <span className="d4">{post.title}</span>
+                  <p>{post.excerpt}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="sec">
+        <div className="wrap wrap--narrow">
+          <div className="card" data-anim="rise" style={{ padding: 44 }}>
+            <div className="split split--mid" style={{ gap: 40 }}>
+              <div>
+                <span className="card__k">Stay informed</span>
+                <span className="d3">Get new articles by email</span>
+                <p>Occasional practical notes for the operations we supply. No product spam.</p>
+              </div>
+              <div>
+                <div className="field" style={{ marginBottom: 14 }}>
+                  <label htmlFor="sub-email">Email address</label>
+                  <input id="sub-email" type="email" placeholder="you@company.com" />
+                </div>
+                <button className="btn" type="button">Subscribe <span className="arw">→</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

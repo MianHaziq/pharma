@@ -1,208 +1,198 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
-import {
-  stats,
-  values,
-  milestones,
-  leadership,
-  missionVision,
-  company,
-} from "@/data/company";
-import { photo } from "@/lib/images";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { Reveal } from "@/components/reveal";
-import { ParallaxImage } from "@/components/parallax-image";
-import { StatStrip } from "@/components/stat-strip";
-import { Monogram } from "@/components/monogram";
-import { Icon } from "@/components/icon";
-import { CtaBand } from "@/components/cta-band";
+import Link from "next/link";
+import { photo, team } from "@/lib/images";
+import { Ph } from "@/components/site/ph";
 
 export const metadata: Metadata = {
   title: "About the company",
   description:
-    "Bilal Pharmaceuticals imports and distributes trusted poultry-health brands — the company, its values and the people behind every delivery.",
+    "Bilal Pharmaceuticals is an importer and distributor of animal-health products, based in Islamabad and led by CEO Muhammad Imran.",
 };
+
+// "On the record" — real client photography, with per-shot framing so faces and
+// context stay in view (and building signage stays out of frame on the NY shot).
+const GALLERY = [
+  { image: team.foshanVisit, wide: true, pos: "center 42%", k: "Supplier visit · Foshan, Guangdong, China", t: "We go and look before we commit", d: "A visit to Guangdong Sihai Iron Printing & Tin-Making, which produces metal containers for the sector. How a product is packed and sealed decides how much of it survives the journey to a Pakistani farm." },
+  { image: team.ippeExpo, pos: "center 26%", k: "IPPE · United States", t: "A major production & processing expo", d: "On the floor at the International Production & Processing Expo — sourcing new ranges and keeping current with where animal health is heading." },
+  { image: team.space2024, pos: "center 30%", k: "SPACE 2024 · Rennes, France", t: "International animal-farming exhibition", d: "Where new animal-health ranges are introduced, and where manufacturers looking for a Pakistan partner can be met face to face." },
+  { image: team.award2026, pos: "center 34%", k: "Annual Business Conference · 2026", t: "Certificate of appreciation", d: "Recognition at a business conference whose sponsors include Quality Poultry Breeders and PACE Pharma — the sector we work in." },
+  { image: team.industrySeminar, pos: "center 32%", k: "Industry roundtable · Pakistan", t: "At the table with the sector", d: "Staying close to the questions producers and veterinarians are actually asking — not just the ones a price list answers." },
+  { image: team.newYork, pos: "center 66%", k: "New York, United States", t: "Leadership on the road", d: "Our CEO handles principal relationships himself rather than delegating them, which means a good deal of time spent away from Islamabad." },
+];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Our company"
-        title="Trusted brands, poultry expertise."
-        description="Bilal Pharmaceuticals imports and distributes the vaccines, medicines and nutrition that keep flocks healthy — pairing the world's leading brands with reliable supply and expert support."
-        image={photo("manufacturing", 1800, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Company" }]}
-      />
-
-      {/* Story */}
-      <section className="container-page py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionHeading
-              eyebrow="Our story"
-              title="Built to make quality poultry health accessible."
-              description={`Founded in ${company.established}, Bilal Pharmaceuticals set out to give local poultry producers dependable access to the trusted animal-health brands they need.`}
-            />
-            <Reveal variant="left" delay={80} className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-              <p>
-                What began as a small importing business is now a trusted
-                distribution partner — sourcing from leading international
-                manufacturers and supplying poultry farms, veterinarians and
-                retailers with reliable stock and honest advice.
-              </p>
-              <p>
-                We are specialists, not generalists. Poultry is not one line among
-                many; it is the whole of what we do. That focus is why we curate a
-                portfolio built around the diseases, stresses and economics that
-                actually shape how a flock performs.
-              </p>
-            </Reveal>
-          </div>
-
-          <Reveal variant="right" className="relative">
-            <div className="grid grid-cols-2 gap-4">
-              <ParallaxImage
-                src={photo("labBench", 700, 75)}
-                alt="Quality poultry-health products distributed by Bilal Pharmaceuticals"
-                sizes="(min-width: 1024px) 22vw, 45vw"
-                speed={0.1}
-                className="aspect-[3/4] rounded-2xl"
-                imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
-              />
-              <ParallaxImage
-                src={photo("henClose", 700, 75)}
-                alt="A healthy hen"
-                sizes="(min-width: 1024px) 22vw, 45vw"
-                speed={0.2}
-                className="mt-8 aspect-[3/4] rounded-2xl"
-                imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
-              />
+      {/* HERO */}
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap">
+          <div className="split split--mid">
+            <div data-anim="rise">
+              <p className="eyebrow">About the company</p>
+              <h1 className="d1">Built around <span className="hl">the handling.</span></h1>
+              <p className="lead mt-24">Bilal Pharmaceuticals is an importer and distributor of animal-health products, based in Islamabad and led by CEO Muhammad Imran.</p>
             </div>
-          </Reveal>
+            <div data-anim="rise">
+              <Ph className="r-43" src={photo("manufacturing", 1000, 80)} alt="Handling imported consignments" cap="Import & clearing" />
+            </div>
+          </div>
         </div>
+      </div>
 
-        <Reveal className="mt-16 lg:mt-20">
-          <StatStrip stats={stats} />
-        </Reveal>
-      </section>
-
-      {/* Mission & vision */}
-      <section className="border-y border-line bg-emerald-deep">
-        <div className="container-page grid gap-10 py-16 lg:grid-cols-2 lg:py-20">
-          <Reveal className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-10">
-            <span className="eyebrow text-gold-soft">Mission</span>
-            <p className="mt-5 font-display text-2xl leading-snug tracking-tight text-white sm:text-[1.7rem]">
-              {missionVision.mission}
-            </p>
-          </Reveal>
-          <Reveal delay={120} className="rounded-3xl border border-white/10 bg-white/[0.04] p-8 sm:p-10">
-            <span className="eyebrow text-gold-soft">Vision</span>
-            <p className="mt-5 font-display text-2xl leading-snug tracking-tight text-white sm:text-[1.7rem]">
-              {missionVision.vision}
-            </p>
-          </Reveal>
+      {/* STORY */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="split">
+            <div data-anim="rise">
+              <p className="eyebrow">Our story</p>
+              <h2 className="d2">Good products, badly handled, stop being good products.</h2>
+            </div>
+            <div data-anim="rise">
+              <p>Pakistan&apos;s animal-health market has grown fast, and the products available to it have improved with it. What hasn&apos;t always kept pace is the care taken between the manufacturer&apos;s door and the farm gate.</p>
+              <p>Bilal Pharmaceuticals was set up to close that gap. We import animal-health products from principals we&apos;ve chosen deliberately, hold them under the conditions their makers specify, and supply them to farms, veterinarians, feed mills and agri-retailers with the documentation and advice that should come with them.</p>
+              <p>We keep our range deliberate rather than sprawling. We would rather represent a shorter list of brands we can stand behind than a catalogue we can&apos;t — and our customers benefit from a supplier whose attention isn&apos;t spread thin.</p>
+              <p className="mb-0">Today we represent a growing roster of brands across vaccines, feed additives, sanitation and nutrition — and we&apos;re still selective about which ones we add.</p>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Values */}
-      <section className="container-page py-20 lg:py-28">
-        <SectionHeading
-          eyebrow="What we stand for"
-          title="The principles behind every delivery."
-          align="center"
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 90}>
-              <div className="h-full rounded-2xl border border-line bg-card p-7">
-                <span className="grid h-12 w-12 place-items-center rounded-xl bg-mint text-emerald ring-1 ring-emerald/10">
-                  <Icon name={v.icon} size={22} />
-                </span>
-                <h3 className="mt-5 font-display text-lg tracking-tight text-ink">
-                  {v.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  {v.description}
-                </p>
+      {/* WHAT WE DO / DON'T */}
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">Being clear about it</p>
+            <h2 className="d2">What we do, and what we don&apos;t.</h2>
+            <p className="lead">Distributors are often vague about this. We&apos;d rather not be — it&apos;s the fastest way to tell whether we&apos;re the right supplier for you.</p>
+          </div>
+          <div className="grid g2" data-stagger="100">
+            <div className="card tilt" data-anim="pop">
+              <span className="card__k">What we do</span>
+              <div className="kv kv--bare mt-8">
+                {[
+                  "Select and represent animal-health principals",
+                  "Import, clear and document every consignment",
+                  "Store products under the conditions the maker specifies",
+                  "Supply farms, vets, feed mills and retailers",
+                  "Advise on correct use, dosage and handling",
+                ].map((t, i) => (
+                  <div className="kv__row" key={i}><span className="kv__k">0{i + 1}</span><span className="kv__v kv__v--l">{t}</span></div>
+                ))}
               </div>
-            </Reveal>
-          ))}
+            </div>
+            <div className="card card--plain" data-anim="rise" style={{ background: "linear-gradient(180deg,var(--tint-2),var(--tint))" }}>
+              <span className="card__k" style={{ color: "var(--muted)" }}>What we don&apos;t</span>
+              <div className="kv kv--bare mt-8">
+                {[
+                  "Manufacture or formulate products",
+                  "Run production facilities of any kind",
+                  "Repackage or relabel what we receive",
+                  "Take on brands we can't handle properly",
+                  "Sell anything we can't document",
+                ].map((t, i) => (
+                  <div className="kv__row" key={i}><span className="kv__k">—</span><span className="kv__v kv__v--l kv__v--soft">{t}</span></div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Timeline */}
-      <section className="border-y border-line bg-mint/40">
-        <div className="container-page py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Our journey"
-            title="Years of steady growth."
-            description="A steady progression from a small importing business to a trusted poultry-health distribution partner."
-          />
-          <ol className="mt-14 space-y-0">
-            {milestones.map((m, i) => (
-              <Reveal key={m.year} delay={(i % 3) * 70}>
-                <li className="group relative grid grid-cols-[auto_1fr] gap-6 pb-10 last:pb-0 sm:grid-cols-[8rem_1fr] sm:gap-10">
-                  {/* Rail */}
-                  <div className="relative flex sm:justify-end">
-                    <span className="font-display text-2xl font-medium tracking-tight text-emerald sm:text-3xl">
-                      {m.year}
-                    </span>
-                  </div>
-                  <div className="relative border-l border-line pl-6 pb-2 sm:pl-8">
-                    <span className="absolute -left-[6.5px] top-1.5 h-3 w-3 rounded-full bg-emerald ring-4 ring-mint" />
-                    <h3 className="font-display text-lg tracking-tight text-ink">
-                      {m.title}
-                    </h3>
-                    <p className="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                      {m.description}
-                    </p>
-                  </div>
-                </li>
-              </Reveal>
+      {/* HOW WE WORK — steps */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">How we work</p>
+            <h2 className="d2">From the principal&apos;s warehouse to your shed.</h2>
+          </div>
+          <div className="steps">
+            {[
+              ["01", "Select the principal", "We assess the range, its registration status and how it's meant to be handled before agreeing to represent it."],
+              ["02", "Import and clear", "Consignments are imported with full documentation and checked on arrival against the paperwork."],
+              ["03", "Store and handle", "Products go straight into storage at the temperature their maker specifies, with stock rotated by expiry."],
+              ["04", "Supply and support", "We dispatch with batch and expiry details, then stay reachable for questions about use."],
+            ].map(([n, t, d]) => (
+              <div className="step" key={n}>
+                <span className="step__n">{n}</span>
+                <div className="step__bar" />
+                <span className="d4">{t}</span>
+                <p>{d}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Leadership */}
-      <section className="container-page py-20 lg:py-28">
-        <SectionHeading
-          eyebrow="Leadership"
-          title="The team behind Bilal Pharmaceuticals."
-          description="Experienced people who have spent their careers in poultry health and distribution."
-        />
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {leadership.map((person, i) => (
-            <Reveal key={person.name} delay={i * 90}>
-              <div className="flex h-full flex-col rounded-2xl border border-line bg-card p-7 text-center">
-                <Monogram
-                  initials={person.initials}
-                  className="mx-auto h-16 w-16 text-xl"
-                />
-                <h3 className="mt-5 font-display text-lg tracking-tight text-ink">
-                  {person.name}
-                </h3>
-                <p className="mt-1 font-mono text-[0.72rem] uppercase tracking-wider text-emerald">
-                  {person.role}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                  {person.focus}
-                </p>
+      {/* ON THE RECORD — client photography gallery */}
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">On the record</p>
+            <h2 className="d2">Where we go to find what we carry.</h2>
+            <p className="lead">Choosing a principal is not something you do over email. We visit manufacturing and packaging sites, walk international animal-health exhibitions and meet the people whose products we intend to put in front of Pakistani farms.</p>
+          </div>
+          <div className="gal" data-stagger="110">
+            {GALLERY.map((g) => (
+              <article className={`gcard${g.wide ? " gal__wide" : ""}`} data-anim="pop" key={g.k}>
+                <figure className={`ph ph--flat${g.wide ? "" : " r-1"}`}>
+                  <span className="ph__clip">
+                    <img className="ph__i" src={g.image} alt={g.t} style={{ objectPosition: g.pos }} loading="lazy" decoding="async" />
+                  </span>
+                </figure>
+                <div className="gcard__v">
+                  <span className="gcard__k">{g.k}</span>
+                  <span className="gcard__t">{g.t}</span>
+                  <p className="gcard__d">{g.d}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* MISSION band */}
+      <div className="sec sec--band">
+        <span className="spot" aria-hidden="true" />
+        <div className="wrap wrap--narrow" style={{ textAlign: "center" }}>
+          <p className="eyebrow eyebrow--onband eyebrow--c" data-anim="rise">Our mission</p>
+          <p className="d2" data-anim="rise" style={{ fontWeight: 600 }}>Make quality animal-health products available in Pakistan in the condition their makers intended — with the advice to use them properly.</p>
+        </div>
+      </div>
+
+      {/* CEO */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="ceo">
+            <div data-anim="rise">
+              <p className="eyebrow">Leadership</p>
+              <div className="ceo__ph">
+                <figure className="ph r-45 ph--flat" data-anim="mask">
+                  <span className="ph__clip">
+                    <img className="ph__i" src={team.ceoPortrait} alt="Muhammad Imran, Chief Executive Officer" style={{ objectPosition: "center 15%" }} loading="lazy" decoding="async" />
+                  </span>
+                </figure>
               </div>
-            </Reveal>
-          ))}
+              <div className="mt-24">
+                <span className="d3">Muhammad Imran</span>
+                <p className="mono" style={{ fontSize: "11px", letterSpacing: ".15em", textTransform: "uppercase", color: "var(--label)", margin: "9px 0 0" }}>Chief Executive Officer</p>
+              </div>
+            </div>
+            <div data-anim="rise">
+              <h2 className="d2">A word from our CEO</h2>
+              <div className="quote">
+                <span className="quote__mark">&ldquo;</span>
+                We&apos;re judged on what arrives at the farm gate, not on what we promised in a meeting. That&apos;s why we&apos;re careful about the brands we take on and unusually strict about how we look after them.
+              </div>
+              <p className="mt-40">Under Muhammad Imran&apos;s direction, Bilal Pharmaceuticals has built its name on how it handles what it sells — relationships with principals whose products suit local conditions, and a customer base that comes back because the last order arrived exactly as it should have.</p>
+              <p className="mb-0">He remains directly involved in which brands the company represents and in the technical conversations that follow.</p>
+              <div className="btns mt-32">
+                <Link href="/contact" className="btn">Contact our team <span className="arw">→</span></Link>
+                <Link href="/research" className="btn btn--ghost">See our brands</Link>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
-
-      <div className="pb-20 lg:pb-28">
-        <CtaBand
-          eyebrow="Work with us"
-          title="Bring trusted brands to your flock."
-          description="Partner with a poultry-health distributor that treats quality and reliability as non-negotiable."
-          primary={{ label: "Contact our team", href: "/contact" }}
-          secondary={{ label: "Explore products", href: "/solutions" }}
-          image={photo("brooderHouse", 1600, 70)}
-        />
       </div>
     </>
   );

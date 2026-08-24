@@ -1,159 +1,118 @@
 import type { Metadata } from "next";
-import { qualitySteps, certifications, capabilities } from "@/data/company";
-import { photo } from "@/lib/images";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { Reveal } from "@/components/reveal";
-import { ParallaxImage } from "@/components/parallax-image";
-import { CtaBand } from "@/components/cta-band";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Quality & handling",
+  title: "Quality & why us",
   description:
-    "Authorised sourcing, cold-chain storage, careful handling and full traceability — how Bilal Pharmaceuticals protects quality in every product it supplies.",
+    "Quality in distribution is what happens after the factory — in the container, the warehouse, the delivery, and the advice. How Bilal Pharmaceuticals protects it.",
 };
+
+const REASONS = [
+  { icon: "i-shield", k: "01 · Selection", t: "Brands worth representing", d: "We assess fit, documentation, handling requirements and manufacturer support before adding any brand. A short list we believe in beats a long one we can't defend." },
+  { icon: "i-temp", k: "02 · Cold chain", t: "Unbroken, not assumed", d: "Vaccines and sensitive products stay within their specified temperature range from clearance to delivery. This is the single most common failure point in this market, and we treat it that way." },
+  { icon: "i-doc", k: "03 · Traceability", t: "Batch and expiry on record", d: "You can ask us what batch you received last March and get an answer. That matters for audits, and it matters when something needs investigating." },
+  { icon: "i-layer", k: "04 · Stock discipline", t: "No near-expiry surprises", d: "Stock rotates by expiry date, not by convenience. You get usable shelf life, and we'd rather absorb a write-off than pass one on." },
+  { icon: "i-hand", k: "05 · Technical advice", t: "Someone who knows the product", d: "Dosage, timing, withdrawal periods, what not to mix with what — ask before you buy. We'd rather sell you the right thing once." },
+  { icon: "i-broiler", k: "06 · One relationship", t: "Multiple brands, one supplier", d: "Consolidate your buying across categories. One order, one delivery, one invoice, and one person who already knows your operation." },
+];
 
 export default function QualityPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Quality & handling"
-        title="Quality protected, batch after batch."
-        description="In poultry health there is no room for variability. Every product we supply is sourced through authorised channels and handled with care until it reaches your farm."
-        image={photo("qualityControl", 1800, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Quality" }]}
-      />
-
-      {/* Intro */}
-      <section className="container-page py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
-            <SectionHeading
-              eyebrow="Our commitment"
-              title="Quality is not a step — it's every step."
-              description="From choosing which manufacturers to work with to the final dispatch check, quality is built into how we source, store and handle every product."
-            />
-            <div className="mt-6 space-y-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-              <p>
-                We source only from reputable manufacturers, through their
-                official and authorised distribution channels — never unverified
-                product.
-              </p>
-              <p>
-                Goods are held in clean, temperature-appropriate conditions — cold
-                chain where required — and checked for authenticity, condition and
-                shelf life, with lot-level traceability that follows each product
-                all the way to the farm.
-              </p>
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap">
+          <div className="split" style={{ alignItems: "end" }}>
+            <div data-anim="rise">
+              <p className="eyebrow">Quality &amp; handling</p>
+              <h1 className="d1">We don&apos;t make it.<br /><span className="hl">We look after it.</span></h1>
+            </div>
+            <div data-anim="rise">
+              <p className="lead">Quality in distribution isn&apos;t about what happens in a factory. It&apos;s about what happens after — in the container, in the warehouse, on the delivery, and in the advice that comes with it.</p>
             </div>
           </div>
-          <Reveal variant="right">
-            <ParallaxImage
-              src={photo("manufacturing", 1100, 80)}
-              alt="Temperature-controlled storage and handling at Bilal Pharmaceuticals"
-              sizes="(min-width: 1024px) 45vw, 90vw"
-              speed={0.14}
-              className="aspect-[4/3] rounded-3xl"
-              imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
-            />
-          </Reveal>
         </div>
-      </section>
+      </div>
 
-      {/* Process */}
-      <section className="border-y border-line bg-emerald-deep">
-        <div className="container-page py-20 lg:py-28">
-          <SectionHeading
-            dark
-            eyebrow="The quality system"
-            title="Five controls behind every delivery."
-            description="A single, documented chain of custody from the manufacturer to your farm gate."
-          />
-          <div className="mt-14 space-y-px overflow-hidden rounded-2xl border border-white/10 bg-white/10">
-            {qualitySteps.map((s, i) => (
-              <Reveal key={s.step} delay={(i % 3) * 70}>
-                <div className="grid gap-4 bg-emerald-deep p-7 sm:grid-cols-[5rem_1fr] sm:items-center sm:gap-8 sm:p-8">
-                  <span className="font-display text-3xl font-medium tracking-tight text-gold-soft">
-                    {s.step}
-                  </span>
-                  <div>
-                    <h3 className="font-display text-lg tracking-tight text-white">
-                      {s.title}
-                    </h3>
-                    <p className="mt-1.5 max-w-2xl text-sm leading-relaxed text-white/65">
-                      {s.description}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+      <div className="sec sec--band">
+        <span className="spot" aria-hidden="true" />
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow eyebrow--onband">Chain of custody</p>
+            <h2 className="d2">Everywhere a product can be spoiled, and what we do about it.</h2>
           </div>
-        </div>
-      </section>
-
-      {/* Capabilities */}
-      <section className="container-page py-20 lg:py-28">
-        <SectionHeading
-          eyebrow="Capabilities"
-          title="Built for scale and reliability."
-          align="center"
-        />
-        <div className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line lg:grid-cols-4">
-          {capabilities.map((c, i) => (
-            <Reveal key={c.label} delay={i * 80} className="bg-card">
-              <div className="px-5 py-8 text-center">
-                <div className="font-display text-4xl font-medium tracking-tight text-emerald">
-                  {c.value}
-                </div>
-                <p className="mt-2 text-sm text-muted-foreground">{c.label}</p>
+          <div className="chain" data-anim="fade">
+            <div className="chain__track"><div className="chain__fill" /></div>
+            <div className="chain__row">
+              <div className="chain__step">
+                <span className="chain__k">On arrival</span>
+                <span className="chain__t">Checked against the paperwork</span>
+                <p className="chain__d">Every consignment is verified on receipt — quantities, batch numbers, expiry dates and condition, matched to the import documentation before it enters stock.</p>
               </div>
-            </Reveal>
-          ))}
+              <div className="chain__step">
+                <span className="chain__k">In storage</span>
+                <span className="chain__t">Held the way the maker says</span>
+                <p className="chain__d">Cold-chain products go into temperature-controlled storage. Everything else is kept dry, ventilated and off the floor, with stock rotated strictly by expiry.</p>
+              </div>
+              <div className="chain__step">
+                <span className="chain__k">On dispatch</span>
+                <span className="chain__t">Documented out the door</span>
+                <p className="chain__d">Orders leave with batch and expiry details recorded, cold-chain items packed for the journey, and a record we can trace back if you ever need us to.</p>
+              </div>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      {/* Certifications */}
-      <section className="border-t border-line bg-mint/40">
-        <div className="container-page py-20 lg:py-28">
-          <SectionHeading
-            eyebrow="Standards we uphold"
-            title="The standards behind how we work."
-            description="The practices and compliance standards we hold ourselves to when sourcing, storing and supplying poultry-health products."
-          />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((c, i) => (
-              <Reveal key={c.code} delay={(i % 3) * 80}>
-                <div className="flex h-full flex-col rounded-2xl border border-line bg-card p-7">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-display text-2xl font-medium tracking-tight text-emerald">
-                      {c.code}
-                    </span>
-                  </div>
-                  <h3 className="mt-3 font-medium text-ink">{c.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {c.description}
-                  </p>
-                </div>
-              </Reveal>
+      <div className="sec">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">Why us</p>
+            <h2 className="d2">Six reasons buyers stay with us.</h2>
+          </div>
+          <div className="grid g3" data-stagger="80">
+            {REASONS.map((r) => (
+              <div className="card tilt" data-anim="pop" key={r.k}>
+                <div className="ibadge"><svg><use href={`#${r.icon}`} /></svg></div>
+                <span className="card__k">{r.k}</span>
+                <span className="d4">{r.t}</span>
+                <p>{r.d}</p>
+              </div>
             ))}
           </div>
-          <p className="mt-8 font-mono text-[0.72rem] leading-relaxed tracking-wide text-muted-foreground">
-            Standards shown are illustrative placeholders for this demo and can be
-            replaced with the real licenses and certificates held by Bilal
-            Pharmaceuticals.
-          </p>
         </div>
-      </section>
+      </div>
 
-      <div className="py-20 lg:py-28">
-        <CtaBand
-          eyebrow="Documentation"
-          title="Need certificates or product documentation?"
-          description="Distributors and veterinarians can request certificates of analysis, safety data and registration documents from our team."
-          primary={{ label: "Request documents", href: "/contact" }}
-          secondary={{ label: "About our company", href: "/about" }}
-          image={photo("production", 1600, 70)}
-        />
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="split">
+            <div data-anim="rise">
+              <p className="eyebrow">In plain terms</p>
+              <h2 className="d2">What our quality claim covers — and what it doesn&apos;t.</h2>
+              <p className="lead mt-24">We think being specific here is more useful than a page of assurances.</p>
+            </div>
+            <div className="card tilt" data-anim="pop">
+              <div className="kv kv--bare">
+                <div className="kv__row"><span className="kv__k">We are</span><span className="kv__dots" /><span className="kv__v">Importers and distributors</span></div>
+                <div className="kv__row"><span className="kv__k">We are not</span><span className="kv__dots" /><span className="kv__v">A manufacturer</span></div>
+                <div className="kv__row"><span className="kv__k">Product quality</span><span className="kv__dots" /><span className="kv__v">Guaranteed by the principal</span></div>
+                <div className="kv__row"><span className="kv__k">Handling quality</span><span className="kv__dots" /><span className="kv__v">Guaranteed by us</span></div>
+                <div className="kv__row"><span className="kv__k">Documentation</span><span className="kv__dots" /><span className="kv__v">Supplied with every order</span></div>
+                <div className="kv__row"><span className="kv__k">Coverage</span><span className="kv__dots" /><span className="kv__v">Animal health</span></div>
+              </div>
+              <p className="mt-24 mb-0">If a product ever reaches you in a condition it shouldn&apos;t be in, tell us. We&apos;ll trace the batch and deal with it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="sec">
+        <div className="wrap wrap--narrow" style={{ textAlign: "center" }}>
+          <h2 className="d2" data-anim="rise">Ask us anything about how we handle your order.</h2>
+          <p className="lead mt-24" data-anim="rise">Storage, documentation, delivery timing, cold chain on a long route — we&apos;d rather answer it before you buy.</p>
+          <div className="btns mt-40" data-anim="rise" style={{ justifyContent: "center" }}>
+            <Link href="/contact" className="btn">Contact our team <span className="arw">→</span></Link>
+          </div>
+        </div>
       </div>
     </>
   );

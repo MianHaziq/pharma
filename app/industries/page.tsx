@@ -1,112 +1,112 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Check } from "lucide-react";
-import { industries } from "@/data/company";
-import { img, photo } from "@/lib/images";
-import { PageHero } from "@/components/page-hero";
-import { SectionHeading } from "@/components/section-heading";
-import { Reveal } from "@/components/reveal";
-import { ParallaxImage } from "@/components/parallax-image";
-import { Icon } from "@/components/icon";
-import { Button } from "@/components/ui/button";
-import { CtaBand } from "@/components/cta-band";
+import { photo } from "@/lib/images";
+import { Ph } from "@/components/site/ph";
 
 export const metadata: Metadata = {
-  title: "Industries we serve",
+  title: "Segments",
   description:
-    "From broilers and layers to breeders, hatcheries and integrated production — Bilal Pharmaceuticals supplies the right products for every poultry operation.",
+    "Broilers, layers and breeders have genuinely different needs. Bilal Pharmaceuticals stocks and advises for each.",
 };
 
-export default function IndustriesPage() {
+function Supply({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="card tilt" data-anim="pop">
+      <span className="card__k">{title}</span>
+      <div className="kv kv--bare mt-8">
+        {items.map((t) => (
+          <div className="kv__row" key={t}><span className="kv__v kv__v--l">{t}</span><span className="kv__dots" /></div>
+        ))}
+      </div>
+      <p className="mt-24 mb-0"><Link href="/contact" className="txtlink">Discuss a programme <span className="arw">→</span></Link></p>
+    </div>
+  );
+}
+
+export default function SegmentsPage() {
   return (
     <>
-      <PageHero
-        eyebrow="Industries we serve"
-        title="Built for how poultry is produced."
-        description="Every operation runs differently. Our health programs are shaped around the birds, the stage and the economics of each — from day-old chicks to integrated production at scale."
-        image={photo("farmPanorama", 1900, 70)}
-        crumbs={[{ label: "Home", href: "/" }, { label: "Industries" }]}
-      />
-
-      <section className="container-page py-20 lg:py-28">
-        <SectionHeading
-          eyebrow="Applications"
-          title="One partner across the production chain."
-          description="Five focus areas, each supported by the right products, trusted brands and technical guidance."
-        />
-
-        <div className="mt-16 space-y-20 lg:space-y-28">
-          {industries.map((item, i) => {
-            const flip = i % 2 === 1;
-            return (
-              <div
-                key={item.slug}
-                id={item.slug}
-                className="grid scroll-mt-28 items-center gap-10 lg:grid-cols-2 lg:gap-16"
-              >
-                <Reveal
-                  variant={flip ? "right" : "left"}
-                  className={flip ? "lg:order-2" : ""}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-                    <ParallaxImage
-                      src={img(item.image, 1100, 78)}
-                      alt={item.name}
-                      sizes="(min-width: 1024px) 45vw, 90vw"
-                      speed={0.14}
-                      className="absolute inset-0"
-                      imgClassName="transition-transform duration-[1200ms] ease-out hover:scale-105"
-                    />
-                    <span className="absolute left-5 top-5 z-10 grid h-11 w-11 place-items-center rounded-xl bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-sm">
-                      <Icon name={item.icon} size={20} />
-                    </span>
-                  </div>
-                </Reveal>
-
-                <Reveal
-                  variant={flip ? "left" : "right"}
-                  delay={80}
-                  className={flip ? "lg:order-1" : ""}
-                >
-                  <span className="font-mono text-[0.72rem] uppercase tracking-[0.14em] text-emerald">
-                    {String(i + 1).padStart(2, "0")} · {item.tagline}
-                  </span>
-                  <h3 className="mt-3 font-display text-2xl tracking-tight text-ink sm:text-3xl">
-                    {item.name}
-                  </h3>
-                  <p className="mt-4 text-[0.975rem] leading-relaxed text-muted-foreground">
-                    {item.description}
-                  </p>
-                  <ul className="mt-6 space-y-2.5">
-                    {item.points.map((point) => (
-                      <li key={point} className="flex gap-3 text-[0.95rem] text-ink">
-                        <Check size={18} className="mt-0.5 shrink-0 text-emerald" />
-                        {point}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild variant="outline" size="lg" className="mt-7">
-                    <Link href="/solutions">
-                      Relevant products
-                      <ArrowRight data-icon="inline-end" />
-                    </Link>
-                  </Button>
-                </Reveal>
-              </div>
-            );
-          })}
+      <div className="sec sec--tight sec--tint">
+        <div className="wrap">
+          <div className="split" style={{ alignItems: "end" }}>
+            <div data-anim="rise">
+              <p className="eyebrow">Who we serve</p>
+              <h1 className="d1">Broilers, layers<br /><span className="hl">and breeders.</span></h1>
+            </div>
+            <div data-anim="rise">
+              <p className="lead">Three segments with genuinely different needs. We stock for all three and we talk to each one differently, because a 35-day broiler cycle and a 70-week layer cycle are not the same business.</p>
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
 
-      <div className="pb-20 lg:pb-28">
-        <CtaBand
-          eyebrow="Tailored supply"
-          title="Let's stock the right products for your operation."
-          description="Whatever you produce, our team can help you source the right products and brands for your flock."
-          primary={{ label: "Talk to our team", href: "/contact" }}
-          secondary={{ label: "Explore products", href: "/solutions" }}
-          image={photo("eggsCollect", 1600, 70)}
-        />
+      {/* Broilers */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="split split--mid">
+            <div data-anim="rise">
+              <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
+                <Ph className="r-32" src={photo("brooderHouse", 900, 78)} alt="White broiler flock in a grow-out house" cap="Grow-out · 35-day cycle" />
+              </div>
+              <p className="eyebrow">Segment 01</p>
+              <h2 className="d2">Broilers</h2>
+              <p className="lead mt-16">Short cycles, thin margins, no room to recover from a bad week.</p>
+              <p className="mb-0">Grow-out flocks live under high stocking density on a fixed clock. Anything that costs you three days of uniform growth costs you the cycle. What matters is keeping disease pressure down and gut function steady from placement to catch.</p>
+            </div>
+            <Supply title="What we supply for broilers" items={["Coccidiosis control", "Drinking-water sanitation", "Gut health & organic acids", "Heat-stress support", "Between-cycle disinfection"]} />
+          </div>
+        </div>
+      </div>
+
+      {/* Layers */}
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="split split--mid">
+            <Supply title="What we supply for layers" items={["Calcium & shell support", "Vitamins & electrolytes", "Mycotoxin binders", "Vaccination programme products", "Water-line hygiene"]} />
+            <div data-anim="rise">
+              <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
+                <Ph className="r-32" src={photo("eggsCollect", 900, 78)} alt="Graded eggs on trays from a layer house" cap="Production · 70-week cycle" />
+              </div>
+              <p className="eyebrow">Segment 02</p>
+              <h2 className="d2">Layers</h2>
+              <p className="lead mt-16">A long run where small daily losses compound into large annual ones.</p>
+              <p className="mb-0">Layer operations are judged over months, not weeks. Shell quality, persistency of lay and bird condition late in the cycle decide profitability — and all three depend on nutrition and health support staying consistent for the whole period.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Breeders */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="split split--mid">
+            <div data-anim="rise">
+              <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
+                <Ph className="r-32" src={photo("roosterProfile", 900, 78)} alt="Breeder hen in a parent-stock house" cap="Parent stock" />
+              </div>
+              <p className="eyebrow">Segment 03</p>
+              <h2 className="d2">Breeders</h2>
+              <p className="lead mt-16">The most valuable birds on any site, and the hardest to replace.</p>
+              <p className="mb-0">Breeder flocks carry the genetics everything downstream depends on. A gap in a vaccination programme here doesn&apos;t just affect the parent stock — it shows up in chick quality weeks later. Precision and documentation matter more in this segment than anywhere else.</p>
+            </div>
+            <Supply title="What we supply for breeders" items={["Full vaccination programmes", "Fertility & hatchability support", "Trace minerals & nutrition", "Strict biosecurity products", "Batch-traceable supply"]} />
+          </div>
+        </div>
+      </div>
+
+      {/* We also supply */}
+      <div className="sec sec--tint">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">We also supply</p>
+            <h2 className="d2">The people around the flock.</h2>
+          </div>
+          <div className="grid g3" data-stagger="80">
+            <div className="card tilt" data-anim="pop"><span className="card__k">Trade</span><span className="d4">Veterinarians</span><p>Reliable stock for the products you prescribe, with technical data sheets and withdrawal information on request.</p></div>
+            <div className="card tilt" data-anim="pop"><span className="card__k">Trade</span><span className="d4">Feed mills</span><p>Additives, enzymes and binders in commercial quantities, supplied with batch documentation.</p></div>
+            <div className="card tilt" data-anim="pop"><span className="card__k">Trade</span><span className="d4">Agri-retailers</span><p>Trade terms on a range your farming customers already ask for, from brands they recognise.</p></div>
+          </div>
+        </div>
       </div>
     </>
   );
