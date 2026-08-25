@@ -22,6 +22,10 @@ export interface Brand {
   name: string;
   /** Short text mark used when no logo image is available. */
   logoText: string;
+  /** Path to the brand's logo image (in /public). Preferred over text. */
+  logo?: string;
+  /** The brand's specialty / category, shown as a small label. */
+  category?: string;
   description: string;
   featured: boolean;
 }

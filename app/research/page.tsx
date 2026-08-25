@@ -1,7 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { photo } from "@/lib/images";
-import { Ph } from "@/components/site/ph";
 import { Chips } from "@/components/site/chips";
 import { brands } from "@/data/brands";
 
@@ -11,14 +10,12 @@ export const metadata: Metadata = {
     "The animal-health principals Bilal Pharmaceuticals imports and distributes in Pakistan — each chosen for fit, documentation and handling.",
 };
 
-// Real principals enriched with a category, representative photo and handling notes.
-const DETAIL: Record<string, { cat: string; photo: Parameters<typeof photo>[0]; segments: string; storage: string }> = {
-  "brand-bilal-select": { cat: "House line · multi-category", photo: "qualityControl", segments: "All four", storage: "Per product" },
-  "brand-toppharma": { cat: "Anti-infectives & medicines", photo: "labPipette", segments: "All four", storage: "Cool, dark" },
-  "brand-leads": { cat: "Vaccines & specialties", photo: "microscope", segments: "All four", storage: "Cold chain 2–8°C" },
-  "brand-vetycare": { cat: "Tonics & supportive care", photo: "labBench", segments: "Layers, breeders", storage: "Cool, dry" },
-  "brand-orient": { cat: "Feed additives & biosecurity", photo: "manufacturing", segments: "All four", storage: "Dry, ambient" },
-  "brand-multivet": { cat: "Vitamins & nutrition", photo: "production", segments: "All four", storage: "Cool, dark" },
+// Handling note per principal (category comes from the brand data).
+const HANDLING: Record<string, string> = {
+  "brand-toppharma": "Cool, dark",
+  "brand-leads": "Cold chain 2–8°C",
+  "brand-multivet": "Cool, dark",
+  "brand-innomax": "Per product",
 };
 
 const CRITERIA = [
@@ -40,7 +37,7 @@ export default function BrandsPage() {
             </div>
             <div data-anim="rise">
               <p className="lead">This is the heart of what we do. Every brand below was chosen for its fit with local conditions, and each one is imported, stored and supplied by us directly.</p>
-              <p className="note">Brand logos are placeholders until artwork is supplied. Product descriptions are indicative — confirm the final range with each principal.</p>
+              <p className="note">Product descriptions are indicative — confirm the final range with each principal.</p>
             </div>
           </div>
         </div>
@@ -52,21 +49,20 @@ export default function BrandsPage() {
 
           <div className="grid g3 mt-40" data-stagger="70">
             {brands.map((b) => {
-              const d = DETAIL[b.id];
               return (
                 <article className="bplate" data-anim="rise" key={b.id}>
-                  <div className="bplate__ph">
-                    <Ph anim={false} className="ph--flat" src={photo(d.photo, 720, 78)} alt={`${b.name} — ${d.cat}`} slot="Logo slot" />
+                  <div className="bplate__logo">
+                    <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
                   </div>
                   <div className="bplate__top">
-                    <div><span className="bplate__cat">{d.cat}</span><span className="d3">{b.name}</span></div>
+                    <span className="bplate__cat">{b.category}</span>
                   </div>
                   <div className="bplate__body">
                     <p className="bplate__desc">{b.description}</p>
                     <div className="bplate__foot">
                       <div className="kv">
-                        <div className="kv__row"><span className="kv__k">Segments</span><span className="kv__dots" /><span className="kv__v">{d.segments}</span></div>
-                        <div className="kv__row"><span className="kv__k">Storage</span><span className="kv__dots" /><span className="kv__v">{d.storage}</span></div>
+                        <div className="kv__row"><span className="kv__k">Category</span><span className="kv__dots" /><span className="kv__v">{b.category}</span></div>
+                        <div className="kv__row"><span className="kv__k">Handling</span><span className="kv__dots" /><span className="kv__v">{HANDLING[b.id] ?? "Standard"}</span></div>
                       </div>
                       <div className="chips mt-24"><span className="chip chip--dot" style={{ cursor: "default" }}>Imported &amp; distributed</span></div>
                     </div>

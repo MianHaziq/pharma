@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { photo } from "@/lib/images";
 import { Ph } from "@/components/site/ph";
@@ -14,20 +15,12 @@ const MARQUEE = [
   ["Biosecurity", "Farm hygiene"],
 ];
 
-// Real principals → a representative category + a stock product shot per plate.
-const BRAND_PLATES = [
-  { cat: "House line", photo: "qualityControl" },
-  { cat: "Anti-infectives", photo: "labPipette" },
-  { cat: "Vaccines", photo: "microscope" },
-  { cat: "Tonics & care", photo: "labBench" },
-  { cat: "Biosecurity", photo: "manufacturing" },
-  { cat: "Vitamins & nutrition", photo: "production" },
-] as const;
-
+// The animal groups we supply — poultry where we started, plus the wider
+// livestock our range now covers. A representative shot per group.
 const SEGMENTS = [
-  { icon: "i-broiler", tag: "Grow-out", name: "Broilers", photo: "brooderHouse", alt: "Broiler flock on a grow-out unit", desc: "Short cycles and tight margins. Coccidiosis control, water sanitation and gut health through grow-out." },
-  { icon: "i-layer", tag: "Production", name: "Layers", photo: "eggsCollect", alt: "Graded eggs on trays from a layer house", desc: "Long production runs. Shell quality, calcium status and support for persistent lay." },
-  { icon: "i-breeder", tag: "Parent stock", name: "Breeders", photo: "roosterProfile", alt: "Breeder hens in a parent-stock house", desc: "Stock you can't replace quickly. Vaccination programmes, fertility and hatchability support." },
+  { icon: "i-broiler", tag: "Broilers & layers", name: "Poultry", photo: "chickensOutdoor", alt: "Free-range hens on a poultry farm", desc: "Broilers, layers and breeders. Vaccines, coccidiosis control, water sanitation and gut health across every stage of the flock." },
+  { icon: "i-cattle", tag: "Dairy & beef", name: "Cattle", photo: "cattleHerd", alt: "Cattle grazing in a green pasture", desc: "Dairy and beef herds. Nutrition, trace minerals, reproductive support and the vaccines that keep production steady." },
+  { icon: "i-sheep", tag: "Small ruminants", name: "Sheep & goats", photo: "goatHerd", alt: "A herd of goats on a farm", desc: "Parasite control, mineral supplementation and the everyday health products a mixed flock or herd depends on." },
 ] as const;
 
 const WHY = [
@@ -67,8 +60,8 @@ export default function HomePage() {
 
             <div className="hero__art">
               <div className="hero__stack">
-                <Ph className="ph--kb hero__main r-45" src={photo("brooderHouse", 1100, 80)} alt="Broiler flock inside a commercial poultry house" eager cap="Broiler house · grow-out" />
-                <Ph className="hero__inset r-43 ph--flat" src={photo("qualityControl", 760, 80)} alt="Glass vaccine vials in temperature-controlled storage" eager />
+                <Ph className="ph--kb hero__main r-45" src={photo("farmMixed", 1100, 80)} alt="Chickens and lambs together on a mixed livestock farm" eager cap="Farm to gate · animal health" />
+                <Ph className="hero__inset r-43 ph--flat" src={photo("cattleHerd", 760, 80)} alt="A herd of cattle grazing on open pasture" eager />
               </div>
               <div className="glass hero__glass-1 parx" data-speed="0.05" data-anim="pop" style={{ transitionDelay: ".6s" }}>
                 <span className="glass__k"><i className="pulse" /> Cold room · live</span>
@@ -118,7 +111,7 @@ export default function HomePage() {
 
       {/* SIGNATURE — COLD CHAIN RAIL */}
       <div className="rail-sec" id="coldrail">
-        <div className="rail-sec__bg" style={{ backgroundImage: `url('${photo("manufacturing", 1600, 65)}')` }} />
+        <div className="rail-sec__bg" style={{ backgroundImage: `url('${photo("warehouseStock", 1600, 65)}')` }} />
         <span className="spot" aria-hidden="true" />
         <div className="wrap">
           <div className="rail__head">
@@ -171,7 +164,7 @@ export default function HomePage() {
           <div className="split split--mid">
             <div data-anim="rise">
               <div className="parx" data-speed="0.045">
-                <Ph className="r-43" src={photo("production", 900, 80)} alt="Racked pharmaceutical storage aisle" cap="Storage — racked and rotated by expiry" />
+                <Ph className="r-43" src={photo("warehouseRack", 900, 80)} alt="Racked warehouse storage aisle" cap="Storage — racked and rotated by expiry" />
               </div>
             </div>
             <div data-anim="rise">
@@ -195,16 +188,13 @@ export default function HomePage() {
             <p className="lead">Our credibility is the company we keep. We represent a growing roster of animal-health brands across the categories our customers actually use.</p>
           </div>
           <div className="grid g4" data-stagger="80">
-            {brands.map((b, i) => (
+            {brands.map((b) => (
               <div className="bplate" data-anim="pop" key={b.id}>
-                <div className="bplate__ph">
-                  <Ph anim={false} className="ph--flat" src={photo(BRAND_PLATES[i].photo, 640, 78)} alt={`${b.name} — ${BRAND_PLATES[i].cat}`} slot="Logo slot" />
+                <div className="bplate__logo">
+                  <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
                 </div>
                 <div className="bplate__top">
-                  <div>
-                    <span className="bplate__cat">{BRAND_PLATES[i].cat}</span>
-                    <span className="d4">{b.name}</span>
-                  </div>
+                  <span className="bplate__cat">{b.category}</span>
                 </div>
               </div>
             ))}
@@ -218,8 +208,8 @@ export default function HomePage() {
         <div className="wrap">
           <div className="sec-head" data-anim="rise">
             <p className="eyebrow">Who we serve</p>
-            <h2 className="d2">Three kinds of flock, three sets of problems.</h2>
-            <p className="lead">A breeder farm and a broiler unit need different things from the same supplier. We stock and advise accordingly.</p>
+            <h2 className="d2">Different animals, different needs.</h2>
+            <p className="lead">Poultry, cattle and small ruminants ask very different things of the same supplier. We stock and advise across all three.</p>
           </div>
           <div className="grid g3" data-stagger="70">
             {SEGMENTS.map((s) => (
@@ -233,7 +223,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-40" data-anim="rise"><Link href="/industries" className="txtlink">See what we supply each segment <span className="arw">→</span></Link></div>
+          <div className="mt-40" data-anim="rise"><Link href="/contact" className="txtlink">Tell us what your operation runs <span className="arw">→</span></Link></div>
         </div>
       </div>
 

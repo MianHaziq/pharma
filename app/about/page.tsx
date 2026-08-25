@@ -16,9 +16,15 @@ const GALLERY = [
   { image: team.foshanVisit, wide: true, pos: "center 42%", k: "Supplier visit · Foshan, Guangdong, China", t: "We go and look before we commit", d: "A visit to Guangdong Sihai Iron Printing & Tin-Making, which produces metal containers for the sector. How a product is packed and sealed decides how much of it survives the journey to a Pakistani farm." },
   { image: team.ippeExpo, pos: "center 26%", k: "IPPE · United States", t: "A major production & processing expo", d: "On the floor at the International Production & Processing Expo — sourcing new ranges and keeping current with where animal health is heading." },
   { image: team.space2024, pos: "center 30%", k: "SPACE 2024 · Rennes, France", t: "International animal-farming exhibition", d: "Where new animal-health ranges are introduced, and where manufacturers looking for a Pakistan partner can be met face to face." },
-  { image: team.award2026, pos: "center 34%", k: "Annual Business Conference · 2026", t: "Certificate of appreciation", d: "Recognition at a business conference whose sponsors include Quality Poultry Breeders and PACE Pharma — the sector we work in." },
+  { image: team.award2026, pos: "center 34%", k: "Annual Business Conference · 2026", t: "Certificate of appreciation", d: "Recognised at an annual business conference of excellence — staying visible and connected in the industry we serve." },
   { image: team.industrySeminar, pos: "center 32%", k: "Industry roundtable · Pakistan", t: "At the table with the sector", d: "Staying close to the questions producers and veterinarians are actually asking — not just the ones a price list answers." },
   { image: team.newYork, pos: "center 66%", k: "New York, United States", t: "Leadership on the road", d: "Our CEO handles principal relationships himself rather than delegating them, which means a good deal of time spent away from Islamabad." },
+];
+
+// "On the road" — the CEO's own photos, in person at trade shows and on travel.
+const ONROAD = [
+  { image: team.field, pos: "center 22%", k: "Field visit · Italy", t: "Close to the source", d: "The CEO turns up in person — at home and abroad — to see operations first-hand and stay close to the partners the business relies on." },
+  { image: team.paris, pos: "center 26%", k: "Paris · France", t: "Between meetings", d: "International travel is part of the job. Sourcing and supplier relationships are handled directly, not delegated." },
 ];
 
 export default function AboutPage() {
@@ -34,7 +40,7 @@ export default function AboutPage() {
               <p className="lead mt-24">Bilal Pharmaceuticals is an importer and distributor of animal-health products, based in Islamabad and led by CEO Muhammad Imran.</p>
             </div>
             <div data-anim="rise">
-              <Ph className="r-43" src={photo("manufacturing", 1000, 80)} alt="Handling imported consignments" cap="Import & clearing" />
+              <Ph className="r-43" src={photo("vetBottles", 1000, 80)} alt="Veterinary injectable medicines for poultry and livestock on a shelf" cap="Animal-health products we import" />
             </div>
           </div>
         </div>
@@ -151,6 +157,33 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* ON THE ROAD — CEO in person */}
+      <div className="sec">
+        <div className="wrap">
+          <div className="sec-head" data-anim="rise">
+            <p className="eyebrow">On the road</p>
+            <h2 className="d2">Our CEO, in person.</h2>
+            <p className="lead">The relationships behind the range are handled face to face — at the shows and at the source.</p>
+          </div>
+          <div className="grid g2" data-stagger="110">
+            {ONROAD.map((g) => (
+              <article className="gcard" data-anim="pop" key={g.k}>
+                <figure className="ph ph--flat r-43">
+                  <span className="ph__clip">
+                    <img className="ph__i" src={g.image} alt={g.t} style={{ objectPosition: g.pos }} loading="lazy" decoding="async" />
+                  </span>
+                </figure>
+                <div className="gcard__v">
+                  <span className="gcard__k">{g.k}</span>
+                  <span className="gcard__t">{g.t}</span>
+                  <p className="gcard__d">{g.d}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* MISSION band */}
       <div className="sec sec--band">
         <span className="spot" aria-hidden="true" />
@@ -169,7 +202,7 @@ export default function AboutPage() {
               <div className="ceo__ph">
                 <figure className="ph r-45 ph--flat" data-anim="mask">
                   <span className="ph__clip">
-                    <img className="ph__i" src={team.ceoPortrait} alt="Muhammad Imran, Chief Executive Officer" style={{ objectPosition: "center 15%" }} loading="lazy" decoding="async" />
+                    <img className="ph__i" src={team.ceoPortrait} alt="Muhammad Imran, Chief Executive Officer" style={{ objectPosition: "center 25%" }} loading="lazy" decoding="async" />
                   </span>
                 </figure>
               </div>

@@ -26,6 +26,14 @@ export const photos = {
   brooderHouse: "1531155179084-3e1f15110922",
   freeRange: "1553531009-c4605f302b47",
 
+  // Livestock · cattle · sheep · goats · mixed farm (animal-health scope)
+  farmMixed: "1636986766802-a9bf23d30448", // hero — hens and lambs together on a farm (multi-species)
+  cattleHerd: "1715798637010-8a4f27a0950f", // herd of cattle grazing a green field
+  sheepFlock: "1744895484813-486bf97487a7", // flock of sheep across an open pasture
+  goatHerd: "1622837699015-9a4cb8b7a94b", // goats grazing on green grass
+  cowCloseup: "1660599138377-22e71f1eb93a", // close-up portrait of a dairy cow
+  chickensOutdoor: "1624295886848-623d4d12c1d6", // free-range chickens on grass
+
   // Eggs · hatchery · chicks
   eggsTray: "1498654077810-12c21d4d6dc3",
   eggsCollect: "1598965675045-45c5e72c7d05",
@@ -44,6 +52,11 @@ export const photos = {
   manufacturing: "1631549916768-4119b2e5f926",
   production: "1607398027609-fbd1a06fb5d4",
   qualityControl: "1589792924333-edbfbe7c8be7",
+
+  // Handling · storage · veterinary product (real animal-health imagery, no pills)
+  vetBottles: "1606235357537-84aea24d4c4f", // veterinary injectable medicine bottles on a shelf
+  warehouseRack: "1749244768351-2726dc23d26c", // racked distribution warehouse aisle
+  warehouseStock: "1672552226380-486fe900b322", // cartons on pallets in a storage warehouse
 } as const;
 
 export type PhotoKey = keyof typeof photos;
@@ -65,6 +78,9 @@ export const team = {
   industrySeminar: "/team/industry-seminar.webp", // Industry roundtable — Pakistan
   award2026: "/team/award-2026.webp", // Zaryans Business Group, 40 Years conference — 2026
   newYork: "/team/new-york.webp", // New York, USA — principal relationships in person
+  // CEO's own photos (added), shown in the "On the road" section:
+  field: "/team/field.webp", // CEO on a field/orchard visit — close to the source
+  paris: "/team/paris.webp", // CEO at Paris Gare du Nord — leadership on the road
 } as const;
 
 export type TeamPhotoKey = keyof typeof team;

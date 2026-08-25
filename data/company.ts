@@ -444,12 +444,10 @@ export const testimonials = [
 
 // ── Brands we import & distribute (marquee) ───────────────────
 export const partners = [
-  "Bilal Select",
   "Top Pharma",
   "Leads Pharma",
-  "Vety Care",
-  "Orient Traders",
-  "Multivet Pharma",
+  "MultiVet Pharma",
+  "Innomax International",
 ];
 
 // ── On the record — real trade-show, supplier & industry engagements ──────
@@ -488,7 +486,7 @@ export const onTheRecord = [
     tag: "Zaryans Business Group · 2026",
     title: "40 Years Annual Business Conference of Excellence",
     caption:
-      "Recognised at the Zaryans Business Group conference — an event backed by poultry and agri-business names including Quality Poultry Breeders and PACE Pharma.",
+      "Recognised at an annual business conference of excellence — staying visible and connected in the industry we serve.",
     aspect: "landscape" as const,
     position: "center 35%",
   },
@@ -507,8 +505,6 @@ export const onTheRecord = [
     title: "Relationships handled in person",
     caption:
       "Principal and supplier relationships are managed personally — from Islamabad to trade floors across Asia, Europe and North America.",
-    // Landscape frame + bottom alignment shows the street-level scene and keeps
-    // the building fascia out of frame.
     aspect: "landscape" as const,
     position: "center bottom",
   },
