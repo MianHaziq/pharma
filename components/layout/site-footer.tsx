@@ -20,7 +20,6 @@ export function SiteFooter() {
               <li><Link href="/">Home</Link></li>
               <li><Link href="/about">About us</Link></li>
               <li><Link href="/research">Brands</Link></li>
-              <li><Link href="/solutions">Products</Link></li>
               <li><Link href="/quality">Quality &amp; why us</Link></li>
               <li><Link href="/insights">Insights</Link></li>
             </ul>

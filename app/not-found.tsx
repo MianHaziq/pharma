@@ -10,7 +10,7 @@ export default function NotFound() {
         <p className="lead mt-24">The page you&apos;re looking for may have moved or no longer exists. Let&apos;s get you back on track.</p>
         <div className="btns mt-40" style={{ justifyContent: "center" }}>
           <Link href="/" className="btn btn--onband">Back to home <span className="arw">→</span></Link>
-          <Link href="/solutions" className="btn btn--wire">Explore products</Link>
+          <Link href="/research" className="btn btn--wire">Explore brands</Link>
         </div>
       </div>
     </div>
