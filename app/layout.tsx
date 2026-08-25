@@ -55,8 +55,8 @@ export const metadata: Metadata = {
     images: [{ url: "/BilalPharmaLogo.jpeg", width: 1497, height: 1284, alt: company.name }],
   },
   icons: {
-    icon: [{ url: "/favicon.ico" }, { url: "/BilalPharmaLogo.jpeg", type: "image/jpeg" }],
-    apple: [{ url: "/BilalPharmaLogo.jpeg" }],
+    icon: [{ url: "/logo-bi.png", type: "image/png" }],
+    apple: [{ url: "/logo-bi.png" }],
   },
 };
 

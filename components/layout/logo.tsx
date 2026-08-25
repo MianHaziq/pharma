@@ -1,22 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 
-// The "b" mark — a faithful recreation of the client logo (stem + ring), filled
-// with the brand's magenta→rose gradient. The gradient stops read the brand CSS
-// vars, so the mark re-themes with the site (reverts to emerald under
-// data-theme="emerald"). Geometry matches the design deck's #bmark-line.
+// The client's official "b" mark (magenta→rose gradient on transparent PNG).
+// Works on light and dark backgrounds, so the same asset is used in the header,
+// the footer band and the preloader. Sized by height in CSS (the glyph is ~0.8
+// ratio); the drop-shadow gives it a little lift.
 export function BilalMark({ className = "mark" }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 48 48" role="img" aria-label="Bilal Pharmaceuticals">
-      <defs>
-        <linearGradient id="bilal-grad" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="var(--brand-grad-from)" />
-          <stop offset="1" stopColor="var(--brand-grad-to)" />
-        </linearGradient>
-      </defs>
-      <rect x="13" y="8" width="6" height="32" rx="3" fill="url(#bilal-grad)" />
-      <circle cx="27" cy="30" r="7" fill="none" stroke="url(#bilal-grad)" strokeWidth="6" />
-    </svg>
-  );
+  return <img src="/logo-bi.png" alt="Bilal Pharmaceuticals" className={className} />;
 }
 
 // Full logo lockup used in the header and (with onBand) the footer.
