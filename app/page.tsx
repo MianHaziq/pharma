@@ -223,7 +223,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="mt-40" data-anim="rise"><Link href="/contact" className="txtlink">Tell us what your operation runs <span className="arw">→</span></Link></div>
+          <div className="mt-40" data-anim="rise"><Link href="/industries" className="txtlink">See what we supply each animal <span className="arw">→</span></Link></div>
         </div>
       </div>
 
