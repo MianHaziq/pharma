@@ -58,13 +58,13 @@ export function photo(key: PhotoKey, w = 1600, q = 80): string {
 // handled per-slot in CSS (object-position), so the source files stay intact.
 // These document real events — see data/company.ts → onTheRecord.
 export const team = {
-  ceoPortrait: "/team/ceo-portrait.jpg", // Muhammad Imran — studio portrait
-  ippeExpo: "/team/ippe-expo.jpg", // IPPE — International Production & Processing Expo, USA
-  space2024: "/team/space-2024.jpg", // SPACE 2024 — Rennes, France
-  foshanVisit: "/team/foshan-visit.jpg", // Supplier / packaging audit — Foshan, China
-  industrySeminar: "/team/industry-seminar.jpg", // Industry roundtable — Pakistan
-  award2026: "/team/award-2026.jpg", // Zaryans Business Group, 40 Years conference — 2026
-  newYork: "/team/new-york.jpg", // New York, USA — principal relationships in person
+  ceoPortrait: "/team/ceo-portrait.webp", // Muhammad Imran — studio portrait
+  ippeExpo: "/team/ippe-expo.webp", // IPPE — International Production & Processing Expo, USA
+  space2024: "/team/space-2024.webp", // SPACE 2024 — Rennes, France
+  foshanVisit: "/team/foshan-visit.webp", // Supplier / packaging audit — Foshan, China
+  industrySeminar: "/team/industry-seminar.webp", // Industry roundtable — Pakistan
+  award2026: "/team/award-2026.webp", // Zaryans Business Group, 40 Years conference — 2026
+  newYork: "/team/new-york.webp", // New York, USA — principal relationships in person
 } as const;
 
 export type TeamPhotoKey = keyof typeof team;
