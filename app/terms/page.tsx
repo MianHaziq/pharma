@@ -5,6 +5,7 @@ import { company } from "@/data/company";
 export const metadata: Metadata = {
   title: "Terms of use",
   description: `The terms that govern your use of the ${company.name} website.`,
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Brands we distribute",
   description:
     "The animal-health principals Bilal Pharmaceuticals imports and distributes in Pakistan — each chosen for fit, documentation and handling.",
+  alternates: { canonical: "/research" },
 };
 
 // Handling note per principal (category comes from the brand data).

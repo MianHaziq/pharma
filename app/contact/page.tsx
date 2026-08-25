@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Reach Bilal Pharmaceuticals — call, WhatsApp or email. Tell us what you need and we'll come back with what we carry, what it costs and when it can reach you.",
+  alternates: { canonical: "/contact" },
 };
 
 const METHODS = [

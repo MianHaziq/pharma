@@ -16,7 +16,7 @@ export const company = {
   legalName: "Bilal Pharmaceuticals",
   tagline: "Importers & distributors of animal-health products",
   established: 2010, // placeholder — confirm real founding year
-  domain: "bilalpharmaceuticals.pk",
+  domain: "bilalpharmaceuticals.com",
   registration: "BP",
   description:
     "Bilal Pharmaceuticals imports and distributes trusted animal-health products — vaccines, medicines, nutrition and biosecurity from leading manufacturers — backed by reliable supply and expert technical support.",

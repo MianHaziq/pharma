@@ -5,6 +5,7 @@ import { company } from "@/data/company";
 export const metadata: Metadata = {
   title: "Privacy policy",
   description: `How ${company.name} collects, uses and protects personal information.`,
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

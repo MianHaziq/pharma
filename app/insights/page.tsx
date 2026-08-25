@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Insights & news",
   description:
     "Practical notes for the people we supply — handling, storage, seasonal risks and what's new in the Bilal Pharmaceuticals range.",
+  alternates: { canonical: "/insights" },
 };
 
 const ART_PHOTOS: PhotoKey[] = ["farmHouse", "eggsFarm", "henStanding", "brooderHouse", "labBench", "chicks"];

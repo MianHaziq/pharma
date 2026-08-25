@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Quality & why us",
   description:
     "Quality in distribution is what happens after the factory — in the container, the warehouse, the delivery, and the advice. How Bilal Pharmaceuticals protects it.",
+  alternates: { canonical: "/quality" },
 };
 
 const REASONS = [

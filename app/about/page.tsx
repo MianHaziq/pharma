@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "About the company",
   description:
     "Bilal Pharmaceuticals is an importer and distributor of animal-health products, based in Islamabad and led by CEO Muhammad Imran.",
+  alternates: { canonical: "/about" },
 };
 
 // "On the record" — real client photography, with per-shot framing so faces and

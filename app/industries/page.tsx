@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Segments",
   description:
     "Poultry, cattle and small ruminants have genuinely different needs. Bilal Pharmaceuticals stocks and advises across all of them.",
+  alternates: { canonical: "/industries" },
 };
 
 function Supply({ title, items }: { title: string; items: string[] }) {
