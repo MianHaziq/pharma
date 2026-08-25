@@ -698,19 +698,46 @@ p{margin:0 0 17px}
   --sh-3:0 4px 8px rgba(12,24,42,.06),0 30px 64px rgba(12,24,42,.14);
 }
 
-/* ---------- Intro curtain ---------- */
+/* ---------- Intro curtain (preloader) ---------- */
 .curtain{
-  position:fixed;inset:0;z-index:400;background:var(--band-2);
-  display:grid;place-items:center;transition:opacity .5s ease,visibility .5s;
+  position:fixed;inset:0;z-index:400;overflow:hidden;
+  background:radial-gradient(125% 90% at 50% 42%,#4a0c33 0%,var(--band-1) 46%,var(--band-2) 100%);
+  display:grid;place-items:center;
+  transition:transform .82s cubic-bezier(.76,0,.24,1);
 }
-.curtain__m{width:62px;height:62px;color:#fff;opacity:0;transform:scale(.86);
-  animation:curtIn .7s var(--e) .05s forwards}
-.curtain__bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.12)}
-.curtain__bar::after{content:"";position:absolute;inset:0;transform-origin:left;transform:scaleX(0);
-  background:linear-gradient(90deg,var(--accent-2),var(--cold-2));animation:curtBar 1s var(--e2) forwards}
-@keyframes curtIn{to{opacity:1;transform:none}}
-@keyframes curtBar{to{transform:scaleX(1)}}
-.curtain.gone{opacity:0;visibility:hidden}
+.curtain::before{ /* fine dot texture */
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:26px 26px;
+}
+.curtain::after{ /* soft brand glow behind the mark */
+  content:"";position:absolute;width:min(70vw,460px);height:min(70vw,460px);border-radius:50%;
+  pointer-events:none;background:radial-gradient(circle,var(--brand-grad-to) 0%,transparent 66%);
+  animation:curtGlow 2.6s ease-in-out infinite alternate;
+}
+.curtain.gone{transform:translateY(-101%)}
+.curtain__in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:20px;padding:0 24px}
+.curtain__mark{
+  width:74px;height:74px;opacity:0;transform:scale(.82) translateY(8px);
+  filter:drop-shadow(0 10px 34px rgba(232,40,109,.55));
+  animation:curtMark .85s cubic-bezier(.2,.85,.25,1) .05s forwards;
+}
+.curtain__wm{display:flex;flex-direction:column;align-items:center;gap:7px;
+  opacity:0;transform:translateY(12px);animation:curtRise .75s cubic-bezier(.2,.85,.25,1) .34s forwards}
+.curtain__n{font-family:var(--font-archivo),sans-serif;font-variation-settings:"wdth" 108;
+  font-weight:700;font-size:21px;letter-spacing:.005em;color:#fff}
+.curtain__s{font-family:var(--font-plex-mono),monospace;font-size:9px;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--band-muted)}
+.curtain__bar{position:relative;width:128px;height:2px;border-radius:2px;overflow:hidden;margin-top:8px;
+  background:rgba(255,255,255,.14);opacity:0;animation:curtRise .5s ease .5s forwards}
+.curtain__bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);
+  background:linear-gradient(90deg,var(--brand-grad-from),var(--brand-grad-to));
+  box-shadow:0 0 14px rgba(232,40,109,.6);
+  animation:curtFill 1s cubic-bezier(.45,0,.15,1) .5s forwards}
+@keyframes curtMark{to{opacity:1;transform:none}}
+@keyframes curtRise{to{opacity:1;transform:none}}
+@keyframes curtFill{to{transform:scaleX(1)}}
+@keyframes curtGlow{from{opacity:.12;transform:scale(.9)}to{opacity:.3;transform:scale(1.08)}}
 
 /* ---------- Motion engine ---------- */
 [data-anim]{will-change:transform,opacity,clip-path}
