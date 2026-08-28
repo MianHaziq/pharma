@@ -61,7 +61,7 @@ export default function ContactPage() {
                   <div className="kv__row"><span className="kv__k">Sales &amp; orders</span><span className="kv__dots" /><span className="kv__v">Same-day dispatch confirm</span></div>
                 </div>
                 <div className="mt-32">
-                  <span className="card__k">Office</span>
+                  <span className="card__k">Head Office</span>
                   <address style={{ fontStyle: "normal", fontSize: "15.5px", lineHeight: 1.75, color: "var(--ink)" }}>
                     Rathore Heights, Plot No. 14<br />Johar Boulevard, DHA Phase 5<br />Islamabad, Pakistan
                   </address>
