@@ -283,7 +283,7 @@ export default function HomePage() {
                 <div className="kv__row"><span className="kv__k">Phone</span><span className="kv__dots" /><span className="kv__v">+92 336 8883 198</span></div>
                 <div className="kv__row"><span className="kv__k">WhatsApp</span><span className="kv__dots" /><span className="kv__v">+92 302 8699 198</span></div>
                 <div className="kv__row"><span className="kv__k">Email</span><span className="kv__dots" /><span className="kv__v">chbilalpharmaceuticals@gmail.com</span></div>
-                <div className="kv__row"><span className="kv__k">Office</span><span className="kv__dots" /><span className="kv__v">DHA Phase 5, Islamabad</span></div>
+                <div className="kv__row"><span className="kv__k">Head Office</span><span className="kv__dots" /><span className="kv__v">DHA Phase 5, Islamabad</span></div>
               </div>
               <div className="btns mt-32">
                 <Link href="/contact" className="btn">Send an inquiry <span className="arw">→</span></Link>
