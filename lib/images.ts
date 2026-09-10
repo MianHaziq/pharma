@@ -77,6 +77,7 @@ export const team = {
   foshanVisit: "/team/foshan-visit.webp", // Supplier / packaging audit — Foshan, China
   industrySeminar: "/team/industry-seminar.webp", // Industry roundtable — Pakistan
   award2026: "/team/award-2026.webp", // Zaryans Business Group, 40 Years conference — 2026
+  leadsAward: "/team/leads-award.webp", // Sales-target award presented by Leads Pharma
   newYork: "/team/new-york.webp", // New York, USA — principal relationships in person
   // CEO's own photos (added), shown in the "On the road" section:
   field: "/team/field.webp", // CEO on a field/orchard visit — close to the source

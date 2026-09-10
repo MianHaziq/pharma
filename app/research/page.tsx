@@ -17,6 +17,9 @@ const HANDLING: Record<string, string> = {
   "brand-leads": "Cold chain 2–8°C",
   "brand-multivet": "Cool, dark",
   "brand-innomax": "Per product",
+  "brand-ghazi": "Cool, dry",
+  "brand-chakwal": "Cold chain 2–8°C",
+  "brand-orient": "Per product",
 };
 
 const CRITERIA = [

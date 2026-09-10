@@ -100,20 +100,20 @@ export const footerNav = [
 // Distributor metrics — no geographic/coverage claims. // placeholder numbers
 export const stats = [
   { value: 15, prefix: "", suffix: "+", label: "Years serving poultry producers" },
-  { value: 6, prefix: "", suffix: "", label: "Principal brands we represent" },
+  { value: 7, prefix: "", suffix: "", label: "Principal brands we represent" },
   { value: 200, prefix: "", suffix: "+", label: "Poultry-health products supplied" },
   { value: 800, prefix: "", suffix: "+", label: "Farms & vets served" },
 ];
 
 export const heroStats = [
-  { value: 6, prefix: "", suffix: "", label: "Brands represented" },
+  { value: 7, prefix: "", suffix: "", label: "Brands represented" },
   { value: 200, prefix: "", suffix: "+", label: "Products supplied" },
   { value: 15, prefix: "", suffix: "+", label: "Years in poultry health" },
 ];
 
 // Distributor capabilities — no coverage/geography. // placeholder figures
 export const capabilities = [
-  { value: "6", label: "Principal brands represented" },
+  { value: "7", label: "Principal brands represented" },
   { value: "200+", label: "Products in the portfolio" },
   { value: "2–8°C", label: "Cold-chain storage & handling" },
   { value: "48h", label: "Typical order dispatch" },
@@ -448,6 +448,9 @@ export const partners = [
   "Leads Pharma",
   "MultiVet Pharma",
   "Innomax International",
+  "Ghazi Brothers",
+  "Chakwal Pharma International",
+  "Orient Traders International",
 ];
 
 // ── On the record — real trade-show, supplier & industry engagements ──────
@@ -489,6 +492,15 @@ export const onTheRecord = [
       "Recognised at an annual business conference of excellence — staying visible and connected in the industry we serve.",
     aspect: "landscape" as const,
     position: "center 35%",
+  },
+  {
+    image: team.leadsAward,
+    tag: "Leads Pharma · Sales award",
+    title: "Recognised by a principal we carry",
+    caption:
+      "An award from Leads Pharma for meeting the agreed sales target — a principal's own measure of how well the range is being moved.",
+    aspect: "portrait" as const,
+    position: "center 55%",
   },
   {
     image: team.industrySeminar,
