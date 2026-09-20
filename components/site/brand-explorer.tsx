@@ -5,17 +5,6 @@ import { useRef, useState } from "react";
 import { brands } from "@/data/brands";
 import { brandProducts } from "@/data/brand-products";
 
-// Storage note per principal. Kept here next to the card that renders it.
-const HANDLING: Record<string, string> = {
-  "brand-toppharma": "Cool, dark",
-  "brand-leads": "Cold chain 2–8°C",
-  "brand-multivet": "Cool, dark",
-  "brand-innomax": "Per product",
-  "brand-ghazi": "Cool, dry",
-  "brand-chakwal": "Cold chain 2–8°C",
-  "brand-orient": "Per product",
-};
-
 const ALL = "all";
 
 /**
@@ -23,6 +12,10 @@ const ALL = "all";
  * every principal's range under its own heading; picking a single brand — from
  * a chip or by clicking its card — narrows to just that one. Brands with no
  * artwork yet stay in the grid but aren't selectable.
+ *
+ * The cards carry the logo and nothing else: the copy that used to sit under
+ * them (category, handling note, product count) was removed at the client's
+ * request. The chips below name each brand and carry its count.
  */
 export function BrandExplorer() {
   const selectable = brands.filter((b) => brandProducts[b.id]?.length);
@@ -45,59 +38,30 @@ export function BrandExplorer() {
 
   return (
     <>
-      <div className="grid g3" aria-label="Brands we distribute">
+      <div className="grid g3 bgrid--pick" aria-label="Brands we distribute">
         {brands.map((b) => {
-          const count = brandProducts[b.id]?.length ?? 0;
           const on = b.id === active;
-          const card = (
-            <>
-              <div className="bplate__logo">
-                <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
-              </div>
-              <div className="bplate__body">
-                <div className="bplate__foot">
-                  <div className="kv">
-                    <div className="kv__row">
-                      <span className="kv__k">Handling</span>
-                      <span className="kv__dots" />
-                      <span className="kv__v">{HANDLING[b.id] ?? "Standard"}</span>
-                    </div>
-                    <div className="kv__row">
-                      <span className="kv__k">Products</span>
-                      <span className="kv__dots" />
-                      <span className="kv__v">{count ? count : "On request"}</span>
-                    </div>
-                  </div>
-                  <div className="chips mt-24">
-                    {count ? (
-                      <span className={`chip chip--dot${on ? " chip--on" : ""}`}>
-                        {on ? "Showing range" : "View range"}
-                      </span>
-                    ) : (
-                      <span className="chip" style={{ cursor: "default" }}>
-                        Imported &amp; distributed
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </>
+          const plate = (
+            <div className="bplate__logo">
+              <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
+            </div>
           );
 
-          return count ? (
+          return brandProducts[b.id]?.length ? (
             <button
               type="button"
               aria-pressed={on}
               aria-controls="brand-range"
+              title={`Show ${b.name} products`}
               className={`bplate bplate--btn${on ? " bplate--on" : ""}`}
               onClick={() => choose(b.id)}
               key={b.id}
             >
-              {card}
+              {plate}
             </button>
           ) : (
             <div className="bplate bplate--static" key={b.id}>
-              {card}
+              {plate}
             </div>
           );
         })}

@@ -1193,6 +1193,11 @@ figure.ph{margin:0}
 }
 .bplate--static{opacity:.86}
 
+/* Logo-only plates on the brands page: with no body under the logo, its
+   divider would double up with the card's own bottom border. */
+.bgrid--pick .bplate__logo{border-bottom:0;height:168px}
+.bgrid--pick .bplate{border-radius:5px}
+
 /* Brand filter chips, sitting between the cards and the range they control. */
 .chips--filter{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
 .chip__n{

@@ -36,7 +36,7 @@ export function SiteFooter() {
           <div>
             <h4>Contact</h4>
             <address>
-              Rathore Heights, Plot No. 14<br />Johar Boulevard, DHA Phase 5<br />Islamabad, Pakistan<br /><br />
+              3rd Floor, Rathore Heights, Plot No. 14<br />Johar Boulevard, DHA Phase 5<br />Islamabad, Pakistan<br /><br />
               <a href="mailto:chbilalpharmaceuticals@gmail.com">chbilalpharmaceuticals@gmail.com</a><br />
               <a href="tel:+923368883198">+92 336 8883 198</a><br />
               <a href="tel:+923028699198">+92 302 8699 198</a> · WhatsApp

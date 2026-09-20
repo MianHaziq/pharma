@@ -63,7 +63,7 @@ export default function ContactPage() {
                 <div className="mt-32">
                   <span className="card__k">Head Office</span>
                   <address style={{ fontStyle: "normal", fontSize: "15.5px", lineHeight: 1.75, color: "var(--ink)" }}>
-                    Rathore Heights, Plot No. 14<br />Johar Boulevard, DHA Phase 5<br />Islamabad, Pakistan
+                    3rd Floor, Rathore Heights, Plot No. 14<br />Johar Boulevard, DHA Phase 5<br />Islamabad, Pakistan
                   </address>
                 </div>
               </div>

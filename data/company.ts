@@ -31,7 +31,7 @@ export const company = {
   mediaEmail: "chbilalpharmaceuticals@gmail.com",
   ceo: "Muhammad Imran",
   hq: {
-    line1: "Rathore Heights, Plot No. 14, Johar Blvd",
+    line1: "3rd Floor, Rathore Heights, Plot No. 14, Johar Blvd",
     line2: "DHA Phase 5, Islamabad, Pakistan",
   },
   disclaimer:
