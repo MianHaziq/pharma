@@ -1,25 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Chips } from "@/components/site/chips";
-import { brands } from "@/data/brands";
+import { BrandExplorer } from "@/components/site/brand-explorer";
 
 export const metadata: Metadata = {
   title: "Brands we distribute",
   description:
     "The animal-health principals Bilal Pharmaceuticals imports and distributes in Pakistan — each chosen for fit, documentation and handling.",
   alternates: { canonical: "/research" },
-};
-
-// Handling note per principal (category comes from the brand data).
-const HANDLING: Record<string, string> = {
-  "brand-toppharma": "Cool, dark",
-  "brand-leads": "Cold chain 2–8°C",
-  "brand-multivet": "Cool, dark",
-  "brand-innomax": "Per product",
-  "brand-ghazi": "Cool, dry",
-  "brand-chakwal": "Cold chain 2–8°C",
-  "brand-orient": "Per product",
 };
 
 const CRITERIA = [
@@ -41,7 +28,6 @@ export default function BrandsPage() {
             </div>
             <div data-anim="rise">
               <p className="lead">This is the heart of what we do. Every brand below was chosen for its fit with local conditions, and each one is imported, stored and supplied by us directly.</p>
-              <p className="note">Product descriptions are indicative — confirm the final range with each principal.</p>
             </div>
           </div>
         </div>
@@ -49,32 +35,13 @@ export default function BrandsPage() {
 
       <div className="sec" style={{ paddingTop: 56 }}>
         <div className="wrap">
-          <Chips items={["All categories", "Vaccines", "Feed additives", "Sanitation", "Nutrition", "Gut health", "Antimicrobials"]} />
-
-          <div className="grid g3 mt-40" data-stagger="70">
-            {brands.map((b) => {
-              return (
-                <article className="bplate" data-anim="rise" key={b.id}>
-                  <div className="bplate__logo">
-                    <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
-                  </div>
-                  <div className="bplate__top">
-                    <span className="bplate__cat">{b.category}</span>
-                  </div>
-                  <div className="bplate__body">
-                    <p className="bplate__desc">{b.description}</p>
-                    <div className="bplate__foot">
-                      <div className="kv">
-                        <div className="kv__row"><span className="kv__k">Category</span><span className="kv__dots" /><span className="kv__v">{b.category}</span></div>
-                        <div className="kv__row"><span className="kv__k">Handling</span><span className="kv__dots" /><span className="kv__v">{HANDLING[b.id] ?? "Standard"}</span></div>
-                      </div>
-                      <div className="chips mt-24"><span className="chip chip--dot" style={{ cursor: "default" }}>Imported &amp; distributed</span></div>
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+          <div className="sec-head" data-anim="rise" style={{ marginBottom: 40 }}>
+            <p className="eyebrow">Browse the range</p>
+            <h2 className="d2">Pick a brand to see its range.</h2>
+            <p className="lead">Select a principal to browse its product sheets and packshots. Open any item to read it at full size.</p>
           </div>
+
+          <BrandExplorer />
 
           <div className="placeholder mt-56" data-anim="rise">
             <span className="d3">More brands are being added.</span>

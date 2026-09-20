@@ -24,10 +24,18 @@ export interface Brand {
   logoText: string;
   /** Path to the brand's logo image (in /public). Preferred over text. */
   logo?: string;
-  /** The brand's specialty / category, shown as a small label. */
-  category?: string;
-  description: string;
   featured: boolean;
+}
+
+/** One piece of product artwork supplied by a principal. */
+export interface BrandProductShot {
+  /** Thumbnail shown in the grid. */
+  src: string;
+  /** Full-size file, opened when the tile is clicked. */
+  full: string;
+  alt: string;
+  /** Landscape sheets span two columns so their text stays legible. */
+  wide: boolean;
 }
 
 export interface Subcategory {

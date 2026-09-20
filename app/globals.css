@@ -1175,3 +1175,80 @@ figure.ph{margin:0}
   .gcard__t{color:var(--ink)}
   .gcard__d{color:var(--muted);max-width:none}
 }
+
+/* ---------- Brand selector + product artwork (brands page) ----------
+   The brand cards double as a tab strip: picking one swaps the range shown
+   below, so 30+ sheets aren't stacked on a single page. */
+.bplate--btn{
+  appearance:none;-webkit-appearance:none;font:inherit;color:inherit;
+  text-align:left;width:100%;padding:0;cursor:pointer;
+}
+.bplate--btn:focus-visible{outline:2px solid var(--label);outline-offset:3px}
+.bplate--on{border-color:var(--line-2);box-shadow:0 22px 48px var(--glow)}
+.bplate--on .bplate__logo{background:linear-gradient(155deg,var(--tint),#fff)}
+/* the selected card points at the panel it controls */
+.bplate--on::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:3px;z-index:3;
+  background:linear-gradient(90deg,var(--shot-1),var(--shot-2));
+}
+.bplate--static{opacity:.86}
+
+/* Brand filter chips, sitting between the cards and the range they control. */
+.chips--filter{margin-top:36px;padding-top:28px;border-top:1px solid var(--line)}
+.chip__n{
+  font-size:9.5px;letter-spacing:.08em;padding:2px 6px;border-radius:2px;
+  background:var(--tint-2);color:var(--label);border:1px solid var(--line);
+}
+.chip--on .chip__n{background:rgba(255,255,255,.22);color:#fff;border-color:transparent}
+
+.prodpanel{margin-top:36px}
+/* groups only stack when "All products" is selected */
+.prodset + .prodset{margin-top:64px}
+.prodset__h{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.prodset__h img{height:34px;width:auto;max-width:150px;object-fit:contain}
+.prodset__h span{font-family:var(--font-plex-mono),monospace;font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.prodset__h::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* dense: a two-column sheet that won't fit the row would otherwise leave a
+   hole behind it - dense back-fills it with the next tile that fits. */
+.prods{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;grid-auto-flow:dense}
+.prods__i{
+  display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;
+  border:1px solid var(--line);border-radius:5px;overflow:hidden;
+  /* plain white, not the tinted plate used for logos: most of these shots are
+     cut out on white, and a tint would show their background as a pale box. */
+  background:#fff;padding:14px;
+  transition:box-shadow .32s var(--e),transform .32s var(--e),border-color .32s;
+}
+.prods__ph{
+  display:grid;place-items:center;aspect-ratio:3/4;overflow:hidden;
+}
+.prods__i img{max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;transition:transform .32s var(--e)}
+.prods__n{
+  font-size:12.5px;line-height:1.45;color:var(--muted);
+  border-top:1px solid var(--line);padding-top:9px;margin-top:auto;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.prods__i:hover{transform:translateY(-3px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.prods__i:hover img{transform:scale(1.03)}
+.prods__i:hover .prods__n{color:var(--ink)}
+.prods__i:focus-visible{outline:2px solid var(--label);outline-offset:3px}
+.prods__i--w{grid-column:span 2}
+.prods__i--w .prods__ph{aspect-ratio:16/10}
+
+@media (max-width:1080px){
+  .prods{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:760px){
+  .prods{grid-template-columns:repeat(2,1fr);gap:14px}
+  .prods__i{padding:11px}
+  .prodset__h img{height:28px}
+  .prods__n{font-size:11.5px}
+}
+@media (max-width:460px){
+  .prods{grid-template-columns:1fr}
+  .prods__i,.prods__i--w{grid-column:span 1}
+  .prods__i--w .prods__ph,.prods__ph{aspect-ratio:4/3}
+}

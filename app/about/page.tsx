@@ -1,8 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Link from "next/link";
-import { photo, team } from "@/lib/images";
-import { Ph } from "@/components/site/ph";
+import { team } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "About the company",
@@ -35,15 +34,9 @@ export default function AboutPage() {
       {/* HERO */}
       <div className="sec sec--tight sec--tint">
         <div className="wrap">
-          <div className="split split--mid">
-            <div data-anim="rise">
-              <p className="eyebrow">About the company</p>
-              <h1 className="d1">Built around <span className="hl">the handling.</span></h1>
-              <p className="lead mt-24">Bilal Pharmaceuticals is an importer and distributor of animal-health products, based in Islamabad and led by CEO Muhammad Imran.</p>
-            </div>
-            <div data-anim="rise">
-              <Ph className="r-43" src={photo("vetBottles", 1000, 80)} alt="Veterinary injectable medicines for poultry and livestock on a shelf" cap="Animal-health products we import" />
-            </div>
+          <div data-anim="rise">
+            <p className="eyebrow">About the company</p>
+            <h1 className="d1">Built around <span className="hl">the handling.</span></h1>
           </div>
         </div>
       </div>

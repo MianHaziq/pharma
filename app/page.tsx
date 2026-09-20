@@ -193,9 +193,6 @@ export default function HomePage() {
                 <div className="bplate__logo">
                   <img src={b.logo} alt={b.name} loading="lazy" decoding="async" />
                 </div>
-                <div className="bplate__top">
-                  <span className="bplate__cat">{b.category}</span>
-                </div>
               </div>
             ))}
           </div>
