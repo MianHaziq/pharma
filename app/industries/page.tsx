@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { photo } from "@/lib/images";
-import { Ph } from "@/components/site/ph";
+import { PhSet } from "@/components/site/ph-set";
 
 export const metadata: Metadata = {
   title: "Segments",
@@ -47,7 +47,11 @@ export default function SegmentsPage() {
           <div className="split split--mid">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
-                <Ph className="r-32" src={photo("brooderHouse", 900, 78)} alt="White broiler flock in a grow-out house" cap="Grow-out · 35-day cycle" />
+                <PhSet cap="Grow-out · 35-day cycle" items={[
+                  { src: photo("farmHouse", 900, 78), alt: "Broiler grow-out house with pan feeders and drinker lines" },
+                  { src: photo("brooderHouse", 520, 76), alt: "Day-old chicks under brooder lamps at placement" },
+                  { src: photo("broilerHouse", 520, 76), alt: "White broilers at close range inside the house" },
+                ]} />
               </div>
               <p className="eyebrow">Poultry · Broilers</p>
               <h2 className="d2">Broilers</h2>
@@ -66,7 +70,11 @@ export default function SegmentsPage() {
             <Supply title="What we supply for layers" items={["Calcium & shell support", "Vitamins & electrolytes", "Mycotoxin binders", "Vaccination programme products", "Water-line hygiene"]} />
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
-                <Ph className="r-32" src={photo("eggsCollect", 900, 78)} alt="Graded eggs on trays from a layer house" cap="Production · 70-week cycle" />
+                <PhSet cap="Production · 70-week cycle" items={[
+                  { src: photo("eggsCollect", 900, 78), alt: "Graded eggs on trays from a layer house" },
+                  { src: photo("eggsTray", 520, 76), alt: "Filled egg trays ready for grading" },
+                  { src: photo("henClose", 520, 76), alt: "Layer birds in good condition late in the cycle" },
+                ]} />
               </div>
               <p className="eyebrow">Poultry · Layers</p>
               <h2 className="d2">Layers</h2>
@@ -83,7 +91,11 @@ export default function SegmentsPage() {
           <div className="split split--mid">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
-                <Ph className="r-32" src={photo("roosterProfile", 900, 78)} alt="Breeder hen in a parent-stock house" cap="Parent stock" />
+                <PhSet cap="Parent stock" items={[
+                  { src: photo("roosterProfile", 900, 78), alt: "White breeder cockerel in a parent-stock house" },
+                  { src: photo("henPortrait", 520, 76), alt: "Breeder hen in condition" },
+                  { src: photo("chicksGroup", 520, 76), alt: "Day-old chicks from the parent flock at the feeder" },
+                ]} />
               </div>
               <p className="eyebrow">Poultry · Breeders</p>
               <h2 className="d2">Breeders</h2>
@@ -102,7 +114,11 @@ export default function SegmentsPage() {
             <Supply title="What we supply for cattle" items={["Vaccines & antisera", "Trace minerals & vitamins", "Dewormers & parasite control", "Calcium & metabolic support", "Mastitis & udder care"]} />
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
-                <Ph className="r-32" src={photo("cattleHerd", 900, 78)} alt="Dairy and beef cattle grazing on pasture" cap="Cattle · dairy & beef" />
+                <PhSet cap="Cattle · dairy &amp; beef" items={[
+                  { src: photo("cattleHerd", 900, 78), alt: "Dairy and beef cattle grazing on pasture" },
+                  { src: photo("vetCattle", 520, 76), alt: "A dairy cow being examined in the shed" },
+                  { src: photo("cowCloseup", 520, 76), alt: "Close portrait of a dairy cow" },
+                ]} />
               </div>
               <p className="eyebrow">Cattle · Dairy & beef</p>
               <h2 className="d2">Cattle</h2>
@@ -119,7 +135,10 @@ export default function SegmentsPage() {
           <div className="split split--mid">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
-                <Ph className="r-32" src={photo("sheepFlock", 900, 78)} alt="A flock of sheep on open pasture" cap="Sheep & goats · flock health" />
+                <PhSet cap="Sheep &amp; goats · flock health" items={[
+                  { src: photo("sheepFlock", 900, 78), alt: "A flock of sheep on open pasture" },
+                  { src: photo("goatHerd", 520, 76), alt: "Goats grazing on green grass" },
+                ]} />
               </div>
               <p className="eyebrow">Small ruminants</p>
               <h2 className="d2">Sheep &amp; goats</h2>

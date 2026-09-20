@@ -18,7 +18,7 @@ const MARQUEE = [
 // The animal groups we supply — poultry where we started, plus the wider
 // livestock our range now covers. A representative shot per group.
 const SEGMENTS = [
-  { icon: "i-broiler", tag: "Broilers & layers", name: "Poultry", photo: "chickensOutdoor", alt: "Free-range hens on a poultry farm", desc: "Broilers, layers and breeders. Vaccines, coccidiosis control, water sanitation and gut health across every stage of the flock." },
+  { icon: "i-broiler", tag: "Broilers & layers", name: "Poultry", photo: "chickensOutdoor", alt: "White broiler birds on a poultry farm", desc: "Broilers, layers and breeders. Vaccines, coccidiosis control, water sanitation and gut health across every stage of the flock." },
   { icon: "i-cattle", tag: "Dairy & beef", name: "Cattle", photo: "cattleHerd", alt: "Cattle grazing in a green pasture", desc: "Dairy and beef herds. Nutrition, trace minerals, reproductive support and the vaccines that keep production steady." },
   { icon: "i-sheep", tag: "Small ruminants", name: "Sheep & goats", photo: "goatHerd", alt: "A herd of goats on a farm", desc: "Parasite control, mineral supplementation and the everyday health products a mixed flock or herd depends on." },
 ] as const;
@@ -60,7 +60,7 @@ export default function HomePage() {
 
             <div className="hero__art">
               <div className="hero__stack">
-                <Ph className="ph--kb hero__main r-45" src={photo("farmMixed", 1100, 80)} alt="Chickens and lambs together on a mixed livestock farm" eager cap="Farm to gate · animal health" />
+                <Ph className="ph--kb hero__main r-45" src={photo("broilerHouse", 1100, 80)} alt="White broilers in a commercial grow-out house" eager cap="Farm to gate · animal health" />
                 <Ph className="hero__inset r-43 ph--flat" src={photo("cattleHerd", 760, 80)} alt="A herd of cattle grazing on open pasture" eager />
               </div>
               <div className="glass hero__glass-1 parx" data-speed="0.05" data-anim="pop" style={{ transitionDelay: ".6s" }}>

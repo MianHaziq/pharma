@@ -2,44 +2,62 @@
 // through a named key here, so the client can later swap the dummy Unsplash
 // photography for their own asset URLs in one place — no component changes.
 //
-// `img(id, w, q)` builds a sized, format-optimised Unsplash URL. Real photos
-// (verified live). Replace the `photos` map values with production URLs later.
+// `img(id, w, q)` builds a sized, format-optimised URL from Unsplash or Pexels
+// (see the `px:` prefix below). Real photos, verified live. Replace the
+// `photos` map values with production URLs later.
 
-const BASE = "https://images.unsplash.com/photo-";
+const UNSPLASH = "https://images.unsplash.com/photo-";
+const PEXELS = "https://images.pexels.com/photos/";
 
-/** Build a sized image URL from an Unsplash photo id. */
+/**
+ * Build a sized, format-optimised image URL from a photo id.
+ *
+ * Ids prefixed `px:` resolve to Pexels, everything else to Unsplash. Both
+ * licences permit commercial use without attribution. The prefix keeps every
+ * call site unchanged — components still just pass a key from `photos`.
+ */
 export function img(id: string, w = 1600, q = 80): string {
-  return `${BASE}${id}?auto=format&fit=crop&w=${w}&q=${q}`;
+  if (id.startsWith("px:")) {
+    const n = id.slice(3);
+    return `${PEXELS}${n}/pexels-photo-${n}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+  }
+  return `${UNSPLASH}${id}?auto=format&fit=crop&w=${w}&q=${q}`;
 }
 
 /** Named, curated photography. Keys describe intent, not the source. */
 export const photos = {
   // Poultry · farms · flocks
-  hero: "1682887123870-e53fcd4a3906",
-  farmPanorama: "1569466593977-94ee7ed02ec9",
-  farmHouse: "1582661629051-43eadd614098",
-  flockField: "1517419800355-7ea1a4b1f68d",
-  henPortrait: "1612170153139-6f881ff067e0",
-  roosterProfile: "1548550023-2bdb3c5beed7",
-  henClose: "1569396327972-6231a5b05ea8",
-  henStanding: "1559201955-f4fcca776e57",
-  brooderHouse: "1531155179084-3e1f15110922",
-  freeRange: "1553531009-c4605f302b47",
+  //
+  // White commercial broilers throughout. The earlier set was brown/golden
+  // backyard-type layer hens (Golden Misri and similar), which the client
+  // rejected — it did not look like the commercial broiler operations this
+  // business actually supplies. Keep any replacement to white broiler stock.
+  hero: "px:26625882", // broiler house packed with white birds, feeders overhead
+  farmPanorama: "px:27083552", // full length of a commercial broiler house
+  farmHouse: "px:32840078", // broiler house with pan feeders and drinker lines
+  flockField: "px:35221987", // white birds foraging on grass
+  henPortrait: "px:35057569", // white hen, head and neck, dark background
+  roosterProfile: "px:35877071", // white breeder cockerel in a production house
+  henClose: "px:35057423", // pair of white hens, close
+  henStanding: "px:36109430", // white hen standing, three-quarter view
+  brooderHouse: "px:12995533", // day-olds under brooder lamps, feeders and drinkers
+  freeRange: "px:35221319", // single white bird on grass under trees
+  broilerHouse: "px:32840077", // home hero — white broilers at close range in a grow-out house
 
-  // Livestock · cattle · sheep · goats · mixed farm (animal-health scope)
-  farmMixed: "1636986766802-a9bf23d30448", // hero — hens and lambs together on a farm (multi-species)
+  // Livestock · cattle · sheep · goats (animal-health scope beyond poultry)
   cattleHerd: "1715798637010-8a4f27a0950f", // herd of cattle grazing a green field
   sheepFlock: "1744895484813-486bf97487a7", // flock of sheep across an open pasture
   goatHerd: "1622837699015-9a4cb8b7a94b", // goats grazing on green grass
   cowCloseup: "1660599138377-22e71f1eb93a", // close-up portrait of a dairy cow
-  chickensOutdoor: "1624295886848-623d4d12c1d6", // free-range chickens on grass
+  vetCattle: "px:4910780", // handler examining a dairy cow in the shed
+  chickensOutdoor: "px:22816181", // white birds outside a shed
 
   // Eggs · hatchery · chicks
   eggsTray: "1498654077810-12c21d4d6dc3",
   eggsCollect: "1598965675045-45c5e72c7d05",
   eggsFarm: "1589923188651-268a9765e432",
   chicks: "1589050593767-a754dd738587",
-  chicksGroup: "1546272989-40c92939c6c2",
+  chicksGroup: "px:17064389", // white day-olds crowded round a feeder
 
   // Science · lab · research
   labBench: "1581093577421-f561a654a353",

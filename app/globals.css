@@ -1257,3 +1257,19 @@ figure.ph{margin:0}
   .prods__i,.prods__i--w{grid-column:span 1}
   .prods__i--w .prods__ph,.prods__ph{aspect-ratio:4/3}
 }
+
+
+/* ---------- Photo set: one lead shot with supporting shots beside it ----------
+   Used on the segment pages, where a single photograph made each section look
+   thinner than the copy beside it. The lead spans the stack's full height, so
+   the sub-shots set the row height and the group reads as one composition. */
+.phset{display:grid;grid-template-columns:1.85fr 1fr;grid-auto-rows:1fr;gap:12px}
+.phset__lead{grid-row:span 2;height:100%}
+.phset__sub{aspect-ratio:4/3}
+/* A set of two: the lead no longer has a second row to span. */
+.phset--pair .phset__lead{grid-row:span 1}
+@media(max-width:620px){
+  .phset{grid-template-columns:1fr 1fr}
+  .phset__lead,.phset--pair .phset__lead{
+    grid-column:1/-1;grid-row:auto;aspect-ratio:3/2;height:auto}
+}
