@@ -169,6 +169,12 @@ export const brandProducts: Record<string, BrandProductShot[]> = {
       alt: "Tritin-LE powder",
       wide: true,
     },
+    {
+      src: "/products/leads-pharma/13-virox-td-ws-powder-t.webp",
+      full: "/products/leads-pharma/13-virox-td-ws-powder.webp",
+      alt: "Virox TD W/S powder - antiviral and antibacterial, 5 kg",
+      wide: false,
+    },
   ],
   "brand-multivet": [
     {
