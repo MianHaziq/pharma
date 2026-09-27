@@ -97,6 +97,32 @@ export const brandProducts: Record<string, BrandProductShot[]> = {
     },
   ],
   "brand-leads": [
+    // Virox-TD leads the range at the client's request - it is Leads Pharma's
+    // top seller, so it sits first regardless of the file numbering.
+    {
+      src: "/products/leads-pharma/13-virox-td-antibacterial-sheet-t.webp",
+      full: "/products/leads-pharma/13-virox-td-antibacterial-sheet.webp",
+      alt: "Virox-TD powder - antiviral and antibacterial drug for poultry",
+      wide: false,
+    },
+    {
+      src: "/products/leads-pharma/14-zeedox-50-doxycycline-hyclate-50-wsp-t.webp",
+      full: "/products/leads-pharma/14-zeedox-50-doxycycline-hyclate-50-wsp.webp",
+      alt: "Zeedox-50 - doxycycline hyclate 50% water-soluble powder",
+      wide: false,
+    },
+    {
+      src: "/products/leads-pharma/15-white-gold-livestock-feed-supplement-t.webp",
+      full: "/products/leads-pharma/15-white-gold-livestock-feed-supplement.webp",
+      alt: "White Gold livestock feed supplement",
+      wide: false,
+    },
+    {
+      src: "/products/leads-pharma/16-vety-vit-premix-b-broiler-premix-t.webp",
+      full: "/products/leads-pharma/16-vety-vit-premix-b-broiler-premix.webp",
+      alt: "Vety-Vit Premix (B) - vitamins and minerals premix for broilers",
+      wide: false,
+    },
     {
       src: "/products/leads-pharma/01-vety-s-t-p-v-c-liquid-fosfotyl-and-coli-nor-rang-t.webp",
       full: "/products/leads-pharma/01-vety-s-t-p-v-c-liquid-fosfotyl-and-coli-nor-rang.webp",
@@ -168,12 +194,6 @@ export const brandProducts: Record<string, BrandProductShot[]> = {
       full: "/products/leads-pharma/12-tritin-le-powder.webp",
       alt: "Tritin-LE powder",
       wide: true,
-    },
-    {
-      src: "/products/leads-pharma/13-virox-td-ws-powder-t.webp",
-      full: "/products/leads-pharma/13-virox-td-ws-powder.webp",
-      alt: "Virox TD W/S powder - antiviral and antibacterial, 5 kg",
-      wide: false,
     },
   ],
   "brand-multivet": [
