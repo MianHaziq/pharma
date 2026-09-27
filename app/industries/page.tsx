@@ -48,9 +48,9 @@ export default function SegmentsPage() {
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
                 <PhSet cap="Grow-out · 35-day cycle" items={[
-                  { src: photo("farmHouse", 900, 78), alt: "Broiler grow-out house with pan feeders and drinker lines" },
-                  { src: photo("brooderHouse", 520, 76), alt: "Day-old chicks under brooder lamps at placement" },
-                  { src: photo("broilerHouse", 520, 76), alt: "White broilers at close range inside the house" },
+                  { src: photo("farmHouse", 900, 78), alt: "Environmentally controlled broiler house, sealed walls and automatic feed lines" },
+                  { src: photo("brooderHouse", 520, 76), alt: "Day-old chicks brooding under a heat lamp inside a closed house" },
+                  { src: photo("broilerHouse", 520, 76), alt: "Broilers at the feed line inside a controlled house" },
                 ]} />
               </div>
               <p className="eyebrow">Poultry · Broilers</p>

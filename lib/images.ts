@@ -28,21 +28,24 @@ export function img(id: string, w = 1600, q = 80): string {
 export const photos = {
   // Poultry · farms · flocks
   //
-  // White commercial broilers throughout. The earlier set was brown/golden
-  // backyard-type layer hens (Golden Misri and similar), which the client
-  // rejected — it did not look like the commercial broiler operations this
-  // business actually supplies. Keep any replacement to white broiler stock.
-  hero: "px:26625882", // broiler house packed with white birds, feeders overhead
-  farmPanorama: "px:27083552", // full length of a commercial broiler house
-  farmHouse: "px:32840078", // broiler house with pan feeders and drinker lines
+  // White commercial broilers in ENVIRONMENTALLY CONTROLLED houses. Two client
+  // rejections are baked in here:
+  //  1. brown/golden backyard layer hens (Golden Misri and similar) - wrong stock;
+  //  2. open-sided sheds (timber poles, curtain brooding, netting) - wrong housing.
+  // Replacements must be white broilers in a closed house: solid walls, insulated
+  // ceiling, artificial lighting, automatic feed and drinker lines.
+  hero: "px:24740509", // rows of environmentally controlled sheds from the air
+  farmPanorama: "px:9491809", // controlled-shed exterior, feed silos and roof vents
+  farmHouse: "px:27083552", // controlled house end to end - sealed walls, insulated ceiling
   flockField: "px:35221987", // white birds foraging on grass
   henPortrait: "px:35057569", // white hen, head and neck, dark background
   roosterProfile: "px:35877071", // white breeder cockerel in a production house
   henClose: "px:35057423", // pair of white hens, close
   henStanding: "px:36109430", // white hen standing, three-quarter view
-  brooderHouse: "px:12995533", // day-olds under brooder lamps, feeders and drinkers
+  brooderHouse: "px:4530413", // day-olds brooding under a heat lamp inside a closed house
   freeRange: "px:35221319", // single white bird on grass under trees
-  broilerHouse: "px:32840077", // home hero — white broilers at close range in a grow-out house
+  broilerHouse: "px:11350102", // home hero - broilers at the feed line in a controlled house
+  flockHouse: "px:2253583", // flock under strip lighting inside a controlled house
 
   // Livestock · cattle · sheep · goats (animal-health scope beyond poultry)
   cattleHerd: "1715798637010-8a4f27a0950f", // herd of cattle grazing a green field
@@ -50,7 +53,6 @@ export const photos = {
   goatHerd: "1622837699015-9a4cb8b7a94b", // goats grazing on green grass
   cowCloseup: "1660599138377-22e71f1eb93a", // close-up portrait of a dairy cow
   vetCattle: "px:4910780", // handler examining a dairy cow in the shed
-  chickensOutdoor: "px:22816181", // white birds outside a shed
 
   // Eggs · hatchery · chicks
   eggsTray: "1498654077810-12c21d4d6dc3",
