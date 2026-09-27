@@ -1273,3 +1273,14 @@ figure.ph{margin:0}
   .phset__lead,.phset--pair .phset__lead{
     grid-column:1/-1;grid-row:auto;aspect-ratio:3/2;height:auto}
 }
+
+
+/* Segment sections (poultry / cattle / small ruminants): photos, copy and the
+   supply card side by side. The card is much shorter than the column of
+   photos + copy beside it, so centring it stranded it in the middle with a
+   hole above - align both columns to the top and let the card sit with the
+   photographs it belongs to. */
+.split--seg{align-items:start}
+@media(min-width:981px){
+  .split--seg > .card{position:sticky;top:104px}
+}

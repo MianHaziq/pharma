@@ -44,13 +44,13 @@ export default function SegmentsPage() {
       {/* Broilers */}
       <div className="sec">
         <div className="wrap">
-          <div className="split split--mid">
+          <div className="split split--seg">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
                 <PhSet cap="Grow-out · 35-day cycle" items={[
                   { src: photo("farmHouse", 900, 78), alt: "Environmentally controlled broiler house, sealed walls and automatic feed lines" },
-                  { src: photo("brooderHouse", 520, 76), alt: "Day-old chicks brooding under a heat lamp inside a closed house" },
-                  { src: photo("broilerHouse", 520, 76), alt: "Broilers at the feed line inside a controlled house" },
+                  { src: photo("broilerFlock", 520, 76), alt: "Grow-out broilers in condition" },
+                  { src: photo("broilerDrinker", 520, 76), alt: "Broilers crowding a bell drinker in the house" },
                 ]} />
               </div>
               <p className="eyebrow">Poultry · Broilers</p>
@@ -66,14 +66,14 @@ export default function SegmentsPage() {
       {/* Layers */}
       <div className="sec sec--tint">
         <div className="wrap">
-          <div className="split split--mid">
+          <div className="split split--seg">
             <Supply title="What we supply for layers" items={["Calcium & shell support", "Vitamins & electrolytes", "Mycotoxin binders", "Vaccination programme products", "Water-line hygiene"]} />
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
                 <PhSet cap="Production · 70-week cycle" items={[
-                  { src: photo("eggsCollect", 900, 78), alt: "Graded eggs on trays from a layer house" },
-                  { src: photo("eggsTray", 520, 76), alt: "Filled egg trays ready for grading" },
-                  { src: photo("henClose", 520, 76), alt: "Layer birds in good condition late in the cycle" },
+                  { src: photo("flockUnderLights", 900, 78), alt: "Layer flock under the house lighting" },
+                  { src: photo("eggGrading", 520, 76), alt: "Eggs running along the grading line" },
+                  { src: photo("eggsCollect", 520, 76), alt: "Graded eggs on trays from a layer house" },
                 ]} />
               </div>
               <p className="eyebrow">Poultry · Layers</p>
@@ -88,13 +88,13 @@ export default function SegmentsPage() {
       {/* Breeders */}
       <div className="sec">
         <div className="wrap">
-          <div className="split split--mid">
+          <div className="split split--seg">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
                 <PhSet cap="Parent stock" items={[
-                  { src: photo("roosterProfile", 900, 78), alt: "White breeder cockerel in a parent-stock house" },
-                  { src: photo("henPortrait", 520, 76), alt: "Breeder hen in condition" },
-                  { src: photo("chicksGroup", 520, 76), alt: "Day-old chicks from the parent flock at the feeder" },
+                  { src: photo("houseFull", 900, 78), alt: "Parent-stock house at full stocking under house lighting" },
+                  { src: photo("flockClose", 520, 76), alt: "Parent-stock birds under the house lighting" },
+                  { src: photo("breederCockerel", 520, 76), alt: "Breeder cockerel in the parent-stock house" },
                 ]} />
               </div>
               <p className="eyebrow">Poultry · Breeders</p>
@@ -110,7 +110,7 @@ export default function SegmentsPage() {
       {/* Cattle */}
       <div className="sec sec--tint">
         <div className="wrap">
-          <div className="split split--mid">
+          <div className="split split--seg">
             <Supply title="What we supply for cattle" items={["Vaccines & antisera", "Trace minerals & vitamins", "Dewormers & parasite control", "Calcium & metabolic support", "Mastitis & udder care"]} />
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
@@ -132,7 +132,7 @@ export default function SegmentsPage() {
       {/* Sheep & goats */}
       <div className="sec">
         <div className="wrap">
-          <div className="split split--mid">
+          <div className="split split--seg">
             <div data-anim="rise">
               <div className="parx" data-speed="0.03" style={{ marginBottom: 30 }}>
                 <PhSet cap="Sheep &amp; goats · flock health" items={[

@@ -20,9 +20,9 @@ export function productFormat(product: Product): string {
 // Editorial photograph for an insights article, mapped by topic.
 const POST_IMAGE: Record<string, string> = {
   Vaccination: photos.labScientist,
-  "Gut Health": photos.chicksGroup,
+  "Gut Health": photos.brooderHouse,
   Biosecurity: photos.farmHouse,
-  Management: photos.flockField,
+  Management: photos.flockClose,
 };
 
 export function postImage(post: BlogPost, w = 1200, q = 75): string {
@@ -35,10 +35,10 @@ const CATEGORY_IMAGE: Record<string, string> = {
   antibiotics: photos.production,
   "vitamins-electrolytes": photos.henClose,
   "anticoccidials-dewormers": photos.microscope,
-  "probiotics-gut-health": photos.chicksGroup,
+  "probiotics-gut-health": photos.brooderHouse,
   "disinfectants-biosecurity": photos.farmHouse,
   "feed-supplements": photos.brooderHouse,
-  "farm-equipment": photos.freeRange,
+  "farm-equipment": photos.farmAerial,
 };
 
 export function categoryImage(slug: string, w = 1600, q = 75): string {

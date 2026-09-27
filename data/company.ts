@@ -373,7 +373,7 @@ export const industries = [
     slug: "breeders",
     name: "Breeder flocks",
     icon: "Bird",
-    image: photos.roosterProfile,
+    image: photos.breederCockerel,
     tagline: "Protection for the next generation",
     description:
       "Immunity and reproductive-health products that help pass maternal protection to the chicks.",
